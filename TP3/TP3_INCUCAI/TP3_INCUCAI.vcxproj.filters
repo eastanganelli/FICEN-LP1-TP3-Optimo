@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ambulancia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Avion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CentroDeSalud.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Donante.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fecha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Helicoptero.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hora.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Organo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Paciente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Receptor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vehiculos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="INCUCAI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ambulancia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Avion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CentroDeSalud.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Donante.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eEstado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eGrupoSanguineo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eOrganos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ePatologia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ePrioridad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eProvincia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="eSexo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fecha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helicoptero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="INCUCAI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Organo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Paciente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Receptor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vehiculos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CMakePresets.json" />
+  </ItemGroup>
+</Project>
