@@ -13,12 +13,18 @@
 
 class Organo {
 public:
-	Organo(eOrganos);
-	Organo(eOrganos, Fecha);
+	Organo(Organos::eOrg t);
+	Organo(Organos::eOrg t, Fecha* f);
 	~Organo();
+
+	void   setAblacion(Fecha* f);
+	Fecha* getAblacion() const;
 	
+	string tostring() const;
+	void   imprimir() const;
+
 private: 
-	eOrganos tipo;
-	Fecha ablacion;
+	Organos::eOrg tipo;
+	Fecha* ablacion;
 };
 #endif //_ORGANO_H

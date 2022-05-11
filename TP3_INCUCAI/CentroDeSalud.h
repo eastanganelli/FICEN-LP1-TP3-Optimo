@@ -7,15 +7,24 @@
 
 #ifndef _CENTRODESALUD_H
 #define _CENTRODESALUD_H
-#include "eProvincia.h"
 
+#include "eProvincia.h"
+#include "Organo.h"
+#include "Donante.h"
+
+class Donante;
+class Receptor;
 class CentroDeSalud {
 public: 
 	CentroDeSalud(string, string, string, Provincias::eProv, string);
 	~CentroDeSalud() { }
-const string tostring();
 	
-const void imprimir();
+	Organo* Ablar(Donante* d);
+	void Trasplantar(Receptor* r, Organo* o);
+
+	string tostring() const;
+	void   imprimir() const;
+
 private: 
 	const string nombre;
 	const string direccion;

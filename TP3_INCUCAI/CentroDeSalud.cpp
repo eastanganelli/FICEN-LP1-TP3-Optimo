@@ -8,10 +8,22 @@
 CentroDeSalud::CentroDeSalud(string n, string d, string p, Provincias::eProv pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t) {
 }
 
-const string CentroDeSalud::tostring() {
-    return "";
+Organo* CentroDeSalud::Ablar(Donante* d) {
+    Organo* rmOrgano = NULL;
+
+
+
+    return rmOrgano;
 }
 
-const void CentroDeSalud::imprimir() {
+void CentroDeSalud::Trasplantar(Receptor* r, Organo* o) {
+
+}
+
+string CentroDeSalud::tostring() const {
+    return this->nombre + "\t" + this->telefono + "\n" + this->direccion + ", " + this->partido + ", " + Provincias::tostring(this->provincia);
+}
+
+void CentroDeSalud::imprimir() const {
     cout << tostring() << endl;
 }

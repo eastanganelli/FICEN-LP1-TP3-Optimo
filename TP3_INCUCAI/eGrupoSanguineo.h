@@ -5,6 +5,7 @@
  */
 
 #include "global.h"
+#include "Paciente.h"
 
 #ifndef _EGRUPOSANGUINEO_H
 #define _EGRUPOSANGUINEO_H
@@ -39,6 +40,11 @@ namespace GrupoSanguineo {
 			o = "O+";
 			break;
 		} return o;
+	}
+
+	static bool compatibilidad(GrupoSanguineo::eGrupoSanguineo d, GrupoSanguineo::eGrupoSanguineo r) {
+		if (d == r) return true;
+		return false;
 	}
 }
 #endif //_EGRUPOSANGUINEO_H

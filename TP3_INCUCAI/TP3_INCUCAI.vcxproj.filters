@@ -54,6 +54,12 @@
     <ClCompile Include="INCUCAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="listaT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="listaOrganos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ambulancia.h">
@@ -114,6 +120,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vehiculos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="listaT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="listaOrganos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

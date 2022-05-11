@@ -12,11 +12,13 @@ class Vehiculos {
 public: 
 	Vehiculos(string r, float t, u_int c);
 	~Vehiculos() { }
+
 	virtual string tostring() const;
 	virtual void   imprimir() const;
+
 protected: 
 	const string registro;
-	const float tara;
+	const float  tara;
 	unsigned int capacidad;
 };
 #endif //_VEHICULOS_H

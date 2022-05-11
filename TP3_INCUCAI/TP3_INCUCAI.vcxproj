@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +148,8 @@
     <ClCompile Include="Helicoptero.cpp" />
     <ClCompile Include="Hora.cpp" />
     <ClCompile Include="INCUCAI.cpp" />
+    <ClCompile Include="listaOrganos.cpp" />
+    <ClCompile Include="listaT.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Organo.cpp" />
     <ClCompile Include="Paciente.cpp" />
@@ -170,6 +173,8 @@
     <ClInclude Include="Helicoptero.h" />
     <ClInclude Include="Hora.h" />
     <ClInclude Include="INCUCAI.h" />
+    <ClInclude Include="listaOrganos.h" />
+    <ClInclude Include="listaT.h" />
     <ClInclude Include="Organo.h" />
     <ClInclude Include="Paciente.h" />
     <ClInclude Include="Receptor.h" />

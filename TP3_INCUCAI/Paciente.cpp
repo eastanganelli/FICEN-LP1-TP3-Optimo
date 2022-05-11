@@ -15,6 +15,10 @@ Paciente::~Paciente() {
 	delete this->nacimiento;
 }
 
+bool Paciente::operator==(const Paciente& R) const {
+	return GrupoSanguineo::compatibilidad(this->gs, R.gs);
+}
+
 string Paciente::tostring() const {
 	string o = "Nombre: " + this->nombre + "\nDNI: " + this->dni +
 			   "\n Fecha Nacimiento" + this->nacimiento->tostring() +

@@ -8,15 +8,19 @@
 #ifndef _PACIENTE_H
 #define _PACIENTE_H
 
+#include "eGrupoSanguineo.h"
+#include "eSexo.h"
 #include "CentroDeSalud.h"
 #include "Fecha.h"
-#include "eSexo.h"
-#include "eGrupoSanguineo.h"
 
+class CentroDeSalud;
 class Paciente {
 public:
 	Paciente(string dni, string n, string t, Fecha* nac, GrupoSanguineo::eGrupoSanguineo g, Sexo::eSexo s, CentroDeSalud* asc);
 	~Paciente();
+
+	bool operator==(const Paciente& R) const;
+
 	virtual string tostring() const;
 	virtual void   imprimir() const;
 	
