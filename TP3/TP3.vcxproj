@@ -151,7 +151,6 @@
     <ClCompile Include="Hora.cpp" />
     <ClCompile Include="INCUCAI.cpp" />
     <ClCompile Include="listaOrganos.cpp" />
-    <ClCompile Include="listaT.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Organo.cpp" />
     <ClCompile Include="Paciente.cpp" />

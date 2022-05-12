@@ -10,7 +10,7 @@ public:
 	cListaOrganos();
 	cListaOrganos(u_int tam, bool flag);
 
-	//Organo* operator[](eOrg::Organos o);
+	cOrgano* operator[](eOrg::Organos o);
 
 };
 #endif //CLISTAORGANOS_H
