@@ -8,22 +8,20 @@
 #ifndef _DONANTE_H
 #define _DONANTE_H
 
-#include "Receptor.h"
-#include "listaT.h"
+#include "Paciente.h"
 
-class Receptor;
 class Donante: public Paciente {
 public:
-	Donante(string dni, string n, string t, Fecha* nac, GrupoSanguineo::eGrupoSanguineo g, Sexo::eSexo s, CentroDeSalud* asc, Fecha* f);
+	Donante(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, CentroDeSalud* asc, Fecha* f);
 	~Donante() { }
 
-	Organo* remover(Organos::eOrg o);
+	Organo* remover(eOrg::Organos o);
 
 	string tostring() const;
 	void   imprimir() const;
 
 private:
-	listaT<Organo*> Organos;
+	listaOrganos* Organos;
 	Fecha* fallecimiento;
 	Fecha* initAblacion;
 };

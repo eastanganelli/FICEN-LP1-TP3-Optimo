@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{421e275b-9934-403c-8f10-4ecf388b4d99}</ProjectGuid>
-    <RootNamespace>TP3INCUCAI</RootNamespace>
+    <ProjectGuid>{2818e560-b4aa-4547-b45f-70bcf41cce59}</ProjectGuid>
+    <RootNamespace>TP3</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -116,7 +116,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -143,6 +142,7 @@
     <ClCompile Include="Ambulancia.cpp" />
     <ClCompile Include="Avion.cpp" />
     <ClCompile Include="CentroDeSalud.cpp" />
+    <ClCompile Include="customEx.cpp" />
     <ClCompile Include="Donante.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Helicoptero.cpp" />
@@ -160,6 +160,7 @@
     <ClInclude Include="Ambulancia.h" />
     <ClInclude Include="Avion.h" />
     <ClInclude Include="CentroDeSalud.h" />
+    <ClInclude Include="customEx.h" />
     <ClInclude Include="Donante.h" />
     <ClInclude Include="eEstado.h" />
     <ClInclude Include="eGrupoSanguineo.h" />
@@ -179,12 +180,6 @@
     <ClInclude Include="Paciente.h" />
     <ClInclude Include="Receptor.h" />
     <ClInclude Include="Vehiculos.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CMakePresets.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,7 +11,6 @@
 #include "ePrioridad.h"
 #include "ePatologia.h"
 #include "eEstado.h"
-#include "Organo.h"
 #include "Paciente.h"
 
 class Receptor: public Paciente {

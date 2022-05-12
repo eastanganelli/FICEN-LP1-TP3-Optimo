@@ -8,7 +8,6 @@
 #ifndef _INUCAI_H
 #define _INUCAI_H
 
-#include "global.h"
 #include "Paciente.h"
 
 class INUCAI {

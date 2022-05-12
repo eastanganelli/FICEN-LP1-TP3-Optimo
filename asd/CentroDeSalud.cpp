@@ -5,10 +5,9 @@
  */
 #include "CentroDeSalud.h"
 
-CentroDeSalud::CentroDeSalud(string n, string d, string p, Provincias::eProv pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t) {
-}
+CentroDeSalud::CentroDeSalud(string n, string d, string p, Provincias::eProv pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t) { }
 
-Organo* CentroDeSalud::Ablar(Donante* d) {
+Organo* CentroDeSalud::Ablar(listaOrganos<Organo*> d, Organos::eOrg q) {
     Organo* rmOrgano = NULL;
 
 
@@ -16,7 +15,7 @@ Organo* CentroDeSalud::Ablar(Donante* d) {
     return rmOrgano;
 }
 
-void CentroDeSalud::Trasplantar(Receptor* r, Organo* o) {
+void CentroDeSalud::Trasplantar(Organo*& r, Organo* o) {
 
 }
 

@@ -5,6 +5,7 @@
 
 template <class T>
 class listaT {
+protected:
 	unsigned int ct, ca;
 	bool deletion;
 	T** List;
@@ -19,6 +20,6 @@ public:
 
 	T* eliminar(u_int findNode);
 
-	string tostring() const;
+	//string tostring() const;
 	//friend void ostream << () const;
 };

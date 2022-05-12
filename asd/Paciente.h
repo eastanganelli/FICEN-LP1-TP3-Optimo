@@ -13,11 +13,10 @@
 #include "CentroDeSalud.h"
 #include "Fecha.h"
 
-class CentroDeSalud;
 class Paciente {
 public:
 	Paciente(string dni, string n, string t, Fecha* nac, GrupoSanguineo::eGrupoSanguineo g, Sexo::eSexo s, CentroDeSalud* asc);
-	~Paciente();
+	virtual ~Paciente() = 0;
 
 	bool operator==(const Paciente& R) const;
 

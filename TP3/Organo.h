@@ -13,8 +13,9 @@
 
 class Organo {
 public:
-	Organo(Organos::eOrg t);
-	Organo(Organos::eOrg t, Fecha* f);
+	friend class listaOrganos;
+	Organo(eOrg::Organos t);
+	Organo(eOrg::Organos t, Fecha* f);
 	~Organo();
 
 	void   setAblacion(Fecha* f);
@@ -24,7 +25,7 @@ public:
 	void   imprimir() const;
 
 private: 
-	Organos::eOrg tipo;
+	eOrg::Organos tipo;
 	Fecha* ablacion;
 };
 #endif //_ORGANO_H

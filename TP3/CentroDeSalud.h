@@ -9,18 +9,15 @@
 #define _CENTRODESALUD_H
 
 #include "eProvincia.h"
-#include "Organo.h"
-#include "Donante.h"
+#include "listaOrganos.h"
 
-class Donante;
-class Receptor;
 class CentroDeSalud {
 public: 
-	CentroDeSalud(string, string, string, Provincias::eProv, string);
+	CentroDeSalud(string, string, string, eProv::Provincias, string);
 	~CentroDeSalud() { }
 	
-	Organo* Ablar(Donante* d);
-	void Trasplantar(Receptor* r, Organo* o);
+	Organo* Ablar(listaOrganos& d, eOrg::Organos q);
+	void Trasplantar(Organo*& r, Organo* o);
 
 	string tostring() const;
 	void   imprimir() const;
@@ -30,7 +27,7 @@ private:
 	const string direccion;
 	const string partido;
 	const string telefono;
-	const Provincias::eProv provincia;
+	const eProv::Provincias provincia;
 };
 
 #endif //_CENTRODESALUD_H

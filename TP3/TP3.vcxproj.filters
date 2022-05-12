@@ -36,6 +36,18 @@
     <ClCompile Include="Hora.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="INCUCAI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="listaOrganos.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="listaT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="Organo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,16 +60,7 @@
     <ClCompile Include="Vehiculos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="INCUCAI.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="listaT.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="listaOrganos.cpp">
+    <ClCompile Include="customEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -110,6 +113,12 @@
     <ClInclude Include="INCUCAI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="listaOrganos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="listaT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Organo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -122,17 +131,8 @@
     <ClInclude Include="Vehiculos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="listaT.h">
+    <ClInclude Include="customEx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="listaOrganos.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CMakePresets.json" />
   </ItemGroup>
 </Project>
