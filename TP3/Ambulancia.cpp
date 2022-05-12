@@ -5,14 +5,14 @@
  */
 #include "Ambulancia.h"
 
-Ambulancia::Ambulancia(string r, float t, u_int c, string color) : Vehiculos(r, t, c) {
+cAmbulancia::cAmbulancia(string r, float t, u_int c, string color) : cVehiculos(r, t, c) {
     this->color = color;
 }
 
-string Ambulancia::tostring() const {
+string cAmbulancia::tostring() const {
     return "iuiuiuiuiu";
 }
 
-void Ambulancia::imprimir()   const {
+void cAmbulancia::imprimir()   const {
     cout << tostring() << endl;
 }

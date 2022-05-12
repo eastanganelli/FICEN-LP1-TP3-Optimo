@@ -1,7 +1,7 @@
 #include "listaT.h"
 
 template<class T>
-listaT<T>::listaT(u_int tam, bool flag) {
+cListaT<T>::cListaT(u_int tam, bool flag) {
 	try {
 		this->List = new T*[tam];
 	}
@@ -17,7 +17,7 @@ listaT<T>::listaT(u_int tam, bool flag) {
 }
 
 template<class T>
-listaT<T>::~listaT() {
+cListaT<T>::~cListaT() {
 	if (this->deletion)
 		for (int i = 0; i < this->ct; i++)
 			if (this->List[i] != NULL) delete this->List[i];
@@ -26,7 +26,7 @@ listaT<T>::~listaT() {
 }
 
 template<class T>
-void listaT<T>::operator+(T* newNode) {
+void cListaT<T>::operator+(T* newNode) {
 	try {
 		if (newNode == NULL) throw "Crear excepción";
 	}
@@ -41,7 +41,7 @@ void listaT<T>::operator+(T* newNode) {
 }
 
 template<class T>
-void listaT<T>::operator-(T* rmNode) {
+void cListaT<T>::operator-(T* rmNode) {
 	try {
 		if (rmNode == NULL) throw "Crear excepción";
 	}
@@ -56,7 +56,7 @@ void listaT<T>::operator-(T* rmNode) {
 }
 
 template<class T>
-T* listaT<T>::operator[](u_int findNode) {
+T* cListaT<T>::operator[](u_int findNode) {
 	T* retNode = NULL;
 	try {
 		retNode = findNode == NULL ? throw "Crear excepción" : this->List[findNode];
@@ -69,7 +69,7 @@ T* listaT<T>::operator[](u_int findNode) {
 }
 
 template<class T>
-T* listaT<T>::eliminar(u_int findNode) {
+T* cListaT<T>::eliminar(u_int findNode) {
 	try {
 		if (this->List[findNode] == NULL) throw "Crear excepción";
 	}
@@ -78,4 +78,14 @@ T* listaT<T>::eliminar(u_int findNode) {
 	}
 
 	delete this->List[findNode];
+}
+
+template<class T>
+u_int cListaT<T>::getCA() const {
+	return this->ca;
+}
+
+template<class T>
+u_int cListaT<T>::getCT() const {
+	return this->ct;
 }

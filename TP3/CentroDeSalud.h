@@ -5,19 +5,19 @@
  */
 
 
-#ifndef _CENTRODESALUD_H
-#define _CENTRODESALUD_H
+#ifndef CCENTRODESALUD_H
+#define CCENTRODESALUD_H
 
 #include "eProvincia.h"
 #include "listaOrganos.h"
 
-class CentroDeSalud {
+class cCentroDeSalud {
 public: 
-	CentroDeSalud(string, string, string, eProv::Provincias, string);
-	~CentroDeSalud() { }
+	cCentroDeSalud(string, string, string, eProv::Provincias, string);
+	~cCentroDeSalud() { }
 	
-	Organo* Ablar(listaOrganos& d, eOrg::Organos q);
-	void Trasplantar(Organo*& r, Organo* o);
+	cOrgano* Ablar(/*listaOrganos& d,*/ eOrg::Organos q);
+	void Trasplantar(cOrgano*& r, cOrgano* o);
 
 	string tostring() const;
 	void   imprimir() const;
@@ -30,4 +30,4 @@ private:
 	const eProv::Provincias provincia;
 };
 
-#endif //_CENTRODESALUD_H
+#endif //CENTRODESALUD_H

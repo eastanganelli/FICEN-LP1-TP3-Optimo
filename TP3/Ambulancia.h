@@ -5,16 +5,16 @@
  */
 
 
-#ifndef _AMBULANCIA_H
-#define _AMBULANCIA_H
+#ifndef CAMBULANCIA_H
+#define CAMBULANCIA_H
 
 #include "Vehiculos.h"
 
-class Ambulancia: public Vehiculos {
+class cAmbulancia: public cVehiculos {
 
 public: 
-	Ambulancia(string r, float t, u_int c, string color);
-	~Ambulancia() { }
+	cAmbulancia(string r, float t, u_int c, string color);
+	~cAmbulancia() { }
 	string tostring() const;
 	void imprimir()   const;
 
@@ -22,4 +22,4 @@ private:
 	string color;
 };
 
-#endif //_AMBULANCIA_H
+#endif //AMBULANCIA_H

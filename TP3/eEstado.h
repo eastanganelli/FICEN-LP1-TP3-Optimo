@@ -5,23 +5,13 @@
  */
 
 
-#ifndef _EESTADO_H
-#define _EESTADO_H
+#ifndef EESTADO_H
+#define EESTADO_H
 #include "global.h"
 
 namespace eEst {
-	enum class Estado { Estable, Inestable };
+	enum class Estado;
 
-	string tostring(Estado i) {
-		string o = "";
-		switch (i) {
-		case Estado::Estable:
-			o = "Estable";
-			break;
-		case Estado::Inestable:
-			o = "Inestable";
-			break;
-		} return o;
-	}
+	string convertEstadoString(Estado i);
 }
 #endif //_EESTADO_H

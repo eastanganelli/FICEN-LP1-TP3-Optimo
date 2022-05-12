@@ -5,8 +5,8 @@
  */
 #include "Receptor.h"
 
-Receptor::Receptor(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, CentroDeSalud* asc, eEst::Estado est,
-					ePrio::Prioridad prio, ePato::Patologia pat) : Paciente(dni, n, t, nac, g, s, asc) {
+cReceptor::cReceptor(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, eEst::Estado est,
+					ePrio::Prioridad prio, ePato::Patologia pat) : cPaciente(dni, n, t, nac, g, s, asc) {
 	this->patologia = pat;
 	this->estado = est;
 	this->prioridad = prio;
@@ -14,16 +14,16 @@ Receptor::Receptor(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::
 	this->OrganoDefectuoso    = NULL;
 }
 
-Receptor::~Receptor() {
+cReceptor::~cReceptor() {
 	delete this->agregadoListaEspera;
 	delete this->OrganoDefectuoso;
 }
 
-string Receptor::tostring() const {
+string cReceptor::tostring() const {
 	string o;
 	return o;
 }
 
-void Receptor::imprimir() const {
+void cReceptor::imprimir() const {
 	cout << tostring() << endl;
 }

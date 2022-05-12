@@ -144,6 +144,8 @@
     <ClCompile Include="CentroDeSalud.cpp" />
     <ClCompile Include="customEx.cpp" />
     <ClCompile Include="Donante.cpp" />
+    <ClCompile Include="ePrioridad.cpp" />
+    <ClCompile Include="eSexo.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Helicoptero.cpp" />
     <ClCompile Include="Hora.cpp" />
@@ -154,6 +156,11 @@
     <ClCompile Include="Organo.cpp" />
     <ClCompile Include="Paciente.cpp" />
     <ClCompile Include="Receptor.cpp" />
+    <ClCompile Include="ePatologia.cpp" />
+    <ClCompile Include="eOrganos.cpp" />
+    <ClCompile Include="eEstado.cpp" />
+    <ClCompile Include="eGrupoSanguineo.cpp" />
+    <ClCompile Include="eProvincia.cpp" />
     <ClCompile Include="Vehiculos.cpp" />
   </ItemGroup>
   <ItemGroup>

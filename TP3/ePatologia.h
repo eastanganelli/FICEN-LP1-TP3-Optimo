@@ -5,17 +5,13 @@
  */
 
 
-#ifndef _EPATOLOGIA_H
-#define _EPATOLOGIA_H
+#ifndef EPATOLOGIA_H
+#define EPATOLOGIA_H
 #include "global.h"
 
 namespace ePato {
-	enum class Patologia { ASD };
+	enum class Patologia;
 	
-	string tostring(Patologia i) {
-		string o = "";
-		
-		return o;
-	}
+	string convertPatologiaString(Patologia i);
 }
-#endif //_EPATOLOGIA_H
+#endif //EPATOLOGIA_H

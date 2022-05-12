@@ -1,15 +1,15 @@
 #include "listaOrganos.h"
 
-listaOrganos::listaOrganos() : listaT<Organo>(MAX, false) {
+cListaOrganos::cListaOrganos() : cListaT<cOrgano>() {
 }
 
-listaOrganos::listaOrganos(u_int tam, bool flag) : listaT<Organo>(tam, flag) {
+cListaOrganos::cListaOrganos(u_int tam, bool flag) : cListaT<cOrgano>(tam, flag) {
 }
 
-Organo* listaOrganos::operator[](eOrg::Organos o) {
-	for (int i = 0; i < this->ct; i++)
-		if (this->List[i]->tipo == o)
-			return this->List[i];
-
-	return NULL;
-}
+//Organo* listaOrganos::operator[](eOrg::Organos o) {
+//	for (int i = 0; i < this->ct; i++)
+//		if (this->List[i]->tipo == o)
+//			return this->List[i];
+//
+//	return NULL;
+//}

@@ -1,12 +1,16 @@
-#pragma once
-#include "Organo.h"
+
+#ifndef CLISTAORGANOS_H
+#define CLISTAORGANOS_H
+
 #include "listaT.h"
+#include "Organo.h"
 
-class listaOrganos : public listaT<Organo> {
+class cListaOrganos : public cListaT<cOrgano> {
 public:
-	listaOrganos();
-	listaOrganos(u_int tam = MAX, bool flag = false);
+	cListaOrganos();
+	cListaOrganos(u_int tam, bool flag);
 
-	Organo* operator[](eOrg::Organos o);
+	//Organo* operator[](eOrg::Organos o);
 
 };
+#endif //CLISTAORGANOS_H

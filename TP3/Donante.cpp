@@ -5,24 +5,24 @@
  */
 #include "Donante.h"
 
-Donante::Donante(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, CentroDeSalud* asc, Fecha* f) : Paciente(dni, n, t, nac, g, s, asc) {
+cDonante::cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, cFecha* f) : cPaciente(dni, n, t, nac, g, s, asc) {
     this->Organos = NULL;
     this->fallecimiento = f;
     this->initAblacion = NULL;
 }
 
-Organo* Donante::remover(eOrg::Organos o) {
-    Organo* Ablado = NULL;
+cOrgano* cDonante::remover(eOrg::Organos o) {
+    cOrgano* Ablado = NULL;
 
     //this->Organos.
 
     return Ablado;
 }
 
-string Donante::tostring() const {
+string cDonante::tostring() const {
     return "Paciente [ DNI: " + this->dni + " ]\n" + this->nombre + "\nFallecio: " + this->fallecimiento->tostring() + "\nAblacion: " +this->initAblacion->tostring();
 }
 
-void Donante::imprimir() const {
+void cDonante::imprimir() const {
     cout << tostring() << endl;
 }

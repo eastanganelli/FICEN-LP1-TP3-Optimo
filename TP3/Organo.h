@@ -5,27 +5,27 @@
  */
 
 
-#ifndef _ORGANO_H
-#define _ORGANO_H
+#ifndef CORGANO_H
+#define CORGANO_H
 
 #include "eOrganos.h"
 #include "Fecha.h"
 
-class Organo {
+class cOrgano {
 public:
-	friend class listaOrganos;
-	Organo(eOrg::Organos t);
-	Organo(eOrg::Organos t, Fecha* f);
-	~Organo();
+	friend class cListaOrganos;
+	cOrgano(eOrg::Organos t);
+	cOrgano(eOrg::Organos t, cFecha* f);
+	~cOrgano();
 
-	void   setAblacion(Fecha* f);
-	Fecha* getAblacion() const;
+	void    setAblacion(cFecha* f);
+	cFecha* getAblacion() const;
 	
 	string tostring() const;
 	void   imprimir() const;
 
 private: 
 	eOrg::Organos tipo;
-	Fecha* ablacion;
+	cFecha* ablacion;
 };
-#endif //_ORGANO_H
+#endif //ORGANO_H

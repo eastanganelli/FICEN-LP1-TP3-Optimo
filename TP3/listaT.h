@@ -1,18 +1,20 @@
-#pragma once
+#ifndef CLISTAT_H
+#define CLISTAT_H
+
 #include "global.h"
 
 #define MAX 10
 
 template <class T>
-class listaT {
+class cListaT {
 protected:
-	unsigned int ct, ca;
-	bool deletion;
 	T** List;
+	u_int ct, ca;
+	bool deletion;
 
 public:
-	listaT(u_int tam = MAX, bool flag = false);
-	~listaT();
+	cListaT(u_int tam = MAX, bool flag = false);
+	~cListaT();
 
 	void operator+(T* newNode);
 	void operator-(T* rmNode);
@@ -20,6 +22,9 @@ public:
 
 	T* eliminar(u_int findNode);
 
+	u_int getCA() const;
+	u_int getCT() const;
+
 	//string tostring() const;
-	//friend void ostream << () const;
 };
+#endif //CLISTAT_H

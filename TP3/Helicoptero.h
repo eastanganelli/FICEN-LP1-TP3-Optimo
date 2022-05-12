@@ -4,17 +4,16 @@
  * @version 1.0.0
  */
 
-
-#ifndef _HELICOPTERO_H
-#define _HELICOPTERO_H
+#ifndef CHELICOPTERO_H
+#define CHELICOPTERO_H
 
 #include "Vehiculos.h"
 
-class Helicoptero: public Vehiculos {
+class cHelicoptero: public cVehiculos {
 public: 
-	Helicoptero(string r, float t, u_int c);
-	~Helicoptero() { }
+	cHelicoptero(string r, float t, u_int c);
+	~cHelicoptero() { }
 	string tostring() const;
 	void imprimir()   const;
 };
-#endif //_HELICOPTERO_H
+#endif //HELICOPTERO_H

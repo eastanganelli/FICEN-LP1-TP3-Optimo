@@ -5,18 +5,17 @@
  */
 
 
-#ifndef _AVION_H
-#define _AVION_H
+#ifndef CAVION_H
+#define CAVION_H
 
 #include "Vehiculos.h"
 
-
-class Avion: public Vehiculos {
+class cAvion: public cVehiculos {
 public: 
-	Avion(string r, float t, u_int c);
-	~Avion() { }
+	cAvion(string r, float t, u_int c);
+	~cAvion() { }
 	string tostring() const;
 	void   imprimir() const;
 };
 
-#endif //_AVION_H
+#endif //AVION_H

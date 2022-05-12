@@ -5,27 +5,27 @@
  */
 #include "Paciente.h"
 
-Paciente::Paciente(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, CentroDeSalud* asc): dni(dni), nombre(n), sexo(s), nacimiento(nac) {
+cPaciente::cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc): dni(dni), nombre(n), sexo(s), nacimiento(nac) {
 	this->HospiAsociado = asc == NULL ? NULL : asc;
 	this->telefonoContacto = t;
 	this->gs = gs;
 }
 
-Paciente::~Paciente() { }
+cPaciente::~cPaciente() { }
 
-bool Paciente::operator==(const Paciente& R) const {
+bool cPaciente::operator==(const cPaciente& R) const {
 	return eGrupoSanguineo::compatibilidad(this->gs, R.gs);
 }
 
-string Paciente::tostring() const {
+string cPaciente::tostring() const {
 	string o = "Nombre: " + this->nombre + "\nDNI: " + this->dni +
 			   "\n Fecha Nacimiento" + this->nacimiento->tostring() +
-			   "\nSexo:" + eSexo::tostring(this->sexo) +
-			   "\nGrupo Sanguineo: " + eGrupoSanguineo::tostring(this->gs) +
+			   "\nSexo:" + eSexo::convertSexoString(this->sexo) +
+			   "\nGrupo Sanguineo: " + eGrupoSanguineo::convertGrupoString(this->gs) +
 			   "\nTelefono de contacto: " + this->telefonoContacto;
 	return o;
 }
 
-void Paciente::imprimir() const {
+void cPaciente::imprimir() const {
 	cout << tostring() << endl;
 }

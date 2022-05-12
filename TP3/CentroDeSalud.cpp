@@ -5,28 +5,29 @@
  */
 #include "CentroDeSalud.h"
 
-CentroDeSalud::CentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t) { }
+cCentroDeSalud::cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t) { }
 
-Organo* CentroDeSalud::Ablar(listaOrganos& d, eOrg::Organos q) {
-    Organo* rmOrgano = d[q];
-    d - rmOrgano;
-    rmOrgano->setAblacion(new Fecha(1,1,1)); //example
-    return rmOrgano;
+cOrgano* cCentroDeSalud::Ablar(/*listaOrganos& d,*/ eOrg::Organos q) {
+    //Organo* rmOrgano = d[q];
+    //d - rmOrgano;
+    //rmOrgano->setAblacion(new Fecha(1,1,1)); //example
+    //return rmOrgano;
+    return NULL;
 }
 
-void CentroDeSalud::Trasplantar(Organo*& r, Organo* o) {
+void cCentroDeSalud::Trasplantar(cOrgano*& r, cOrgano* o) {
     try {
-
+        throw 505;
     }
-    catch () {
-
+    catch (int err) {
+        cout << err << endl;
     }
 }
 
-string CentroDeSalud::tostring() const {
-    return this->nombre + "\t" + this->telefono + "\n" + this->direccion + ", " + this->partido + ", " + eProv::tostring(this->provincia);
+string cCentroDeSalud::tostring() const {
+    return this->nombre + "\t" + this->telefono + "\n" + this->direccion + ", " + this->partido + ", " + eProv::convertProvinciasString(this->provincia);
 }
 
-void CentroDeSalud::imprimir() const {
+void cCentroDeSalud::imprimir() const {
     cout << tostring() << endl;
 }

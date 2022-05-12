@@ -5,13 +5,13 @@
  */
 #include "Avion.h"
 
-Avion::Avion(string r, float t, u_int c) : Vehiculos(r, t, c) {
+cAvion::cAvion(string r, float t, u_int c) : cVehiculos(r, t, c) {
 }
 
-string Avion::tostring() const {
+string cAvion::tostring() const {
     return "zhooooooom";
 }
 
-void Avion::imprimir()   const {
+void cAvion::imprimir()   const {
     cout << tostring() << endl;
 }
