@@ -5,17 +5,17 @@
  */
 
 
-#ifndef _INUCAI_H
-#define _INUCAI_H
+#ifndef CINUCAI_H
+#define CINUCAI_H
 
 #include "Paciente.h"
 
-class INUCAI {
+class cINCUCAI {
 public: 
-	INUCAI();
-	INUCAI(string d, string t);
-	~INUCAI() { }
-	void RecibirPaciente(Paciente* p);
+	cINCUCAI();
+	cINCUCAI(string d, string t);
+	~cINCUCAI() { }
+	void RecibirPaciente(cPaciente* p);
 	void Buscar();
 	void InicioProtocolo();
 	void AsignarVehiculo();
@@ -25,4 +25,4 @@ private:
 	const string direccion;
 	const string telefono;
 };
-#endif //_INUCAI_H
+#endif //INUCAI_H

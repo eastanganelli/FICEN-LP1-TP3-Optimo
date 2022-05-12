@@ -4,27 +4,14 @@
  * @version 1.0.0
  */
 
+#ifndef EPRIORIDAD_H
+#define EPRIORIDAD_H
 
-#ifndef _EPRIORIDAD_H
-#define _EPRIORIDAD_H
 #include "global.h"
 
 namespace ePrio {
-	enum class Prioridad { ALTA, MEDIA, BAJA };
+	enum class Prioridad;
 
-	string tostring(Prioridad i) {
-		string o = "";
-		switch (i) {
-		case Prioridad::ALTA:
-			o = "ALTA";
-			break;
-		case Prioridad::MEDIA:
-			o = "MEDIA";
-			break;
-		case Prioridad::BAJA:
-			o = "BAJA";
-			break;
-		} return o;
-	}
+	string convertPrioridadString(Prioridad i);
 }
-#endif //_EPRIORIDAD_H
+#endif //EPRIORIDAD_H

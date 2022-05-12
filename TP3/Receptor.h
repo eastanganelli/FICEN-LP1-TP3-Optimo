@@ -5,15 +5,15 @@
  */
 
 
-#ifndef _RECEPTOR_H
-#define _RECEPTOR_H
+#ifndef CRECEPTOR_H
+#define CRECEPTOR_H
 
 #include "ePrioridad.h"
 #include "ePatologia.h"
 #include "eEstado.h"
 #include "Paciente.h"
 
-class Receptor: public Paciente {
+class cReceptor: public cPaciente {
 public:
 	/// <summary>
 	/// Constructor de la clase Receptor
@@ -28,8 +28,8 @@ public:
 	/// <param name="Estado"></param>
 	/// <param name="Prioridad"></param>
 	/// <param name="Patologia"></param>
-	Receptor(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, CentroDeSalud* asc, eEst::Estado est, ePrio::Prioridad prio, ePato::Patologia pat);
-	~Receptor();
+	cReceptor(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, eEst::Estado est, ePrio::Prioridad prio, ePato::Patologia pat);
+	~cReceptor();
 
 	string tostring() const;
 	void   imprimir() const;
@@ -38,7 +38,7 @@ private:
 	ePrio::Prioridad prioridad;
 	ePato::Patologia  patologia;
 	eEst::Estado     estado;
-	Fecha*  agregadoListaEspera;
-	Organo* OrganoDefectuoso;
+	cFecha*  agregadoListaEspera;
+	cOrgano* OrganoDefectuoso;
 };
-#endif //_RECEPTOR_H
+#endif //RECEPTOR_H

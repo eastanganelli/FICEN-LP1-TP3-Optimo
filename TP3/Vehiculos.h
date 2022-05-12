@@ -4,14 +4,15 @@
  * @version 1.0.0
  */
 
-#ifndef _VEHICULOS_H
-#define _VEHICULOS_H
+#ifndef CVEHICULOS_H
+#define CVEHICULOS_H
+
 #include "global.h"
 
-class Vehiculos {
+class cVehiculos {
 public: 
-	Vehiculos(string r, float t, u_int c);
-	~Vehiculos() { }
+	cVehiculos(string r, float t, u_int c);
+	~cVehiculos() { }
 
 	virtual string tostring() const;
 	virtual void   imprimir() const;
@@ -21,4 +22,4 @@ protected:
 	const float  tara;
 	unsigned int capacidad;
 };
-#endif //_VEHICULOS_H
+#endif //VEHICULOS_H

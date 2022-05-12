@@ -3,10 +3,8 @@
  * @author Ezequiel Augusto Stanganelli
  * @version 1.0.0
  */
-
-
-#ifndef _HORA_H
-#define _HORA_H
+#ifndef HORA_H
+#define HORA_H
 
 #include <ctime>
 #include "global.h"
@@ -27,4 +25,4 @@ private:
 	u_int mm;
 };
 
-#endif //_HORA_H
+#endif //HORA_H

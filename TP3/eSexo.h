@@ -4,30 +4,14 @@
  * @version 1.0.0
  */
 
+#ifndef ESEXO_H
+#define ESEXO_H
 
-#ifndef _ESEXO_H
-#define _ESEXO_H
 #include "global.h"
 
 namespace eSexo {
-	enum class Sexo { F, M, ND, O };
+	enum class Sexo;
 
-	string tostring(Sexo i) {
-		string o = "";
-		switch (i) {
-		case Sexo::F:
-			o = "F";
-			break;
-		case Sexo::M:
-			o = "M";
-			break;
-		case Sexo::ND:
-			o = "ND";
-			break;
-		case Sexo::O:
-			o = "O";
-			break;
-		} return o;
-	}
+	string convertSexoString(Sexo i);
 }
-#endif //_ESEXO_H
+#endif //ESEXO_H

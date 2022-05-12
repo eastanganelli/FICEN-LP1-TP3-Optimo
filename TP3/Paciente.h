@@ -4,21 +4,20 @@
  * @version 1.0.0
  */
 
-
-#ifndef _PACIENTE_H
-#define _PACIENTE_H
+#ifndef CPACIENTE_H
+#define CPACIENTE_H
 
 #include "eGrupoSanguineo.h"
 #include "eSexo.h"
 #include "CentroDeSalud.h"
 #include "Fecha.h"
 
-class Paciente {
+class cPaciente {
 public:
-	Paciente(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, CentroDeSalud* asc);
-	virtual ~Paciente() = 0;
+	cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc);
+	virtual ~cPaciente() = 0;
 
-	bool operator==(const Paciente& R) const;
+	bool operator==(const cPaciente& R) const;
 
 	virtual string tostring() const;
 	virtual void   imprimir() const;
@@ -26,10 +25,10 @@ public:
 protected: 
 	const string dni;
 	const string nombre;
-	const Fecha* nacimiento;
+	const cFecha* nacimiento;
 	eSexo::Sexo  sexo;
 	string telefonoContacto;
 	eGrupoSanguineo::Grupo gs;
-	CentroDeSalud* HospiAsociado;
+	cCentroDeSalud* HospiAsociado;
 };
-#endif //_PACIENTE_H
+#endif //PACIENTE_H

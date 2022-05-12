@@ -5,25 +5,25 @@
  */
 
 
-#ifndef _DONANTE_H
-#define _DONANTE_H
+#ifndef CDONANTE_H
+#define CDONANTE_H
 
 #include "Paciente.h"
 
-class Donante: public Paciente {
+class cDonante: public cPaciente {
 public:
-	Donante(string dni, string n, string t, Fecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, CentroDeSalud* asc, Fecha* f);
-	~Donante() { }
+	cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, cFecha* f);
+	~cDonante() { }
 
-	Organo* remover(eOrg::Organos o);
+	cOrgano* remover(eOrg::Organos o);
 
 	string tostring() const;
 	void   imprimir() const;
 
 private:
-	listaOrganos* Organos;
-	Fecha* fallecimiento;
-	Fecha* initAblacion;
+	cListaOrganos* Organos;
+	cFecha* fallecimiento;
+	cFecha* initAblacion;
 };
 
-#endif //_DONANTE_H
+#endif //DONANTE_H

@@ -5,17 +5,17 @@
  */
 #include "Vehiculos.h"
 
-Vehiculos::Vehiculos(string r, float t, u_int c): registro(r), tara(t) {
+cVehiculos::cVehiculos(string r, float t, u_int c): registro(r), tara(t) {
     this->capacidad = c;
 }
 
-string Vehiculos::tostring() const {
+string cVehiculos::tostring() const {
     string o = "Registro: "+ this->registro + 
                "\nTara: " + to_string(this->tara) + 
                "\nCapacidad: " + to_string(this->capacidad);
     return o;
 }
 
-void Vehiculos::imprimir() const {
+void cVehiculos::imprimir() const {
     cout << tostring() << endl;
 }

@@ -5,12 +5,12 @@
  */
 
 
-#ifndef _FECHA_H
-#define _FECHA_H
+#ifndef CFECHA_H
+#define CFECHA_H
 
 #include "Hora.h"
 
-class Fecha {
+class cFecha {
 public:
 	/// <summary>
 	/// Constructor que recibe Dia/Mes/Año
@@ -18,7 +18,7 @@ public:
 	/// <param name="d"></param>
 	/// <param name="m"></param>
 	/// <param name="y"></param>
-	Fecha(u_int d, u_int m, u_int y);
+	cFecha(u_int d, u_int m, u_int y);
 	
 	/// <summary>
 	/// Constructor que recibe Dia/Mes/Año Hora:Minuto
@@ -28,7 +28,7 @@ public:
 	/// <param name="y"></param>
 	/// <param name="h"></param>
 	/// <param name="mm"></param>
-	Fecha(u_int d, u_int m, u_int y, u_int h, u_int mm);
+	cFecha(u_int d, u_int m, u_int y, u_int h, u_int mm);
 	
 	/// <summary>
 	/// Constructor que recibe Dia/Mes/Año y objeto tipo Hora
@@ -37,7 +37,7 @@ public:
 	/// <param name=""></param>
 	/// <param name=""></param>
 	/// <param name=""></param>
-	Fecha(u_int, u_int, u_int, Hora*);
+	cFecha(u_int, u_int, u_int, Hora*);
 	
 	string tostring() const;
 	void imprimir()   const;
@@ -48,4 +48,4 @@ private:
 	u_int y;
 	Hora* hm;
 };
-#endif //_FECHA_H
+#endif //FECHA_H

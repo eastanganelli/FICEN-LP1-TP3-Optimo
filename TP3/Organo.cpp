@@ -5,32 +5,32 @@
  */
 #include "Organo.h"
 
-Organo::Organo(eOrg::Organos t) {
+cOrgano::cOrgano(eOrg::Organos t) {
 	this->tipo = t;
 	this->ablacion = NULL;
 }
 
-Organo::Organo(eOrg::Organos t, Fecha* f) {
+cOrgano::cOrgano(eOrg::Organos t, cFecha* f) {
 	this->tipo = t;
 	this->ablacion = f;
 }
 
-Organo::~Organo() {
+cOrgano::~cOrgano() {
 	delete this->ablacion;
 }
 
-void Organo::setAblacion(Fecha* f) {
+void cOrgano::setAblacion(cFecha* f) {
 	this->ablacion = f;
 }
 
-Fecha* Organo::getAblacion() const {
+cFecha* cOrgano::getAblacion() const {
 	return this->ablacion;
 }
 
-string Organo::tostring() const {
-	return "Organo [ " + eOrg::tostring(this->tipo) + " ]\nAblación [ " + this->ablacion->tostring() + " ]";
+string cOrgano::tostring() const {
+	return "Organo [ " + eOrg::convertOrganoString(this->tipo) + " ]\nAblación [ " + this->ablacion->tostring() + " ]";
 }
 
-void Organo::imprimir() const {
+void cOrgano::imprimir() const {
 	cout << tostring() << endl;
 }

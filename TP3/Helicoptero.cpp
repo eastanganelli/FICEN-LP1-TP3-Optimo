@@ -5,13 +5,13 @@
  */
 #include "Helicoptero.h"
 
-Helicoptero::Helicoptero(string r, float t, u_int c) : Vehiculos(r, t, c) {
+cHelicoptero::cHelicoptero(string r, float t, u_int c) : cVehiculos(r, t, c) {
 }
 
-string Helicoptero::tostring() const {
+string cHelicoptero::tostring() const {
     return "taca-taca-taca";
 }
 
-void Helicoptero::imprimir()   const {
+void cHelicoptero::imprimir()   const {
     cout << tostring() << endl;
 }

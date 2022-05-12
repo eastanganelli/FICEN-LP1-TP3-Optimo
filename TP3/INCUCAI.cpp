@@ -5,35 +5,35 @@
  */
 #include "INCUCAI.h"
 
-INUCAI::INUCAI() : direccion("Ramsay 2250, CABA"), telefono("11-2154-8518") {
+cINCUCAI::cINCUCAI() : direccion("Ramsay 2250, CABA"), telefono("11-2154-8518") {
 
 }
 
-INUCAI::INUCAI(string d = "Ramsay 2250, CABA", string t = "11-2154-8518") : direccion(d), telefono(t) {
+cINCUCAI::cINCUCAI(string d = "Ramsay 2250, CABA", string t = "11-2154-8518") : direccion(d), telefono(t) {
 
 }
 
-void INUCAI::RecibirPaciente(Paciente* p) {
+void cINCUCAI::RecibirPaciente(cPaciente* p) {
     return;
 }
 
-void INUCAI::Buscar() {
+void cINCUCAI::Buscar() {
 
 }
 
-void INUCAI::InicioProtocolo() {
+void cINCUCAI::InicioProtocolo() {
 
 }
 
-void INUCAI::AsignarVehiculo() {
+void cINCUCAI::AsignarVehiculo() {
 
 }
 
-string INUCAI::tostring() const {
-    string o = "INCUCAI\nDireccion: " + this->direccion + "\nTelefono: " + this->telefono;
+string cINCUCAI::tostring() const {
+    string o = "ccINCUCAI\nDireccion: " + this->direccion + "\nTelefono: " + this->telefono;
     return o;
 }
 
-void INUCAI::imprimir() const {
+void cINCUCAI::imprimir() const {
     cout << tostring() << endl;
 }
