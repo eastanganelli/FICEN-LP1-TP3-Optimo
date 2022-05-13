@@ -1,7 +1,6 @@
-#include "listaOrganos.h"
+#include "ListaOrganos.h"
 
-cListaOrganos::cListaOrganos() : cListaT<cOrgano>() {
-}
+cListaOrganos::cListaOrganos() : cListaT<cOrgano>() { }
 
 cListaOrganos::cListaOrganos(u_int tam, bool flag) : cListaT<cOrgano>(tam, flag) {
 }

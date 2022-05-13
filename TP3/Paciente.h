@@ -7,13 +7,15 @@
 #ifndef CPACIENTE_H
 #define CPACIENTE_H
 
-#include "eGrupoSanguineo.h"
-#include "eSexo.h"
 #include "CentroDeSalud.h"
 #include "Fecha.h"
+#include "eGrupoSanguineo.h"
+#include "eSexo.h"
 
 class cPaciente {
 public:
+	friend class cListaPacientes;
+
 	cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc);
 	virtual ~cPaciente() = 0;
 

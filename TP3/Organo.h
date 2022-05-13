@@ -4,7 +4,6 @@
  * @version 1.0.0
  */
 
-
 #ifndef CORGANO_H
 #define CORGANO_H
 
@@ -20,6 +19,7 @@ public:
 
 	void    setAblacion(cFecha* f);
 	cFecha* getAblacion() const;
+	eOrg::Organos getTipoOrg() const;
 	
 	string tostring() const;
 	void   imprimir() const;

@@ -20,7 +20,9 @@ cOrgano* cDonante::remover(eOrg::Organos o) {
 }
 
 string cDonante::tostring() const {
-    return "Paciente [ DNI: " + this->dni + " ]\n" + this->nombre + "\nFallecio: " + this->fallecimiento->tostring() + "\nAblacion: " +this->initAblacion->tostring();
+    return "Paciente [ DNI: " + this->dni + " ]\n" + this->nombre +
+           "\nFallecio: " + this->fallecimiento->tostring() +
+           "\nAblacion: " + this->initAblacion->tostring();
 }
 
 void cDonante::imprimir() const {

@@ -7,7 +7,7 @@
 
 cCentroDeSalud::cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t) { }
 
-cOrgano* cCentroDeSalud::Ablar(/*listaOrganos& d,*/ eOrg::Organos q) {
+cOrgano* cCentroDeSalud::Ablar(cListaOrganos& d, eOrg::Organos q) {
     //Organo* rmOrgano = d[q];
     //d - rmOrgano;
     //rmOrgano->setAblacion(new Fecha(1,1,1)); //example

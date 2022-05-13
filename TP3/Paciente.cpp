@@ -18,12 +18,11 @@ bool cPaciente::operator==(const cPaciente& R) const {
 }
 
 string cPaciente::tostring() const {
-	string o = "Nombre: " + this->nombre + "\nDNI: " + this->dni +
-			   "\n Fecha Nacimiento" + this->nacimiento->tostring() +
-			   "\nSexo:" + eSexo::convertSexoString(this->sexo) +
-			   "\nGrupo Sanguineo: " + eGrupoSanguineo::convertGrupoString(this->gs) +
-			   "\nTelefono de contacto: " + this->telefonoContacto;
-	return o;
+	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
+		"\n Fecha Nacimiento" + this->nacimiento->tostring() +
+		"\nSexo:" + eSexo::convertSexoString(this->sexo) +
+		"\nGrupo Sanguineo: " + eGrupoSanguineo::convertGrupoString(this->gs) +
+		"\nTelefono de contacto: " + this->telefonoContacto;
 }
 
 void cPaciente::imprimir() const {

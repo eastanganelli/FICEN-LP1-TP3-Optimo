@@ -33,13 +33,10 @@
     <ClCompile Include="Helicoptero.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hora.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="INCUCAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="listaOrganos.cpp">
+    <ClCompile Include="ListaOrganos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -79,6 +76,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="eSexo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaPaciente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="queueDonantes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ListaReceptores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -125,16 +131,13 @@
     <ClInclude Include="Helicoptero.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hora.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="INCUCAI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="listaOrganos.h">
+    <ClInclude Include="ListaOrganos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="listaT.h">
+    <ClInclude Include="ListaT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Organo.h">
@@ -150,6 +153,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="customEx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaReceptores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaPaciente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaTrasplantado.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="queueDonantes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

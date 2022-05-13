@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,18 +143,20 @@
     <ClCompile Include="Ambulancia.cpp" />
     <ClCompile Include="Avion.cpp" />
     <ClCompile Include="CentroDeSalud.cpp" />
+    <ClCompile Include="ListaPaciente.cpp" />
     <ClCompile Include="customEx.cpp" />
     <ClCompile Include="Donante.cpp" />
     <ClCompile Include="ePrioridad.cpp" />
     <ClCompile Include="eSexo.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Helicoptero.cpp" />
-    <ClCompile Include="Hora.cpp" />
     <ClCompile Include="INCUCAI.cpp" />
-    <ClCompile Include="listaOrganos.cpp" />
+    <ClCompile Include="ListaOrganos.cpp" />
+    <ClCompile Include="ListaReceptores.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Organo.cpp" />
     <ClCompile Include="Paciente.cpp" />
+    <ClCompile Include="queueDonantes.cpp" />
     <ClCompile Include="Receptor.cpp" />
     <ClCompile Include="ePatologia.cpp" />
     <ClCompile Include="eOrganos.cpp" />
@@ -166,6 +169,7 @@
     <ClInclude Include="Ambulancia.h" />
     <ClInclude Include="Avion.h" />
     <ClInclude Include="CentroDeSalud.h" />
+    <ClInclude Include="ListaPaciente.h" />
     <ClInclude Include="customEx.h" />
     <ClInclude Include="Donante.h" />
     <ClInclude Include="eEstado.h" />
@@ -178,12 +182,14 @@
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="global.h" />
     <ClInclude Include="Helicoptero.h" />
-    <ClInclude Include="Hora.h" />
     <ClInclude Include="INCUCAI.h" />
-    <ClInclude Include="listaOrganos.h" />
-    <ClInclude Include="listaT.h" />
+    <ClInclude Include="ListaOrganos.h" />
+    <ClInclude Include="ListaReceptores.h" />
+    <ClInclude Include="ListaT.h" />
+    <ClInclude Include="ListaTrasplantado.h" />
     <ClInclude Include="Organo.h" />
     <ClInclude Include="Paciente.h" />
+    <ClInclude Include="queueDonantes.h" />
     <ClInclude Include="Receptor.h" />
     <ClInclude Include="Vehiculos.h" />
   </ItemGroup>

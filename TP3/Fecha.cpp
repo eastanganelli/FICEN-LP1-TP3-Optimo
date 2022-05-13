@@ -5,24 +5,31 @@
  */
 #include "Fecha.h"
 
-cFecha::cFecha(u_int d, u_int m, u_int y) : y(y), m(m), d(d) {
-    this->hm = NULL;
-}
-
-cFecha::cFecha(u_int d, u_int m, u_int y, u_int h, u_int mm) : y(y), m(m), d(d) {
-    Hora* hora = new Hora(h, mm);
-    this->hm = hora;
-}
-
-cFecha::cFecha(u_int d, u_int m, u_int y, Hora* hhm) : y(y), m(m), d(d) {
-    this->hm = hhm == NULL ? NULL : hhm;
+cFecha::cFecha(string strtime) {
+    this->strTime = strtime;
 }
 
 string cFecha::tostring() const {
-	string o = to_string(this->d) + "/" + to_string(this->m) + "/" + to_string(this->y) + " " + this->hm->tostring();
-    return o;
+    return this->strTime;
 }
 
 void cFecha::imprimir() const {
     cout << tostring() << endl;
+}
+
+time_t cFecha::StringToTime(string str) {
+    u_int d, m, y, hh, mm;
+    struct tm when = { 0 };
+
+    sscanf_s(str.c_str(), "%d/%d/%d %d:%d", &d, &m, &y, &hh, &mm);
+    
+    when.tm_year = y;
+    when.tm_mon  = m;
+    when.tm_mday = d;
+    when.tm_hour = hh;
+    when.tm_min  = mm;
+
+    time_t converted = mktime(&when);
+
+    return converted;
 }

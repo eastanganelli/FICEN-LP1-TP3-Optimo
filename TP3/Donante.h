@@ -4,11 +4,10 @@
  * @version 1.0.0
  */
 
+#include "Paciente.h"
 
 #ifndef CDONANTE_H
 #define CDONANTE_H
-
-#include "Paciente.h"
 
 class cDonante: public cPaciente {
 public:

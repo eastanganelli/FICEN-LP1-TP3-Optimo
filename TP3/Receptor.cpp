@@ -19,9 +19,17 @@ cReceptor::~cReceptor() {
 	delete this->OrganoDefectuoso;
 }
 
+cOrgano* cReceptor::getMiOrgano() const {
+	return this->OrganoDefectuoso;
+}
+
 string cReceptor::tostring() const {
-	string o;
-	return o;
+	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
+		"\n Fecha Nacimiento" + this->nacimiento->tostring() +
+		"\nSexo:" + eSexo::convertSexoString(this->sexo) +
+		"\nGrupo Sanguineo: " + eGrupoSanguineo::convertGrupoString(this->gs) +
+		"\nTelefono de contacto: " + this->telefonoContacto +
+		"\nOrgano defectuoso" + this->OrganoDefectuoso->tostring();
 }
 
 void cReceptor::imprimir() const {

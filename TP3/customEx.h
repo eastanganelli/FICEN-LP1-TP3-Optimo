@@ -1,6 +1,8 @@
-#pragma once
 #include <exception>
 #include "global.h"
+
+#ifndef CUSTOMEX_H
+#define CUSTOMEX_H
 
 class overtime : public exception {
 	virtual const char* what() const throw() {
@@ -13,3 +15,4 @@ class repeatednode : public exception {
 		return "Este valor ya se encuentra en la Lista";
 	}
 } rep_node;
+#endif // !CUSTOMEX_H

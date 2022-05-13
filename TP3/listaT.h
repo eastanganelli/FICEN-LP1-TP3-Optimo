@@ -1,7 +1,7 @@
+#define MAX 10
+
 #ifndef CLISTAT_H
 #define CLISTAT_H
-
-#define MAX 10
 
 #include "global.h"
 
@@ -27,7 +27,6 @@ public:
 
 	//string tostring() const;
 };
-#endif //CLISTAT_H
 
 template<class T>
 inline cListaT<T>::cListaT(u_int tam, bool flag) {
@@ -114,3 +113,5 @@ inline u_int cListaT<T>::getCA() const { return this->ca; }
 
 template<class T>
 inline u_int cListaT<T>::getCT() const { return this->ct; }
+
+#endif //CLISTAT_H

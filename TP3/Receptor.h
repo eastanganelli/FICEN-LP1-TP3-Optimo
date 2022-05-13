@@ -4,7 +4,6 @@
  * @version 1.0.0
  */
 
-
 #ifndef CRECEPTOR_H
 #define CRECEPTOR_H
 
@@ -15,6 +14,7 @@
 
 class cReceptor: public cPaciente {
 public:
+	friend class cListaReceptores;
 	/// <summary>
 	/// Constructor de la clase Receptor
 	/// </summary>
@@ -31,12 +31,14 @@ public:
 	cReceptor(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, eEst::Estado est, ePrio::Prioridad prio, ePato::Patologia pat);
 	~cReceptor();
 
+	cOrgano* getMiOrgano() const;
+
 	string tostring() const;
 	void   imprimir() const;
 
 private: 
 	ePrio::Prioridad prioridad;
-	ePato::Patologia  patologia;
+	ePato::Patologia patologia;
 	eEst::Estado     estado;
 	cFecha*  agregadoListaEspera;
 	cOrgano* OrganoDefectuoso;

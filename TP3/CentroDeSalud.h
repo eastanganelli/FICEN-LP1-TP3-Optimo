@@ -9,14 +9,14 @@
 #define CCENTRODESALUD_H
 
 #include "eProvincia.h"
-#include "listaOrganos.h"
+#include "ListaOrganos.h"
 
 class cCentroDeSalud {
 public: 
 	cCentroDeSalud(string, string, string, eProv::Provincias, string);
 	~cCentroDeSalud() { }
 	
-	cOrgano* Ablar(/*listaOrganos& d,*/ eOrg::Organos q);
+	cOrgano* Ablar(cListaOrganos& d, eOrg::Organos q);
 	void Trasplantar(cOrgano*& r, cOrgano* o);
 
 	string tostring() const;

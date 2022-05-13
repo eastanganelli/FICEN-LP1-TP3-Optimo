@@ -4,11 +4,11 @@
  * @version 1.0.0
  */
 
-
 #ifndef CFECHA_H
 #define CFECHA_H
 
-#include "Hora.h"
+#include "global.h"
+#include <cstring>
 
 class cFecha {
 public:
@@ -18,34 +18,21 @@ public:
 	/// <param name="d"></param>
 	/// <param name="m"></param>
 	/// <param name="y"></param>
-	cFecha(u_int d, u_int m, u_int y);
-	
-	/// <summary>
-	/// Constructor que recibe Dia/Mes/Año Hora:Minuto
-	/// </summary>
-	/// <param name="d"></param>
-	/// <param name="m"></param>
-	/// <param name="y"></param>
-	/// <param name="h"></param>
-	/// <param name="mm"></param>
-	cFecha(u_int d, u_int m, u_int y, u_int h, u_int mm);
-	
-	/// <summary>
-	/// Constructor que recibe Dia/Mes/Año y objeto tipo Hora
-	/// </summary>
-	/// <param name=""></param>
-	/// <param name=""></param>
-	/// <param name=""></param>
-	/// <param name=""></param>
-	cFecha(u_int, u_int, u_int, Hora*);
+	cFecha(string strtime);
 	
 	string tostring() const;
 	void imprimir()   const;
 
+	/// <summary>
+	/// Conversión de una Fecha en formato string al tipo time_t
+	/// </summary>
+	/// <see href="https://www.geeksforgeeks.org/convert-string-char-array-cpp/">String to char</see>
+	/// <seealso href="https://stackoverflow.com/questions/11213326/how-to-convert-a-string-variable-containing-time-to-time-t-type-in-c">Char array to time_t</seealso>
+	/// <param name="strTime"></param>
+	/// <returns>time_t</returns>
+	static time_t StringToTime(string strTime);
+
 private: 
-	u_int d;
-	u_int m;
-	u_int y;
-	Hora* hm;
+	string strTime;
 };
 #endif //FECHA_H

@@ -6,15 +6,36 @@
 #include "INCUCAI.h"
 
 cINCUCAI::cINCUCAI() : direccion("Ramsay 2250, CABA"), telefono("11-2154-8518") {
-
+    this->trasplantados = NULL;
+    this->Receptores    = NULL;
+    this->Donantes      = NULL;
 }
 
 cINCUCAI::cINCUCAI(string d = "Ramsay 2250, CABA", string t = "11-2154-8518") : direccion(d), telefono(t) {
-
+    this->trasplantados = NULL;
+    this->Receptores    = NULL;
+    this->Donantes      = NULL;
 }
 
 void cINCUCAI::RecibirPaciente(cPaciente* p) {
-    return;
+    try {
+        if (p == NULL) throw new exception;
+    }
+    catch (...) {
+        cerr << "El paciente recibido no existe" << endl;
+    }
+
+    IngresarPaciente(p);
+
+}
+
+void cINCUCAI::IngresarPaciente(cPaciente* p) {
+    if (dynamic_cast<cReceptor*>(p) != NULL) {
+
+    }
+    else {
+
+    }
 }
 
 void cINCUCAI::Buscar() {

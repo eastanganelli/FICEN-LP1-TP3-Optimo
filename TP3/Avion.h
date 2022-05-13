@@ -4,11 +4,10 @@
  * @version 1.0.0
  */
 
+#include "Vehiculos.h"
 
 #ifndef CAVION_H
 #define CAVION_H
-
-#include "Vehiculos.h"
 
 class cAvion: public cVehiculos {
 public: 

@@ -4,11 +4,10 @@
  * @version 1.0.0
  */
 
-#include "global.h"
-#include "Paciente.h"
-
 #ifndef EGRUPOSANGUINEO_H
 #define EGRUPOSANGUINEO_H
+
+#include "global.h"
 
 namespace eGrupoSanguineo {
 	enum class Grupo;
