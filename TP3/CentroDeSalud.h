@@ -8,10 +8,18 @@
 #ifndef CCENTRODESALUD_H
 #define CCENTRODESALUD_H
 
-#include "eProvincia.h"
+#include "Provincia.h"
 #include "ListaOrganos.h"
 
 class cCentroDeSalud {
+	const string nombre;
+	const string direccion;
+	const string partido;
+	const string telefono;
+	const eProv::Provincias provincia;
+
+	bool TransplateEquiprobable();
+
 public: 
 	cCentroDeSalud(string, string, string, eProv::Provincias, string);
 	~cCentroDeSalud() { }
@@ -21,13 +29,6 @@ public:
 
 	string tostring() const;
 	void   imprimir() const;
-
-private: 
-	const string nombre;
-	const string direccion;
-	const string partido;
-	const string telefono;
-	const eProv::Provincias provincia;
 };
 
 #endif //CENTRODESALUD_H

@@ -13,15 +13,42 @@
 class cFecha {
 public:
 	/// <summary>
-	/// Constructor que recibe Dia/Mes/Año
+	/// Constructor que recibe string de fecha
+	/// ie: 31/05/1995 12:12
 	/// </summary>
 	/// <param name="d"></param>
 	/// <param name="m"></param>
 	/// <param name="y"></param>
 	cFecha(string strtime);
+	/// <summary>
+	/// Constructor que recibe time_t
+	/// </summary>
+	/// <param name="d"></param>
+	/// <param name="m"></param>
+	/// <param name="y"></param>
+	cFecha(time_t t);
+
+	time_t getFecha() const;
 	
 	string tostring() const;
-	void imprimir()   const;
+	void   imprimir() const;
+
+	/// <summary>
+	/// Obtención de la fecha del día en hora local
+	/// </summary>
+	/// <returns>string</returns>
+	static time_t Hoy();
+
+	/// <summary>
+	/// Verifica si pasó el tiempo limite del organo antes de poder ser trasplantado
+	/// </summary>
+	/// <param name="recibido"></param>
+	/// <param name="ablado"></param>
+	/// <returns></returns>
+	static bool OrganoTrasplantable(time_t recibido, time_t ablado);
+
+private: 
+	time_t Fecha;
 
 	/// <summary>
 	/// Conversión de una Fecha en formato string al tipo time_t
@@ -30,9 +57,6 @@ public:
 	/// <seealso href="https://stackoverflow.com/questions/11213326/how-to-convert-a-string-variable-containing-time-to-time-t-type-in-c">Char array to time_t</seealso>
 	/// <param name="strTime"></param>
 	/// <returns>time_t</returns>
-	static time_t StringToTime(string strTime);
-
-private: 
-	string strTime;
+	time_t StringToTime(string strTime);
 };
 #endif //FECHA_H

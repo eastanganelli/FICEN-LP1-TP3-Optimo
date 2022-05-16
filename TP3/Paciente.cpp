@@ -13,8 +13,8 @@ cPaciente::cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguine
 
 cPaciente::~cPaciente() { }
 
-bool cPaciente::operator==(const cPaciente& R) const {
-	return eGrupoSanguineo::compatibilidad(this->gs, R.gs);
+bool cPaciente::operator==(const cPaciente* R) const {
+	return eGrupoSanguineo::compatibilidad(this->gs, R->gs);
 }
 
 string cPaciente::tostring() const {

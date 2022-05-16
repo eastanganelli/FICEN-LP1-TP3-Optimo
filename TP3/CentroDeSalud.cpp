@@ -8,20 +8,31 @@
 cCentroDeSalud::cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t) { }
 
 cOrgano* cCentroDeSalud::Ablar(cListaOrganos& d, eOrg::Organos q) {
-    //Organo* rmOrgano = d[q];
-    //d - rmOrgano;
-    //rmOrgano->setAblacion(new Fecha(1,1,1)); //example
-    //return rmOrgano;
-    return NULL;
+    cOrgano* rmOrgano = d[q];
+
+    d - rmOrgano;
+
+    cFecha* tiempoAblado = new cFecha(cFecha::Hoy());
+    rmOrgano->setAblacion(tiempoAblado);
+
+    return rmOrgano;
 }
 
 void cCentroDeSalud::Trasplantar(cOrgano*& r, cOrgano* o) {
-    try {
-        throw 505;
-    }
-    catch (int err) {
-        cout << err << endl;
-    }
+    if (cFecha::OrganoTrasplantable(cFecha::Hoy(), o->getAblacion()->getFecha())) {
+        if (TransplateEquiprobable()) {
+            cOrgano* viejoOrgano = r;
+            r = o;
+            delete viejoOrgano;
+
+            cout << "El transplante fue realizado de forma exitosa" << endl;
+        } else throw new trasplant();
+    } else throw new overtime();
+}
+
+bool cCentroDeSalud::TransplateEquiprobable() {
+    srand((u_int)time(NULL));
+    return ((rand() % 2) - 1) == 0 ? true : false;
 }
 
 string cCentroDeSalud::tostring() const {

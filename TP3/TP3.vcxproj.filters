@@ -36,9 +36,6 @@
     <ClCompile Include="INCUCAI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ListaOrganos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -57,36 +54,6 @@
     <ClCompile Include="customEx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ePatologia.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="eOrganos.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="eEstado.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="eGrupoSanguineo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ePrioridad.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="eProvincia.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="eSexo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaPaciente.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="queueDonantes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ListaReceptores.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ambulancia.h">
@@ -101,25 +68,25 @@
     <ClInclude Include="Donante.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eEstado.h">
+    <ClInclude Include="Estado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eGrupoSanguineo.h">
+    <ClInclude Include="GrupoSanguineo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eOrganos.h">
+    <ClInclude Include="Organos.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ePatologia.h">
+    <ClInclude Include="Patologia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ePrioridad.h">
+    <ClInclude Include="Prioridad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eProvincia.h">
+    <ClInclude Include="Provincia.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="eSexo.h">
+    <ClInclude Include="Sexo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Fecha.h">
@@ -164,7 +131,10 @@
     <ClInclude Include="ListaTrasplantado.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="queueDonantes.h">
+    <ClInclude Include="ListaDonantes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaCentroSalud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

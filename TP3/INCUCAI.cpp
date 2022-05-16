@@ -6,15 +6,17 @@
 #include "INCUCAI.h"
 
 cINCUCAI::cINCUCAI() : direccion("Ramsay 2250, CABA"), telefono("11-2154-8518") {
-    this->trasplantados = NULL;
-    this->Receptores    = NULL;
-    this->Donantes      = NULL;
+    this->Trasplantados      = NULL;
+    this->Receptores         = NULL;
+    this->Donantes           = NULL;
+    this->CentrosHabilitados = NULL;
 }
 
 cINCUCAI::cINCUCAI(string d = "Ramsay 2250, CABA", string t = "11-2154-8518") : direccion(d), telefono(t) {
-    this->trasplantados = NULL;
-    this->Receptores    = NULL;
-    this->Donantes      = NULL;
+    this->Trasplantados      = NULL;
+    this->Receptores         = NULL;
+    this->Donantes           = NULL;
+    this->CentrosHabilitados = NULL;
 }
 
 void cINCUCAI::RecibirPaciente(cPaciente* p) {
@@ -31,10 +33,11 @@ void cINCUCAI::RecibirPaciente(cPaciente* p) {
 
 void cINCUCAI::IngresarPaciente(cPaciente* p) {
     if (dynamic_cast<cReceptor*>(p) != NULL) {
-
-    }
-    else {
-
+        cReceptor* r_ = dynamic_cast<cReceptor*>(p);
+        (*Receptores) + r_;
+    } else {
+        cDonante* d_ = dynamic_cast<cDonante*>(p);
+        (*Donantes) + d_;
     }
 }
 
@@ -48,6 +51,25 @@ void cINCUCAI::InicioProtocolo() {
 
 void cINCUCAI::AsignarVehiculo() {
 
+}
+
+u_int cINCUCAI::PosicionEspera(cPaciente* p) {
+    u_int pos = 0;
+    try {
+        if (dynamic_cast<cReceptor*>(p) == NULL) throw exception();
+
+        pos = Receptores->posicionPaciente(dynamic_cast<cReceptor*>(p));
+    }
+    catch (out_list& e) {
+        cerr << e.what() << endl;
+        pos = 0;
+    }
+    catch (exception) {
+        cerr << "No es un paciente receptor" << endl;
+        pos = 0;
+    }
+
+    return pos;
 }
 
 string cINCUCAI::tostring() const {

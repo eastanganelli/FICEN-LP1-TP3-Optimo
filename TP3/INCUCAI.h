@@ -9,15 +9,17 @@
 
 #include "ListaTrasplantado.h"
 #include "ListaReceptores.h"
-#include "queueDonantes.h"
+#include "ListaCentroSalud.h"
+#include "ListaDonantes.h"
 
 class cINCUCAI {
 	const string direccion;
 	const string telefono;
 
-	cListaTransplantado* trasplantados;
+	cListaTransplantado* Trasplantados;
 	cListaReceptores*	 Receptores;
 	cColaDonantes*		 Donantes;
+	cListaCentroSalud*	 CentrosHabilitados;
 
 	void IngresarPaciente(cPaciente* p);
 
@@ -30,6 +32,7 @@ public:
 	void Buscar();
 	void InicioProtocolo();
 	void AsignarVehiculo();
+	u_int PosicionEspera(cPaciente* p);
 
 	string tostring() const;
 	void   imprimir() const;

@@ -8,4 +8,9 @@ public:
 	cListaPacientes();
 	cListaPacientes(u_int tam, bool flag);
 };
+
+inline cListaPacientes::cListaPacientes() : cListaT() { }
+
+inline cListaPacientes::cListaPacientes(u_int tam, bool flag) : cListaT(tam, flag) { }
+
 #endif //CLISTAPACIENTES_H

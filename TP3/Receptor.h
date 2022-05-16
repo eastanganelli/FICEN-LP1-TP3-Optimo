@@ -4,12 +4,12 @@
  * @version 1.0.0
  */
 
-#ifndef CRECEPTOR_H
-#define CRECEPTOR_H
+#ifndef RECEPTOR_H
+#define RECEPTOR_H
 
-#include "ePrioridad.h"
-#include "ePatologia.h"
-#include "eEstado.h"
+#include "Prioridad.h"
+#include "Patologia.h"
+#include "Estado.h"
 #include "Paciente.h"
 
 class cReceptor: public cPaciente {
@@ -35,6 +35,7 @@ public:
 
 	string tostring() const;
 	void   imprimir() const;
+
 
 private: 
 	ePrio::Prioridad prioridad;

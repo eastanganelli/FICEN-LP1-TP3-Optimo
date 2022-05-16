@@ -4,10 +4,10 @@
  * @version 1.0.0
  */
 
-#ifndef CORGANO_H
-#define CORGANO_H
+#ifndef ORGANO_H
+#define ORGANO_H
 
-#include "eOrganos.h"
+#include "Organos.h"
 #include "Fecha.h"
 
 class cOrgano {
