@@ -64,12 +64,43 @@ void cINCUCAI::IngresarPaciente(cPaciente* p) {
     }
 }
 
+bool cINCUCAI::CentroEstaHabilitado(cCentroDeSalud* csr) {
+    return this->CentrosHabilitados->EstaListado(csr);
+}
+
 void cINCUCAI::InicioProtocolo(cReceptor* p, cDonante* d) {
 
 }
 
-void cINCUCAI::AsignarVehiculo() {
+cVehiculos* cINCUCAI::AsignarVehiculo(cCentroDeSalud* cs_, char distancia) {
+    cVehiculos* MiTransporte = NULL;
 
+    try {
+        cListaVehiculos* v_dispo = cs_->getMisVehiculos();
+
+        if (v_dispo == NULL) throw new null_node();
+
+        for (u_int i = 0; i < v_dispo->getCA(); i++) {
+            switch (distancia) {
+            case -1:
+                MiTransporte = dynamic_cast<cAmbulancia*>((*v_dispo)[i])  != NULL ? (*v_dispo)[i] : NULL;
+                break;
+
+            case 0:
+                MiTransporte = dynamic_cast<cAvion*>((*v_dispo)[i])       != NULL ? (*v_dispo)[i] : NULL;
+                break;
+
+            default:
+                MiTransporte = dynamic_cast<cHelicoptero*>((*v_dispo)[i]) != NULL ? (*v_dispo)[i] : NULL;
+                break;
+            }
+        }
+    }
+    catch (null_node& e) {
+        cerr << e.what() << endl;
+    }
+
+    return MiTransporte;
 }
 
 u_int cINCUCAI::PosicionEspera(cPaciente* p) {
@@ -89,6 +120,30 @@ u_int cINCUCAI::PosicionEspera(cPaciente* p) {
     }
 
     return pos;
+}
+
+cListaReceptores* cINCUCAI::Buscar(cOrgano* o) {
+    cListaReceptores* sublista = new cListaReceptores();
+
+    for (u_int i = 0; i < (*Receptores).getCA(); i++) {
+        cOrgano* Aux = (*Receptores)[i]->getMiOrgano();
+        if (Aux->getTipoOrg() == o->getTipoOrg())
+            (*sublista) + (*Receptores)[i];
+    }
+
+    return sublista;
+}
+
+cListaReceptores* cINCUCAI::Buscar(cCentroDeSalud* cs) {
+    cListaReceptores* sublista = new cListaReceptores();
+
+    for (u_int i = 0; i < (*Receptores).getCA(); i++) {
+        cCentroDeSalud* Aux = (*Receptores)[i]->getCentroAsociado();
+        if (Aux == cs)
+            (*sublista) + (*Receptores)[i];
+    }
+
+    return sublista;
 }
 
 string cINCUCAI::tostring() const {

@@ -11,6 +11,8 @@
 
 class cVehiculos {
 public: 
+	friend class cListaVehiculos;
+
 	cVehiculos(string r, float t, u_int c);
 	~cVehiculos() { }
 

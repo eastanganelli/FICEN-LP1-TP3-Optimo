@@ -57,7 +57,7 @@ bool cFecha::OrganoTrasplantable(time_t recibido, time_t ablado) {
     b = recibido, e = ablado;
 
     int Aceptable = 20 * 3600,
-        diff = difftime(recibido,ablado);
+        diff = (int)difftime(recibido,ablado);
 
     if (diff < Aceptable)
         return true;

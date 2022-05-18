@@ -23,6 +23,10 @@ cOrgano* cReceptor::getMiOrgano() const {
 	return this->OrganoDefectuoso;
 }
 
+cCentroDeSalud* cReceptor::getCentroAsociado() const {
+	return this->HospiAsociado;
+}
+
 string cReceptor::tostring() const {
 	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
 		"\n Fecha Nacimiento" + this->nacimiento->tostring() +

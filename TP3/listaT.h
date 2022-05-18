@@ -76,12 +76,11 @@ inline void cListaT<T>::resize() {
 		u_int newSize = this->ct + BLK;
 		T** newList = new T * [newSize];
 
-		for (u_int i = 0; i < this->ct; i++)
-			newList[i] = List[i];
+		memcpy(newList, this->List, sizeof(T*) * this->ct);
 
 		delete[] this->List;
-
 		this->List = newList;
+		this->ct = newSize;
 	}
 	catch (bad_alloc& e) {
 		cerr << e.what() << endl;

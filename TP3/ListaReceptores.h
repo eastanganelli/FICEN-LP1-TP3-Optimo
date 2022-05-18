@@ -12,6 +12,8 @@ public:
 
 	cListaReceptores* obtenerReceptoresCompatibles(cOrgano* d_org, cDonante* d);
     u_int posicionPaciente(cReceptor* r);
+
+    friend ostream& operator<<(ostream& os, const cListaReceptores& r);
 };
 
 inline cListaReceptores::cListaReceptores() : cListaT() { }
@@ -47,6 +49,13 @@ inline u_int cListaReceptores::posicionPaciente(cReceptor* r) {
         }
     }
     throw new out_list();
+}
+
+inline ostream& operator<<(ostream& os, const cListaReceptores& r) {
+    for (u_int i = 0; i < r.ca; i++) {
+        if(r.List[i] != NULL)
+            os << r.List[i]->tostring() << endl;
+    }
 }
 
 #endif //CLISTARECEPTORES

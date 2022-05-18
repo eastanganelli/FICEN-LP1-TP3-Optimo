@@ -164,6 +164,7 @@
     <ClInclude Include="Donante.h" />
     <ClInclude Include="Estado.h" />
     <ClInclude Include="GrupoSanguineo.h" />
+    <ClInclude Include="ListaVehiculos.h" />
     <ClInclude Include="Organos.h" />
     <ClInclude Include="Patologia.h" />
     <ClInclude Include="Prioridad.h" />

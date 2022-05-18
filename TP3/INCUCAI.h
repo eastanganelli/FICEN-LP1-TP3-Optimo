@@ -22,6 +22,7 @@ class cINCUCAI {
 	cListaCentroSalud*	 CentrosHabilitados;
 
 	void IngresarPaciente(cPaciente* p);
+	bool CentroEstaHabilitado(cCentroDeSalud* csr);
 
 public: 
 	cINCUCAI();
@@ -31,8 +32,10 @@ public:
 	void RecibirPaciente(cPaciente* p);
 	cListaReceptores* PosiblesReceptores(cOrgano* c, cDonante* d);
 	void InicioProtocolo(cReceptor* p, cDonante* d);
-	void AsignarVehiculo();
+	cVehiculos* AsignarVehiculo(cCentroDeSalud* cs_, char distancia);
 	u_int PosicionEspera(cPaciente* p);
+	cListaReceptores* Buscar(cOrgano* o);
+	cListaReceptores* Buscar(cCentroDeSalud* cs);
 
 	string tostring() const;
 	void   imprimir() const;

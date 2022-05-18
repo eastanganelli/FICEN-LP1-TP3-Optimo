@@ -13,6 +13,7 @@
 class cOrgano {
 public:
 	friend class cListaOrganos;
+
 	cOrgano(eOrg::Organos t);
 	cOrgano(eOrg::Organos t, cFecha* f);
 	~cOrgano();

@@ -137,5 +137,8 @@
     <ClInclude Include="ListaCentroSalud.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ListaVehiculos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

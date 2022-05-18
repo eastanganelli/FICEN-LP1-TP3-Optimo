@@ -15,6 +15,7 @@
 class cReceptor: public cPaciente {
 public:
 	friend class cListaReceptores;
+
 	/// <summary>
 	/// Constructor de la clase Receptor
 	/// </summary>
@@ -32,6 +33,7 @@ public:
 	~cReceptor();
 
 	cOrgano* getMiOrgano() const;
+	cCentroDeSalud* getCentroAsociado() const;
 
 	string tostring() const;
 	void   imprimir() const;
