@@ -19,7 +19,7 @@ public:
 	cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc);
 	virtual ~cPaciente() = 0;
 
-	bool operator==(const cPaciente* R) const;
+	virtual bool operator==(const cPaciente* R) const;
 
 	virtual string tostring() const;
 	virtual void   imprimir() const;

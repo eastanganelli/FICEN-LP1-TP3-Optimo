@@ -14,6 +14,7 @@ public:
 	cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, cFecha* f);
 	~cDonante() { }
 
+	bool tieneOrgano(eOrg::Organos o) const;
 	cOrgano* remover(eOrg::Organos o);
 
 	string tostring() const;

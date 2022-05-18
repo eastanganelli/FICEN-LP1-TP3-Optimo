@@ -25,6 +25,8 @@ public:
 	void operator-(T* rmNode);
 	T* operator[](u_int findNode);
 
+	void queue(T* d_);
+	T* dequeue();
 	T* eliminar(u_int findNode);
 
 	u_int getCA() const;
@@ -91,13 +93,8 @@ inline void cListaT<T>::operator+(T* newNode) {
 	try {
 		if (newNode == NULL) throw new null_node();
 
-		if (!NoRepetido(newNode)) {
-			for (u_int i = 0; i < this->ct; i++)
-				if (this->List[i] == NULL) {
-					this->List[i] = newNode;
-					this->ca++;
-				}
-		}
+		if (!NoRepetido(newNode))
+			this->queue(newNode);
 	}
 	catch (null_node& e) {
 		cerr << e.what() << endl;
@@ -133,6 +130,37 @@ inline T* cListaT<T>::operator[](u_int findNode) {
 	}
 
 	return retNode;
+}
+
+template<class T>
+inline void cListaT<T>::queue(T* newNode) {
+	if (newNode == NULL) throw new null_node();
+
+	if (this->ca == this->ct)
+		this->resize();
+
+	if (this->ca < this->ct)
+		this->List[this->ca++] = newNode;
+}
+
+template<class T>
+inline T* cListaT<T>::dequeue() {
+	try {
+		if (this->ca == 0) throw new empty_list();
+
+		T* ret = this->List[0];
+		this->ca--;
+
+		for (u_int i = 0; this->List[i + 1] != NULL; i++)
+			this->List[i] = this->List[i + 1];
+
+		return ret;
+	}
+	catch (empty_list& e) {
+		cerr << e.what() << endl;
+	}
+	
+	return NULL;
 }
 
 template<class T>

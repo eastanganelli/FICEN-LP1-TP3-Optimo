@@ -26,15 +26,16 @@ class cINCUCAI {
 public: 
 	cINCUCAI();
 	cINCUCAI(string d, string t);
-	~cINCUCAI() { }
+	~cINCUCAI();
 
 	void RecibirPaciente(cPaciente* p);
-	void Buscar();
-	void InicioProtocolo();
+	cListaReceptores* PosiblesReceptores(cOrgano* c, cDonante* d);
+	void InicioProtocolo(cReceptor* p, cDonante* d);
 	void AsignarVehiculo();
 	u_int PosicionEspera(cPaciente* p);
 
 	string tostring() const;
 	void   imprimir() const;
 };
+
 #endif //INUCAI_H

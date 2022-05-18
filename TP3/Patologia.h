@@ -18,26 +18,17 @@ namespace ePato {
 enum class ePato::Patologia { FQ, IR, IC, HEP, NEC };
 
 inline string ePato::convertPatologiaString(Patologia i) {
-	string o = "";
-
 	switch (i) {
-		case Patologia::FQ:
-			o = "Fibrosis Quistica";
-			break;
-		case Patologia::IR:
-			o = "Insuficiencia Renal";
-			break;
-		case Patologia::IC:
-			o = "Insuficiencia Cardiaca";
-			break;
-		case Patologia::HEP:
-			o = "Hepatitis";
-			break;
-		case Patologia::NEC:
-			o = "Necrosis";
-			break;
+	case Patologia::FQ:
+		return "Fibrosis Quistica";
+	case Patologia::IR:
+		return "Insuficiencia Renal";
+	case Patologia::IC:
+		return "Insuficiencia Cardiaca";
+	case Patologia::HEP:
+		return "Hepatitis";
 	}
 
-	return o;
+	return "Necrosis";
 }
 #endif //PATOLOGIA_H

@@ -18,21 +18,16 @@ namespace eSexo {
 enum class eSexo::Sexo { F, M, ND, O };
 
 inline string eSexo::convertSexoString(Sexo i) {
-	string o = "";
 	switch (i) {
 	case Sexo::F:
-		o = "F";
-		break;
+		return "F";
 	case Sexo::M:
-		o = "M";
-		break;
+		return "M";
 	case Sexo::ND:
-		o = "ND";
-		break;
-	case Sexo::O:
-		o = "O";
-		break;
-	} return o;
+		return "ND";
+	}
+
+	return "O";
 }
 
 #endif //ESEXO_H

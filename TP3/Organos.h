@@ -18,36 +18,26 @@ namespace eOrg {
 enum class eOrg::Organos { CORAZON, HIGADO, PANCREAS, HUESOS, RINYON, PULMONES, INTESTINO, PIEL, ORNEAS };
 
 inline string eOrg::convertOrganoString(Organos i) {
-	string o = "";
 	switch (i) {
 	case Organos::CORAZON:
-		o = "CORAZON";
-		break;
+		return "CORAZON";
 	case Organos::HIGADO:
-		o = "HIGADO";
-		break;
+		return "HIGADO";
 	case Organos::PANCREAS:
-		o = "PANCREAS";
-		break;
+		return "PANCREAS";
 	case Organos::HUESOS:
-		o = "HUESOS";
-		break;
+		return "HUESOS";
 	case Organos::RINYON:
-		o = "RIÑON";
-		break;
+		return "RIÑON";
 	case Organos::PULMONES:
-		o = "PULMONES";
-		break;
+		return "PULMONES";
 	case Organos::INTESTINO:
-		o = "INTESTINO";
-		break;
+		return "INTESTINO";
 	case Organos::PIEL:
-		o = "PIEL";
-		break;
-	case Organos::ORNEAS:
-		o = "ORNEAS";
-		break;
-	} return o;
+		return "PIEL";
+	}
+
+	return "ORNEAS";
 }
 
 #endif //ORGANOS_H

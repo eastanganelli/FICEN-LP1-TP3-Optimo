@@ -19,16 +19,39 @@ cINCUCAI::cINCUCAI(string d = "Ramsay 2250, CABA", string t = "11-2154-8518") : 
     this->CentrosHabilitados = NULL;
 }
 
+cINCUCAI::~cINCUCAI() {
+    if (this->Trasplantados != NULL) {
+        delete this->Trasplantados;
+        this->Trasplantados = NULL;
+    }
+    if (this->Receptores != NULL) {
+        delete this->Receptores;
+        this->Receptores = NULL;
+    }
+    if (this->Donantes != NULL) {
+        delete this->Donantes;
+        this->Donantes = NULL;
+    }
+    if (this->CentrosHabilitados != NULL) {
+        delete this->CentrosHabilitados;
+        this->CentrosHabilitados = NULL;
+    }
+}
+
 void cINCUCAI::RecibirPaciente(cPaciente* p) {
     try {
-        if (p == NULL) throw new exception;
+        if (p == NULL) throw new null_node();
     }
-    catch (...) {
-        cerr << "El paciente recibido no existe" << endl;
-    }
+    catch (null_node& e) {
+        cerr << e.what() << endl;
+    } IngresarPaciente(p);
+}
 
-    IngresarPaciente(p);
+cListaReceptores* cINCUCAI::PosiblesReceptores(cOrgano* c, cDonante* d) {
+    if (this->Donantes->getCA() > 0)
+        return this->Receptores->obtenerReceptoresCompatibles(c, d);
 
+    return NULL;
 }
 
 void cINCUCAI::IngresarPaciente(cPaciente* p) {
@@ -37,15 +60,11 @@ void cINCUCAI::IngresarPaciente(cPaciente* p) {
         (*Receptores) + r_;
     } else {
         cDonante* d_ = dynamic_cast<cDonante*>(p);
-        (*Donantes) + d_;
+        (*Donantes).queue(d_);
     }
 }
 
-void cINCUCAI::Buscar() {
-
-}
-
-void cINCUCAI::InicioProtocolo() {
+void cINCUCAI::InicioProtocolo(cReceptor* p, cDonante* d) {
 
 }
 

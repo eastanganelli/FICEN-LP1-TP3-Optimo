@@ -20,33 +20,24 @@ namespace eGrupoSanguineo {
 enum class eGrupoSanguineo::Grupo { A_MENOS, A_MAS, B_MENOS, B_MAS, AB_MENOS, AB_MAS, O_MENOS, O_MAS };
 
 inline string eGrupoSanguineo::convertGrupoString(Grupo i) {
-	string o = "";
 	switch (i) {
 	case Grupo::A_MENOS:
-		o = "A-";
-		break;
+		return "A-";
 	case Grupo::A_MAS:
-		o = "A+";
-		break;
+		return "A+";
 	case Grupo::B_MENOS:
-		o = "B-";
-		break;
+		return "B-";
 	case Grupo::B_MAS:
-		o = "B+";
-		break;
+		return "B+";
 	case Grupo::AB_MENOS:
-		o = "AB-";
-		break;
+		return "AB-";
 	case Grupo::AB_MAS:
-		o = "AB+";
-		break;
+		return "AB+";
 	case Grupo::O_MENOS:
-		o = "O-";
-		break;
-	case Grupo::O_MAS:
-		o = "O+";
-		break;
-	} return o;
+		return "O-";
+	}
+
+	return "O+";
 }
 
 inline bool eGrupoSanguineo::compatibilidad(Grupo d, Grupo r) {

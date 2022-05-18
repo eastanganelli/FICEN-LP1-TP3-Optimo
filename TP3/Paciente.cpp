@@ -17,6 +17,7 @@ bool cPaciente::operator==(const cPaciente* R) const {
 	return eGrupoSanguineo::compatibilidad(this->gs, R->gs);
 }
 
+
 string cPaciente::tostring() const {
 	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
 		"\n Fecha Nacimiento" + this->nacimiento->tostring() +

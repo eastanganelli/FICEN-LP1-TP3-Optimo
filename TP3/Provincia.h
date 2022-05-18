@@ -18,81 +18,56 @@ namespace eProv {
 enum class eProv::Provincias { CABA, BA, CA, CH, CT, CB, CR, ER, FO, JY, LP, LR, MZ, MI, NQN, RN, SA, SJ, SL, SC, SF, SE, TF, TU };
 
 inline string eProv::convertProvinciasString(Provincias i) {
-	string o = "";
 	switch (i) {
 	case Provincias::CABA:
-		o = "Ciudad Autónoma de Buenos Aires";
-		break;
+		return "Ciudad Autónoma de Buenos Aires";
 	case Provincias::BA:
-		o = "Buenos Aires";
-		break;
+		return "Buenos Aires";
 	case Provincias::CA:
-		o = "Catamarca";
-		break;
+		return "Catamarca";
 	case Provincias::CH:
-		o = "Chaco";
-		break;
+		return "Chaco";
 	case Provincias::CT:
-		o = "Chubut";
-		break;
+		return "Chubut";
 	case Provincias::CB:
-		o = "Cordoba";
-		break;
+		return "Cordoba";
 	case Provincias::CR:
-		o = "Corrientes";
-		break;
+		return "Corrientes";
 	case Provincias::ER:
-		o = "Entre Rios";
-		break;
+		return "Entre Rios";
 	case Provincias::FO:
-		o = "Formosa";
-		break;
+		return "Formosa";
 	case Provincias::JY:
-		o = "Jujuy";
-		break;
+		return "Jujuy";
 	case Provincias::LP:
-		o = "La Pampa";
-		break;
+		return "La Pampa";
 	case Provincias::LR:
-		o = "La Rioja";
-		break;
+		return "La Rioja";
 	case Provincias::MZ:
-		o = "Mendoza";
-		break;
+		return "Mendoza";
 	case Provincias::MI:
-		o = "Misiones";
-		break;
+		return "Misiones";
 	case Provincias::NQN:
-		o = "Neuquen";
-		break;
+		return "Neuquen";
 	case Provincias::RN:
-		o = "Rio Negro";
-		break;
+		return "Rio Negro";
 	case Provincias::SA:
-		o = "Salta";
-		break;
+		return "Salta";
 	case Provincias::SJ:
-		o = "San Juan";
-		break;
+		return "San Juan";
 	case Provincias::SL:
-		o = "San Luis";
-		break;
+		return "San Luis";
 	case Provincias::SC:
-		o = "Santa Cruz";
-		break;
+		return "Santa Cruz";
 	case Provincias::SF:
-		o = "Santa Fe";
-		break;
+		return "Santa Fe";
 	case Provincias::SE:
-		o = "Santiago del Estero";
-		break;
+		return "Santiago del Estero";
 	case Provincias::TF:
-		o = "Tierra del Fuego";
-		break;
-	case Provincias::TU:
-		o = "Tucumán";
-		break;
-	} return o;
+		return "Tierra del Fuego";
+	}
+
+	return "Tucumán";
 }
 
 #endif //PROVINCIA_H
