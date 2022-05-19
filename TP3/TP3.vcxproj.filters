@@ -128,9 +128,6 @@
     <ClInclude Include="ListaPaciente.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ListaTrasplantado.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ListaDonantes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -138,6 +135,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ListaVehiculos.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Meses.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

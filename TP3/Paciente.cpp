@@ -17,6 +17,10 @@ bool cPaciente::operator==(const cPaciente* R) const {
 	return eGrupoSanguineo::compatibilidad(this->gs, R->gs);
 }
 
+cCentroDeSalud* cPaciente::getCentroAsociado() const {
+	return this->HospiAsociado;
+}
+
 
 string cPaciente::tostring() const {
 	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +

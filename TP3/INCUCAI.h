@@ -7,7 +7,6 @@
 #ifndef CINCUCAI_H
 #define CINCUCAI_H
 
-#include "ListaTrasplantado.h"
 #include "ListaReceptores.h"
 #include "ListaCentroSalud.h"
 #include "ListaDonantes.h"
@@ -16,13 +15,15 @@ class cINCUCAI {
 	const string direccion;
 	const string telefono;
 
-	cListaTransplantado* Trasplantados;
-	cListaReceptores*	 Receptores;
-	cColaDonantes*		 Donantes;
-	cListaCentroSalud*	 CentrosHabilitados;
+	cListaReceptores*  Trasplantados;
+	cListaReceptores*  ListaEspera;
+	cListaDonantes*	   Donantes;
+	cListaCentroSalud* CentrosHabilitados;
 
 	void IngresarPaciente(cPaciente* p);
 	bool CentroEstaHabilitado(cCentroDeSalud* csr);
+	cVehiculos* AsignarVehiculo(cCentroDeSalud* cs_, char distancia);
+	void cambiarEstadoPaciente(cReceptor* r, bool exito = false);
 
 public: 
 	cINCUCAI();
@@ -32,10 +33,23 @@ public:
 	void RecibirPaciente(cPaciente* p);
 	cListaReceptores* PosiblesReceptores(cOrgano* c, cDonante* d);
 	void InicioProtocolo(cReceptor* p, cDonante* d);
-	cVehiculos* AsignarVehiculo(cCentroDeSalud* cs_, char distancia);
+
 	u_int PosicionEspera(cPaciente* p);
-	cListaReceptores* Buscar(cOrgano* o);
+	
+	void setCentrosHabilitados(cListaCentroSalud* lcs);
+	
+	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="o"></param>
+	/// <returns></returns>
 	cListaReceptores* Buscar(cCentroDeSalud* cs);
+	cListaReceptores* Buscar(cOrgano* o);
+
+	/// <summary>
+	/// 
+	/// </summary>
+	void informeTrasplantados();
 
 	string tostring() const;
 	void   imprimir() const;

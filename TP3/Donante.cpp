@@ -24,6 +24,10 @@ cOrgano* cDonante::remover(eOrg::Organos o) {
     return Ablado;
 }
 
+cListaOrganos* cDonante::getListaOrganos() const {
+    return this->Organos;
+}
+
 string cDonante::tostring() const {
     return "Paciente [ DNI: " + this->dni + " ]\n" + this->nombre +
            "\nFallecio: " + this->fallecimiento->tostring() +

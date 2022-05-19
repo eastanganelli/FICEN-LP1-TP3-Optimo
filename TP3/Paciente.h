@@ -20,6 +20,7 @@ public:
 	virtual ~cPaciente() = 0;
 
 	virtual bool operator==(const cPaciente* R) const;
+	cCentroDeSalud* getCentroAsociado() const;
 
 	virtual string tostring() const;
 	virtual void   imprimir() const;

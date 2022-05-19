@@ -6,17 +6,17 @@
 #include "INCUCAI.h"
 
 cINCUCAI::cINCUCAI() : direccion("Ramsay 2250, CABA"), telefono("11-2154-8518") {
-    this->Trasplantados      = NULL;
-    this->Receptores         = NULL;
-    this->Donantes           = NULL;
-    this->CentrosHabilitados = NULL;
+    this->Trasplantados      = new cListaReceptores(7, true);
+    this->ListaEspera        = new cListaReceptores(10, true);
+    this->Donantes           = new cListaDonantes(5, true);
+    this->CentrosHabilitados = new cListaCentroSalud(6, true);
 }
 
 cINCUCAI::cINCUCAI(string d = "Ramsay 2250, CABA", string t = "11-2154-8518") : direccion(d), telefono(t) {
-    this->Trasplantados      = NULL;
-    this->Receptores         = NULL;
-    this->Donantes           = NULL;
-    this->CentrosHabilitados = NULL;
+    this->Trasplantados      = new cListaReceptores(7, true);
+    this->ListaEspera        = new cListaReceptores(10, true);
+    this->Donantes           = new cListaDonantes(5, true);
+    this->CentrosHabilitados = new cListaCentroSalud(6, true);
 }
 
 cINCUCAI::~cINCUCAI() {
@@ -24,9 +24,9 @@ cINCUCAI::~cINCUCAI() {
         delete this->Trasplantados;
         this->Trasplantados = NULL;
     }
-    if (this->Receptores != NULL) {
-        delete this->Receptores;
-        this->Receptores = NULL;
+    if (this->ListaEspera != NULL) {
+        delete this->ListaEspera;
+        this->ListaEspera = NULL;
     }
     if (this->Donantes != NULL) {
         delete this->Donantes;
@@ -44,12 +44,15 @@ void cINCUCAI::RecibirPaciente(cPaciente* p) {
     }
     catch (null_node& e) {
         cerr << e.what() << endl;
-    } IngresarPaciente(p);
+        return;
+    }
+    
+    IngresarPaciente(p);
 }
 
 cListaReceptores* cINCUCAI::PosiblesReceptores(cOrgano* c, cDonante* d) {
     if (this->Donantes->getCA() > 0)
-        return this->Receptores->obtenerReceptoresCompatibles(c, d);
+        return this->ListaEspera->obtenerReceptoresCompatibles(c, d);
 
     return NULL;
 }
@@ -57,7 +60,7 @@ cListaReceptores* cINCUCAI::PosiblesReceptores(cOrgano* c, cDonante* d) {
 void cINCUCAI::IngresarPaciente(cPaciente* p) {
     if (dynamic_cast<cReceptor*>(p) != NULL) {
         cReceptor* r_ = dynamic_cast<cReceptor*>(p);
-        (*Receptores) + r_;
+        (*ListaEspera) + r_;
     } else {
         cDonante* d_ = dynamic_cast<cDonante*>(p);
         (*Donantes).queue(d_);
@@ -68,8 +71,54 @@ bool cINCUCAI::CentroEstaHabilitado(cCentroDeSalud* csr) {
     return this->CentrosHabilitados->EstaListado(csr);
 }
 
-void cINCUCAI::InicioProtocolo(cReceptor* p, cDonante* d) {
+void cINCUCAI::InicioProtocolo(cReceptor* r, cDonante* d) {
+    try {
+        cCentroDeSalud* CS_R, * CS_D;
+        CS_R = r->getCentroAsociado();
+        CS_D = d->getCentroAsociado();
+		
 
+        // Buscar transporte dispo
+        char distancia = cCentroDeSalud::CalculadoraDeDistancia(CS_D, CS_R);
+        cVehiculos* MiTransporte = this->AsignarVehiculo(CS_D, distancia);
+        
+        if (MiTransporte == NULL) throw new vehicle();
+
+		// Ablar organo
+        cOrgano* O_Trasplante = CS_D->Ablar(d->getListaOrganos(), r->getMiOrgano()->getTipoOrg());
+		
+		// Enviarlo
+        MiTransporte->imprimir();
+		
+		// Trasplantar
+        cOrgano* Defectuoso = r->getMiOrgano();
+        CS_R->Trasplantar(Defectuoso, O_Trasplante);
+    }
+    catch (overtime& e) {
+        cerr << e.what() << endl;
+        
+        this->cambiarEstadoPaciente(r);
+        throw;
+        return;
+    }
+    catch (trasplant& e) {
+        cerr << e.what() << endl;
+
+		// Poner en nueva posición en lista de espera
+        this->cambiarEstadoPaciente(r);
+        throw;
+    }
+    catch (vehicle& e) {
+        cerr << e.what() << endl;
+		
+        // Poner en nueva posición en lista de espera
+        this->cambiarEstadoPaciente(r);
+        throw;
+    }
+
+    // Cambiar paciente a trasplantado
+	// y agregar a Lista de Trasplantados
+    this->cambiarEstadoPaciente(r, true);
 }
 
 cVehiculos* cINCUCAI::AsignarVehiculo(cCentroDeSalud* cs_, char distancia) {
@@ -98,9 +147,18 @@ cVehiculos* cINCUCAI::AsignarVehiculo(cCentroDeSalud* cs_, char distancia) {
     }
     catch (null_node& e) {
         cerr << e.what() << endl;
+        throw;
     }
 
     return MiTransporte;
+}
+
+void cINCUCAI::cambiarEstadoPaciente(cReceptor* r, bool exito) {
+    r->TrasplanteExitoso(exito);	
+	if(exito)
+		(*Trasplantados) + r;
+    else        
+		(*ListaEspera) + r;
 }
 
 u_int cINCUCAI::PosicionEspera(cPaciente* p) {
@@ -108,7 +166,7 @@ u_int cINCUCAI::PosicionEspera(cPaciente* p) {
     try {
         if (dynamic_cast<cReceptor*>(p) == NULL) throw exception();
 
-        pos = Receptores->posicionPaciente(dynamic_cast<cReceptor*>(p));
+        pos = ListaEspera->posicionPaciente(dynamic_cast<cReceptor*>(p));
     }
     catch (out_list& e) {
         cerr << e.what() << endl;
@@ -122,33 +180,84 @@ u_int cINCUCAI::PosicionEspera(cPaciente* p) {
     return pos;
 }
 
-cListaReceptores* cINCUCAI::Buscar(cOrgano* o) {
-    cListaReceptores* sublista = new cListaReceptores();
-
-    for (u_int i = 0; i < (*Receptores).getCA(); i++) {
-        cOrgano* Aux = (*Receptores)[i]->getMiOrgano();
-        if (Aux->getTipoOrg() == o->getTipoOrg())
-            (*sublista) + (*Receptores)[i];
-    }
-
-    return sublista;
+void cINCUCAI::setCentrosHabilitados(cListaCentroSalud* lcs) {
+    this->CentrosHabilitados = lcs;
 }
 
 cListaReceptores* cINCUCAI::Buscar(cCentroDeSalud* cs) {
     cListaReceptores* sublista = new cListaReceptores();
 
-    for (u_int i = 0; i < (*Receptores).getCA(); i++) {
-        cCentroDeSalud* Aux = (*Receptores)[i]->getCentroAsociado();
+    for (u_int i = 0; i < (*ListaEspera).getCA(); i++) {
+        cCentroDeSalud* Aux = (*ListaEspera)[i]->getCentroAsociado();
         if (Aux == cs)
-            (*sublista) + (*Receptores)[i];
+            (*sublista) + (*ListaEspera)[i];
     }
 
     return sublista;
 }
 
+cListaReceptores* cINCUCAI::Buscar(cOrgano* o) {
+    cListaReceptores* sublista = new cListaReceptores();
+    
+    for (u_int i = 0; i < (*ListaEspera).getCA(); i++) {
+        cOrgano* Aux = (*ListaEspera)[i]->getMiOrgano();
+        if (Aux->getTipoOrg() == o->getTipoOrg())
+            (*sublista) + (*ListaEspera)[i];
+    }
+    
+    return sublista;
+}
+
+void cINCUCAI::informeTrasplantados() {
+    cListaReceptores* sublista = this->Trasplantados;
+    time_t time_aux = cFecha::Hoy();
+    struct tm Hoy_;
+    
+    (void)localtime_s(&Hoy_, &time_aux);
+    
+    cout << "Informe de trasplantados " << Hoy_.tm_year << " por Provincia " << endl
+            << "---------------------------------------" << endl;
+    
+    for (u_int i = 0; i < CantProvincias; i++) {
+        eProv::Provincias Prov_Busqueada = eProv::UIntToProvincia(i);
+        u_int total = 0, parcial = 0;
+        stringstream ss_prov, ss_mes;
+    
+        for (u_int mes = 0; i < u_int(Hoy_.tm_mon); i++) {
+    
+            for (u_int j = 0; j < sublista->getCT(); j++) {
+                cReceptor* r = (*sublista)[j];
+                eProv::Provincias Aux_p = r->getCentroAsociado()->getProvincia();
+    
+                if (Aux_p == Prov_Busqueada) {
+                    time_t aux_f = r->getMiOrgano()->getAblacion()->getFecha();
+                    struct tm fecha_trasplante;
+                    localtime_s(&fecha_trasplante, &aux_f);
+    
+                    if (fecha_trasplante.tm_year == Hoy_.tm_year && fecha_trasplante.tm_mon == mes)
+                        parcial++;
+    
+                    total++;
+                }
+                ss_mes << "Mes " << eMes::UIntToMes(mes) << " :: "
+                    << ( parcial == 0 ? "No se realizaron trasplantes" : parcial + " trasplantes realizados" )
+                    << endl;
+            }
+    
+        }
+    		
+        ss_prov << total + " trasplantes totales realizados"
+                << endl << "-----------------------------------" << endl
+                << ss_mes.str();
+    
+        cout << eProv::convertProvinciasString(Prov_Busqueada) << " :: "
+                << ( total == 0 ? "No se realizaron trasplantes" : ss_mes.str() )
+                << endl;
+    }
+}
+
 string cINCUCAI::tostring() const {
-    string o = "ccINCUCAI\nDireccion: " + this->direccion + "\nTelefono: " + this->telefono;
-    return o;
+    return "ccINCUCAI\nDireccion: " + this->direccion + "\nTelefono: " + this->telefono;
 }
 
 void cINCUCAI::imprimir() const {

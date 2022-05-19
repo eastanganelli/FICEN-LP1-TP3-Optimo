@@ -165,6 +165,7 @@
     <ClInclude Include="Estado.h" />
     <ClInclude Include="GrupoSanguineo.h" />
     <ClInclude Include="ListaVehiculos.h" />
+    <ClInclude Include="Meses.h" />
     <ClInclude Include="Organos.h" />
     <ClInclude Include="Patologia.h" />
     <ClInclude Include="Prioridad.h" />
@@ -177,7 +178,6 @@
     <ClInclude Include="ListaOrganos.h" />
     <ClInclude Include="ListaReceptores.h" />
     <ClInclude Include="ListaT.h" />
-    <ClInclude Include="ListaTrasplantado.h" />
     <ClInclude Include="Organo.h" />
     <ClInclude Include="Paciente.h" />
     <ClInclude Include="ListaDonantes.h" />

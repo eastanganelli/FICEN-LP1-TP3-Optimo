@@ -15,15 +15,17 @@ namespace eEst {
 	string convertEstadoString(Estado i);
 }
 
-enum class eEst::Estado { Estable, Inestable };
+enum class eEst::Estado { Estable, Inestable, Alta };
 
 inline string eEst::convertEstadoString(Estado i) {
 	switch (i) {
 	case Estado::Estable:
 		return "Estable";
+	case Estado::Inestable:
+		return "Inestable";
 	}
 
-	return "Inestable";
+	return "Alta";
 }
 
 #endif //ESTADO_H

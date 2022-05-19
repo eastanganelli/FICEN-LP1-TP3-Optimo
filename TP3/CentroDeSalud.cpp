@@ -7,10 +7,10 @@
 
 cCentroDeSalud::cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t), MisVehiculos(NULL) { }
 
-cOrgano* cCentroDeSalud::Ablar(cListaOrganos& d, eOrg::Organos q) {
-    cOrgano* rmOrgano = d[q];
+cOrgano* cCentroDeSalud::Ablar(cListaOrganos* d, eOrg::Organos q) {
+    cOrgano* rmOrgano = (*d)[q];
 
-    d - rmOrgano;
+    (*d) - rmOrgano;
 
     cFecha* tiempoAblado = new cFecha(cFecha::Hoy());
     rmOrgano->setAblacion(tiempoAblado);
@@ -48,6 +48,10 @@ void cCentroDeSalud::setMisVehiculos(cListaVehiculos* v) {
 
 cListaVehiculos* cCentroDeSalud::getMisVehiculos() const {
     return this->MisVehiculos;
+}
+
+eProv::Provincias cCentroDeSalud::getProvincia() const {
+    return this->provincia;
 }
 
 string cCentroDeSalud::tostring() const {

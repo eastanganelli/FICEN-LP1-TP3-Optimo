@@ -55,7 +55,10 @@ template<class T>
 inline cListaT<T>::~cListaT() {
 	if (this->deletion)
 		for (u_int i = 0; i < this->ct; i++)
-			if (this->List[i] != NULL) delete this->List[i];
+			if (this->List[i] != NULL) {
+				delete this->List[i];
+				this->List[i] = NULL;
+			}
 
 	delete[] this->List;
 }

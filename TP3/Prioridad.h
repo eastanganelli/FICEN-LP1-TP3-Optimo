@@ -14,10 +14,10 @@ namespace ePrio {
 
 	string convertPrioridadString(Prioridad i);
 
-	Prioridad UintToEnum(u_int i);
+	Prioridad UIntToProiridad(u_int i);
 }
 
-enum class ePrio::Prioridad { ALTA, MEDIA, BAJA };
+enum class ePrio::Prioridad { NON, ALTA, MEDIA, BAJA };
 
 inline string ePrio::convertPrioridadString(Prioridad i) {
 	switch (i) {
@@ -25,20 +25,24 @@ inline string ePrio::convertPrioridadString(Prioridad i) {
 		return "ALTA";
 	case Prioridad::MEDIA:
 		return "MEDIA";
+	case Prioridad::BAJA:
+		return "BAJA";
 	}
 
-	return "BAJA";
+	return "No Prioridad";
 }
 
-inline ePrio::Prioridad ePrio::UintToEnum(u_int i) {
+inline ePrio::Prioridad ePrio::UIntToProiridad(u_int i) {
 	switch (i) {
 	case 0:
 		return Prioridad::ALTA;
 	case 1:
 		return Prioridad::MEDIA;
+	case 2:
+		return Prioridad::BAJA;
 	}
 
-	return Prioridad::BAJA;
+	return Prioridad::NON;
 }
 
 #endif //EPRIORIDAD_H

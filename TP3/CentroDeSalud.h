@@ -27,11 +27,12 @@ public:
 	cCentroDeSalud(string, string, string, eProv::Provincias, string);
 	~cCentroDeSalud() { }
 	
-	cOrgano* Ablar(cListaOrganos& d, eOrg::Organos q);
+	cOrgano* Ablar(cListaOrganos* d, eOrg::Organos q);
 	void Trasplantar(cOrgano*& r, cOrgano* o);
 
 	void setMisVehiculos(cListaVehiculos* v);
-	cListaVehiculos* getMisVehiculos() const;
+	cListaVehiculos*  getMisVehiculos() const;
+	eProv::Provincias getProvincia()    const;
 
 	string tostring() const;
 	void   imprimir() const;

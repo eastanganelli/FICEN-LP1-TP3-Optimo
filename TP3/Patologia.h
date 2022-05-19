@@ -15,7 +15,7 @@ namespace ePato {
 	string convertPatologiaString(Patologia i);
 }
 
-enum class ePato::Patologia { FQ, IR, IC, HEP, NEC };
+enum class ePato::Patologia { NON, FQ, IR, IC, HEP, NEC, INMO };
 
 inline string ePato::convertPatologiaString(Patologia i) {
 	switch (i) {
@@ -27,8 +27,12 @@ inline string ePato::convertPatologiaString(Patologia i) {
 		return "Insuficiencia Cardiaca";
 	case Patologia::HEP:
 		return "Hepatitis";
+	case Patologia::NEC:
+		return "Necrosis";
+	case Patologia::INMO:
+		return "Inmunosuprimido";
 	}
 
-	return "Necrosis";
+	return "No Patologia";
 }
 #endif //PATOLOGIA_H

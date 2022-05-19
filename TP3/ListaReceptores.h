@@ -34,7 +34,7 @@ inline cListaReceptores* cListaReceptores::obtenerReceptoresCompatibles(cOrgano*
         for (u_int i = 0; i < this->ct; i++) {
             cReceptor* r = dynamic_cast<cReceptor*>(this->List[i]);
             if (r != NULL && r->getMiOrgano()->getTipoOrg() == d_org->getTipoOrg()
-                && r->prioridad == ePrio::UintToEnum(pp) && r == dynamic_cast<cPaciente*>(d))
+                && r->prioridad == ePrio::UIntToProiridad(pp) && r == dynamic_cast<cPaciente*>(d))
                 (*listR) + r;
         }
     }

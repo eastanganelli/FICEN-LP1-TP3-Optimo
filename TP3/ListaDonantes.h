@@ -1,25 +1,26 @@
-#ifndef QUEUEDONANTES_H
-#define QUEUEDONANTES_H
+#ifndef LISTADONANTES_H
+#define LISTADONANTES_H
 
 #include "ListaT.h"
 #include "Donante.h"
 
-class cColaDonantes : public cListaT<cDonante> {
-    cColaDonantes();
-    cColaDonantes(u_int tam = MAX, bool flag = false);
+class cListaDonantes : public cListaT<cDonante> {
+public:
+    cListaDonantes();
+    cListaDonantes(u_int tam, bool flag);
 
-    friend ostream& operator<<(ostream& os, const cColaDonantes& d);
+    friend ostream& operator<<(ostream& os, const cListaDonantes& d);
 };
 
-inline cColaDonantes::cColaDonantes() : cListaT() {  }
+inline cListaDonantes::cListaDonantes() : cListaT() {  }
 
-inline cColaDonantes::cColaDonantes(u_int tam, bool flag) : cListaT(tam, flag) {  }
+inline cListaDonantes::cListaDonantes(u_int tam, bool flag) : cListaT(tam, flag) {  }
 
-inline ostream& operator<<(ostream& os, const cColaDonantes& d) {
+inline ostream& operator<<(ostream& os, const cListaDonantes& d) {
     for (u_int i = 0; i < d.ca; i++) {
         if (d.List[i] != NULL)
             os << d.List[i]->tostring() << endl;
     }
 }
 
-#endif //QUEUEDONANTES_H
+#endif //LISTADONANTES_H

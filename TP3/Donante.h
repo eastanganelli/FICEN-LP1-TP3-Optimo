@@ -17,6 +17,8 @@ public:
 	bool tieneOrgano(eOrg::Organos o) const;
 	cOrgano* remover(eOrg::Organos o);
 
+	cListaOrganos* getListaOrganos() const;
+
 	string tostring() const;
 	void   imprimir() const;
 

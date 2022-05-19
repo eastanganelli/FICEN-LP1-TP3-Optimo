@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <sstream>
 
 #define u_int unsigned int
 #define sint short int;

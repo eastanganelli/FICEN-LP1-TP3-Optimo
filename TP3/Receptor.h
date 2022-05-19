@@ -32,8 +32,11 @@ public:
 	cReceptor(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, eEst::Estado est, ePrio::Prioridad prio, ePato::Patologia pat);
 	~cReceptor();
 
+	void setOrganoDefectuoso(cOrgano* o);
 	cOrgano* getMiOrgano() const;
-	cCentroDeSalud* getCentroAsociado() const;
+
+	void TrasplanteExitoso(bool exito = false);
+	void AgregadoLista();
 
 	string tostring() const;
 	void   imprimir() const;
@@ -43,7 +46,7 @@ private:
 	ePrio::Prioridad prioridad;
 	ePato::Patologia patologia;
 	eEst::Estado     estado;
-	cFecha*  agregadoListaEspera;
-	cOrgano* OrganoDefectuoso;
+	cFecha*  Fecha;
+	cOrgano* Organo;
 };
 #endif //RECEPTOR_H

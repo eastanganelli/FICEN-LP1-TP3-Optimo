@@ -18,6 +18,13 @@ public:
 	}
 };
 
+class vehicle : public exception {
+public:
+	virtual const char* what() const throw() {
+		return "Hubo dificultad para encontrar un vehiculo";
+	}
+};
+
 class null_node : public exception {
 public:
 	virtual const char* what() const throw() {

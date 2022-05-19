@@ -7,7 +7,10 @@
 #ifndef CFECHA_H
 #define CFECHA_H
 
+#define MESES 12
+
 #include "global.h"
+#include "Meses.h"
 #include <cstring>
 
 class cFecha {
