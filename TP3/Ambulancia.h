@@ -4,16 +4,15 @@
  * @version 1.0.0
  */
 
+#include "Vehiculos.h"
 
 #ifndef CAMBULANCIA_H
 #define CAMBULANCIA_H
 
-#include "Vehiculos.h"
-
 class cAmbulancia: public cVehiculos {
 
 public: 
-	cAmbulancia(string r, float t, u_int c, string color);
+	cAmbulancia(string r);
 	~cAmbulancia() { }
 	string tostring() const;
 	void imprimir()   const;

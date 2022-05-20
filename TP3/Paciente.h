@@ -7,17 +7,20 @@
 #ifndef CPACIENTE_H
 #define CPACIENTE_H
 
-#include "eGrupoSanguineo.h"
-#include "eSexo.h"
 #include "CentroDeSalud.h"
 #include "Fecha.h"
+#include "GrupoSanguineo.h"
+#include "Sexo.h"
 
 class cPaciente {
 public:
+	friend class cListaPacientes;
+
 	cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc);
 	virtual ~cPaciente() = 0;
 
-	bool operator==(const cPaciente& R) const;
+	virtual bool operator==(const cPaciente* R) const;
+	cCentroDeSalud* getCentroAsociado() const;
 
 	virtual string tostring() const;
 	virtual void   imprimir() const;
@@ -30,5 +33,6 @@ protected:
 	string telefonoContacto;
 	eGrupoSanguineo::Grupo gs;
 	cCentroDeSalud* HospiAsociado;
+
 };
 #endif //PACIENTE_H

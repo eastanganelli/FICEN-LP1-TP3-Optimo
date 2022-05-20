@@ -13,17 +13,21 @@ cPaciente::cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguine
 
 cPaciente::~cPaciente() { }
 
-bool cPaciente::operator==(const cPaciente& R) const {
-	return eGrupoSanguineo::compatibilidad(this->gs, R.gs);
+bool cPaciente::operator==(const cPaciente* R) const {
+	return eGrupoSanguineo::compatibilidad(this->gs, R->gs);
 }
 
+cCentroDeSalud* cPaciente::getCentroAsociado() const {
+	return this->HospiAsociado;
+}
+
+
 string cPaciente::tostring() const {
-	string o = "Nombre: " + this->nombre + "\nDNI: " + this->dni +
-			   "\n Fecha Nacimiento" + this->nacimiento->tostring() +
-			   "\nSexo:" + eSexo::convertSexoString(this->sexo) +
-			   "\nGrupo Sanguineo: " + eGrupoSanguineo::convertGrupoString(this->gs) +
-			   "\nTelefono de contacto: " + this->telefonoContacto;
-	return o;
+	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
+		"\n Fecha Nacimiento" + this->nacimiento->tostring() +
+		"\nSexo:" + eSexo::getSexoString((u_int)sexo) +
+		"\nGrupo Sanguineo: " + eGrupoSanguineo::getGrupoString((u_int)gs) +
+		"\nTelefono de contacto: " + this->telefonoContacto;
 }
 
 void cPaciente::imprimir() const {

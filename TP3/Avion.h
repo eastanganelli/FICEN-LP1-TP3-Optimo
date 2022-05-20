@@ -4,15 +4,14 @@
  * @version 1.0.0
  */
 
+#include "Vehiculos.h"
 
 #ifndef CAVION_H
 #define CAVION_H
 
-#include "Vehiculos.h"
-
 class cAvion: public cVehiculos {
 public: 
-	cAvion(string r, float t, u_int c);
+	cAvion(string r);
 	~cAvion() { }
 	string tostring() const;
 	void   imprimir() const;

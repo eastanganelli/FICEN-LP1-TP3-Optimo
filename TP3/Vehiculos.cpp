@@ -5,15 +5,10 @@
  */
 #include "Vehiculos.h"
 
-cVehiculos::cVehiculos(string r, float t, u_int c): registro(r), tara(t) {
-    this->capacidad = c;
-}
+cVehiculos::cVehiculos(string r): registro(r) { }
 
 string cVehiculos::tostring() const {
-    string o = "Registro: "+ this->registro + 
-               "\nTara: " + to_string(this->tara) + 
-               "\nCapacidad: " + to_string(this->capacidad);
-    return o;
+    return "Registro: " + this->registro;
 }
 
 void cVehiculos::imprimir() const {

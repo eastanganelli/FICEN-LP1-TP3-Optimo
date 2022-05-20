@@ -4,9 +4,9 @@
  * @version 1.0.0
  */
 
-
 #ifndef EPATOLOGIA_H
 #define EPATOLOGIA_H
+
 #include "global.h"
 
 namespace ePato {

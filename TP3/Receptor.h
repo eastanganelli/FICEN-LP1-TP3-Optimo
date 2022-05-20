@@ -4,17 +4,18 @@
  * @version 1.0.0
  */
 
+#ifndef RECEPTOR_H
+#define RECEPTOR_H
 
-#ifndef CRECEPTOR_H
-#define CRECEPTOR_H
-
-#include "ePrioridad.h"
-#include "ePatologia.h"
-#include "eEstado.h"
+#include "Prioridad.h"
+#include "Patologia.h"
+#include "Estado.h"
 #include "Paciente.h"
 
 class cReceptor: public cPaciente {
 public:
+	friend class cListaReceptores;
+
 	/// <summary>
 	/// Constructor de la clase Receptor
 	/// </summary>
@@ -31,14 +32,21 @@ public:
 	cReceptor(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, eEst::Estado est, ePrio::Prioridad prio, ePato::Patologia pat);
 	~cReceptor();
 
+	void setOrganoDefectuoso(cOrgano* o);
+	cOrgano* getMiOrgano() const;
+
+	void TrasplanteExitoso(bool exito = false);
+	void AgregadoLista();
+
 	string tostring() const;
 	void   imprimir() const;
 
+
 private: 
 	ePrio::Prioridad prioridad;
-	ePato::Patologia  patologia;
+	ePato::Patologia patologia;
 	eEst::Estado     estado;
-	cFecha*  agregadoListaEspera;
-	cOrgano* OrganoDefectuoso;
+	cFecha*  Fecha;
+	cOrgano* Organo;
 };
 #endif //RECEPTOR_H

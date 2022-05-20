@@ -5,29 +5,39 @@
  */
 
 
-#ifndef CCENTRODESALUD_H
-#define CCENTRODESALUD_H
+#ifndef CENTRODESALUD_H
+#define CENTRODESALUD_H
 
-#include "eProvincia.h"
-#include "listaOrganos.h"
+#include "Provincia.h"
+#include "ListaVehiculos.h"
+#include "ListaOrganos.h"
 
 class cCentroDeSalud {
-public: 
-	cCentroDeSalud(string, string, string, eProv::Provincias, string);
-	~cCentroDeSalud() { }
-	
-	cOrgano* Ablar(/*listaOrganos& d,*/ eOrg::Organos q);
-	void Trasplantar(cOrgano*& r, cOrgano* o);
-
-	string tostring() const;
-	void   imprimir() const;
-
-private: 
 	const string nombre;
 	const string direccion;
 	const string partido;
 	const string telefono;
 	const eProv::Provincias provincia;
+
+	cListaVehiculos* MisVehiculos;
+
+	bool TransplateEquiprobable();
+
+public: 
+	cCentroDeSalud(string, string, string, eProv::Provincias, string);
+	~cCentroDeSalud() { }
+	
+	cOrgano* Ablar(cListaOrganos* d, eOrg::Organos q);
+	void Trasplantar(cOrgano*& r, cOrgano* o);
+
+	void setMisVehiculos(cListaVehiculos* v);
+	cListaVehiculos*  getMisVehiculos() const;
+	eProv::Provincias getProvincia()    const;
+
+	string tostring() const;
+	void   imprimir() const;
+
+	static char CalculadoraDeDistancia(cCentroDeSalud* csd, cCentroDeSalud* csr);
 };
 
 #endif //CENTRODESALUD_H

@@ -4,10 +4,10 @@
  * @version 1.0.0
  */
 
+#include "global.h"
 
 #ifndef EESTADO_H
 #define EESTADO_H
-#include "global.h"
 
 namespace eEst {
 	enum class Estado;

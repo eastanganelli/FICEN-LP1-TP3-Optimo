@@ -27,8 +27,12 @@ cFecha* cOrgano::getAblacion() const {
 	return this->ablacion;
 }
 
+eOrg::Organos cOrgano::getTipoOrg() const {
+	return this->tipo;
+}
+
 string cOrgano::tostring() const {
-	return "Organo [ " + eOrg::convertOrganoString(this->tipo) + " ]\nAblación [ " + this->ablacion->tostring() + " ]";
+	return "Organo [ " + eOrg::getOrganoString((u_int)tipo) + " ]\nAblación [ " + this->ablacion->tostring() + " ]";
 }
 
 void cOrgano::imprimir() const {

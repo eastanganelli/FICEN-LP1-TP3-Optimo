@@ -11,16 +11,31 @@ cDonante::cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo:
     this->initAblacion = NULL;
 }
 
+bool cDonante::tieneOrgano(eOrg::Organos o) const {
+    return (*Organos)[o] != NULL;
+}
+
 cOrgano* cDonante::remover(eOrg::Organos o) {
     cOrgano* Ablado = NULL;
 
-    //this->Organos.
+    Ablado = (*Organos)[o];
+    (*Organos) - Ablado;
 
     return Ablado;
 }
 
+void cDonante::setListaOrganos(cListaOrganos* lst) {
+    this->Organos = lst;
+}
+
+cListaOrganos* cDonante::getListaOrganos() const {
+    return this->Organos;
+}
+
 string cDonante::tostring() const {
-    return "Paciente [ DNI: " + this->dni + " ]\n" + this->nombre + "\nFallecio: " + this->fallecimiento->tostring() + "\nAblacion: " +this->initAblacion->tostring();
+    return "Paciente [ DNI: " + this->dni + " ]\n" + this->nombre +
+           "\nFallecio: " + this->fallecimiento->tostring() +
+           "\nAblacion: " + this->initAblacion->tostring();
 }
 
 void cDonante::imprimir() const {

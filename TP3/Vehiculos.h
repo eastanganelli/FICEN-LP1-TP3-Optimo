@@ -11,7 +11,9 @@
 
 class cVehiculos {
 public: 
-	cVehiculos(string r, float t, u_int c);
+	friend class cListaVehiculos;
+
+	cVehiculos(string r);
 	~cVehiculos() { }
 
 	virtual string tostring() const;
@@ -19,7 +21,5 @@ public:
 
 protected: 
 	const string registro;
-	const float  tara;
-	unsigned int capacidad;
 };
 #endif //VEHICULOS_H

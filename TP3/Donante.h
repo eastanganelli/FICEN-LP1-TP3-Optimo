@@ -4,18 +4,21 @@
  * @version 1.0.0
  */
 
+#include "Paciente.h"
 
 #ifndef CDONANTE_H
 #define CDONANTE_H
-
-#include "Paciente.h"
 
 class cDonante: public cPaciente {
 public:
 	cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, cFecha* f);
 	~cDonante() { }
 
+	bool tieneOrgano(eOrg::Organos o) const;
 	cOrgano* remover(eOrg::Organos o);
+
+	void setListaOrganos(cListaOrganos* lst);
+	cListaOrganos* getListaOrganos() const;
 
 	string tostring() const;
 	void   imprimir() const;

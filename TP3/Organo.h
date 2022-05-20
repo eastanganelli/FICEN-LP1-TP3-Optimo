@@ -4,22 +4,25 @@
  * @version 1.0.0
  */
 
+#ifndef ORGANO_H
+#define ORGANO_H
 
-#ifndef CORGANO_H
-#define CORGANO_H
+#define CANT_ORGANOS 9
 
-#include "eOrganos.h"
+#include "Organos.h"
 #include "Fecha.h"
 
 class cOrgano {
 public:
 	friend class cListaOrganos;
+
 	cOrgano(eOrg::Organos t);
 	cOrgano(eOrg::Organos t, cFecha* f);
 	~cOrgano();
 
 	void    setAblacion(cFecha* f);
 	cFecha* getAblacion() const;
+	eOrg::Organos getTipoOrg() const;
 	
 	string tostring() const;
 	void   imprimir() const;
