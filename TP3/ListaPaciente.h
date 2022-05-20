@@ -1,5 +1,5 @@
-#ifndef CLISTAPACIENTES_H
-#define CLISTAPACIENTES_H
+#ifndef LISTAPACIENTES_H
+#define LISTAPACIENTES_H
 
 #include "ListaT.h"
 #include "Paciente.h"
@@ -15,4 +15,4 @@ inline cListaPacientes::cListaPacientes() : cListaT() { }
 
 inline cListaPacientes::cListaPacientes(u_int tam, bool flag) : cListaT(tam, flag) { }
 
-#endif //CLISTAPACIENTES_H
+#endif //LISTAPACIENTES_H

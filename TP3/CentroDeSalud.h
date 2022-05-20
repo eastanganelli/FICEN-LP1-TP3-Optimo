@@ -21,7 +21,7 @@ class cCentroDeSalud {
 
 	cListaVehiculos* MisVehiculos;
 
-	bool TransplateEquiprobable();
+	bool TrasplateEquiprobable();
 
 public: 
 	cCentroDeSalud(string, string, string, eProv::Provincias, string);

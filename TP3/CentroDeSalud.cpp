@@ -20,7 +20,7 @@ cOrgano* cCentroDeSalud::Ablar(cListaOrganos* d, eOrg::Organos q) {
 
 void cCentroDeSalud::Trasplantar(cOrgano*& r, cOrgano* o) {
     if (cFecha::OrganoTrasplantable(cFecha::Hoy(), o->getAblacion()->getFecha())) {
-        if (TransplateEquiprobable()) {
+        if (TrasplateEquiprobable()) {
             cOrgano* viejoOrgano = r;
             r = o;
             delete viejoOrgano;
@@ -30,7 +30,7 @@ void cCentroDeSalud::Trasplantar(cOrgano*& r, cOrgano* o) {
     } else throw new overtime();
 }
 
-bool cCentroDeSalud::TransplateEquiprobable() {
+bool cCentroDeSalud::TrasplateEquiprobable() {
     srand((u_int)time(NULL));
     return ((rand() % 2) - 1) == 0 ? true : false;
 }

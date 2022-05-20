@@ -1,8 +1,8 @@
 #define MAX 10
 #define BLK MAX
 
-#ifndef CLISTAT_H
-#define CLISTAT_H
+#ifndef LISTAT_H
+#define LISTAT_H
 
 #include "global.h"
 #include "customEx.h"
@@ -197,4 +197,4 @@ inline u_int cListaT<T>::getCA() const { return this->ca; }
 template<class T>
 inline u_int cListaT<T>::getCT() const { return this->ct; }
 
-#endif //CLISTAT_H
+#endif //LISTAT_H

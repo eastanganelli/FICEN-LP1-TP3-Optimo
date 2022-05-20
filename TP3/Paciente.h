@@ -4,8 +4,8 @@
  * @version 1.0.0
  */
 
-#ifndef CPACIENTE_H
-#define CPACIENTE_H
+#ifndef PACIENTE_H
+#define PACIENTE_H
 
 #include "CentroDeSalud.h"
 #include "Fecha.h"

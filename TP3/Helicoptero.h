@@ -4,8 +4,8 @@
  * @version 1.0.0
  */
 
-#ifndef CHELICOPTERO_H
-#define CHELICOPTERO_H
+#ifndef HELICOPTERO_H
+#define HELICOPTERO_H
 
 #include "Vehiculos.h"
 

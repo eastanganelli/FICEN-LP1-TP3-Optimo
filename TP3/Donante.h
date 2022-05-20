@@ -6,8 +6,8 @@
 
 #include "Paciente.h"
 
-#ifndef CDONANTE_H
-#define CDONANTE_H
+#ifndef DONANTE_H
+#define DONANTE_H
 
 class cDonante: public cPaciente {
 public:

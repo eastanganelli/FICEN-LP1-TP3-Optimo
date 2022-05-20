@@ -1,5 +1,5 @@
-#ifndef CLISTACENTROSALUD_H
-#define CLISTACENTROSALUD_H
+#ifndef LISTACENTROSALUD_H
+#define LISTACENTROSALUD_H
 
 #include "ListaT.h"
 #include "CentroDeSalud.h"
@@ -23,4 +23,4 @@ inline bool cListaCentroSalud::EstaListado(cCentroDeSalud* cs_) {
 	return NoRepetido(cs_);
 }
 
-#endif // !CLISTACENTROSALUD_H
+#endif //LISTACENTROSALUD_H

@@ -4,8 +4,8 @@
  * @version 1.0.0
  */
 
-#ifndef CFECHA_H
-#define CFECHA_H
+#ifndef FECHA_H
+#define FECHA_H
 
 #define MESES 12
 

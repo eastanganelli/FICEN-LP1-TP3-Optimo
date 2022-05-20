@@ -1,5 +1,5 @@
-#ifndef CLISTAORGANOS_H
-#define CLISTAORGANOS_H
+#ifndef LISTAORGANOS_H
+#define LISTAORGANOS_H
 
 #include "listaT.h"
 #include "Organo.h"
@@ -25,4 +25,4 @@ inline cOrgano* cListaOrganos::operator[](eOrg::Organos o) {
 	return NULL;
 }
 
-#endif //CLISTAORGANOS_H
+#endif //LISTAORGANOS_H

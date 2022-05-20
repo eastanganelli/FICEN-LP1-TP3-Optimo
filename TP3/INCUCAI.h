@@ -4,8 +4,8 @@
  * @version 1.0.0
  */
 
-#ifndef CINCUCAI_H
-#define CINCUCAI_H
+#ifndef INCUCAI_H
+#define INCUCAI_H
 
 #include "ListaPaciente.h"
 #include "ListaReceptores.h"

@@ -1,5 +1,5 @@
-#ifndef CLISTARECEPTORES_H
-#define CLISTARECEPTORES_H
+#ifndef LISTARECEPTORES_H
+#define LISTARECEPTORES_H
 
 #include "listaT.h"
 #include "Receptor.h"
@@ -58,4 +58,4 @@ inline ostream& operator<<(ostream& os, const cListaReceptores& r) {
     }
 }
 
-#endif //CLISTARECEPTORES
+#endif //LISTARECEPTORES_H
