@@ -6,8 +6,8 @@
 
 #include "Vehiculos.h"
 
-#ifndef CAMBULANCIA_H
-#define CAMBULANCIA_H
+#ifndef AMBULANCIA_H
+#define AMBULANCIA_H
 
 class cAmbulancia: public cVehiculos {
 

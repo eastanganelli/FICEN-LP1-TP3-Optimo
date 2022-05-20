@@ -6,8 +6,8 @@
 
 #include "Vehiculos.h"
 
-#ifndef CAVION_H
-#define CAVION_H
+#ifndef AVION_H
+#define AVION_H
 
 class cAvion: public cVehiculos {
 public: 
