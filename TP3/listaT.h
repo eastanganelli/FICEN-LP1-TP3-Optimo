@@ -28,6 +28,7 @@ public:
 	void queue(T* d_);
 	T* dequeue();
 	T* eliminar(u_int findNode);
+	T* positionValue(u_int findNode);
 
 	u_int getCA() const;
 	u_int getCT() const;
@@ -125,7 +126,7 @@ template<class T>
 inline T* cListaT<T>::operator[](u_int findNode) {
 	T* retNode = NULL;
 	try {
-		retNode = findNode == NULL ? throw new null_node() : this->List[findNode];
+		retNode = this->List[findNode] == NULL ? throw new null_node() : this->List[findNode];
 	}
 	catch (null_node& e) {
 		cerr << e.what() << endl;
@@ -175,6 +176,19 @@ inline T* cListaT<T>::eliminar(u_int findNode) {
 	}
 
 	delete this->List[findNode];
+}
+
+template<class T>
+inline T* cListaT<T>::positionValue(u_int findNode) {
+	T* retNode = NULL;
+	try {
+		retNode = this->List[findNode] == NULL ? throw new null_node() : this->List[findNode];
+	}
+	catch (null_node& e) {
+		cerr << e.what() << endl;
+	}
+
+	return retNode;
 }
 
 template<class T>

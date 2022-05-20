@@ -12,20 +12,25 @@
 namespace eEst {
 	enum class Estado;
 
-	string convertEstadoString(Estado i);
+	static const string estados_str[] = {
+		"Estable",
+		"Inestable",
+		"Alta"
+	};
+
+	string getEstadoString(u_int i);
+	Estado getEstadoEnum(u_int i);
 }
 
 enum class eEst::Estado { Estable, Inestable, Alta };
 
-inline string eEst::convertEstadoString(Estado i) {
-	switch (i) {
-	case Estado::Estable:
-		return "Estable";
-	case Estado::Inestable:
-		return "Inestable";
-	}
+inline string eEst::getEstadoString(u_int i) {
+	string tmp(eEst::estados_str[i]);
+	return tmp;
+}
 
-	return "Alta";
+inline eEst::Estado eEst::getEstadoEnum(u_int i) {
+	return static_cast<eEst::Estado>(i);
 }
 
 #endif //ESTADO_H

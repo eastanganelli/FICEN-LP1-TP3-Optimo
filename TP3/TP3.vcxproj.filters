@@ -51,9 +51,6 @@
     <ClCompile Include="Vehiculos.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="customEx.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ambulancia.h">

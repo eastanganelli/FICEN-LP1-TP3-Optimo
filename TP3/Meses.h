@@ -6,69 +6,35 @@
 namespace eMes {
 	enum class Meses;
 
-	string convertMesString(Meses i);
+	static const string meses_str[] = {
+		"ENERO",
+		"FEBRERO",
+		"MARZO",
+		"ABRIL",
+		"MAYO",
+		"JUNIO",
+		"JULIO",
+		"AGOSTO",
+		"SEPTIEMBRE",
+		"OCTUBRE",
+		"NOVIEMBRE",
+		"DICIEMBRE"
+	};
+
+	string getMesString(u_int i);
 	
-	string UIntToMes(u_int i);
+	eMes::Meses getMesEnum(u_int i);
 }
 
 enum class eMes::Meses { EN, FE, MA, AB, MY, JN, JL, AG, SE, OC, NO, DI };
 
-inline string eMes::convertMesString(Meses i) {
-	switch (i) {
-	case Meses::EN:
-		return "ENERO";
-	case Meses::FE:
-		return "FEBRERO";
-	case Meses::MA:
-		return "MARZO";
-	case Meses::AB:
-		return "ABRIL";
-	case Meses::MY:
-		return "MAYO";
-	case Meses::JN:
-		return "JUNIO";
-	case Meses::JL:
-		return "JULIO";
-	case Meses::AG:
-		return "AGOSTO";
-	case Meses::SE:
-		return "SEPTIEMBRE";
-	case Meses::OC:
-		return "OCTUBRE";
-	case Meses::NO:
-		return "NOVIEMBRE";
-	}
-
-	return "Diciembre";
+inline string eMes::getMesString(u_int i) {
+	string tmp(eMes::meses_str[i]);
+	return tmp;
 }
 
-inline string eMes::UIntToMes(u_int i) {
-	switch (i) {
-	case 0:
-		return "ENERO";
-	case 1:
-		return "FEBRERO";
-	case 2:
-		return "MARZO";
-	case 3:
-		return "ABRIL";
-	case 4:
-		return "MAYO";
-	case 5:
-		return "JUNIO";
-	case 6:
-		return "JULIO";
-	case 7:
-		return "AGOSTO";
-	case 8:
-		return "SEPTIEMBRE";
-	case 9:
-		return "OCTUBRE";
-	case 10:
-		return "NOVIEMBRE";
-	}
-
-	return "Diciembre";
+inline eMes::Meses eMes::getMesEnum(u_int i) {
+	return static_cast<eMes::Meses>(i);
 }
 
 #endif // !MESES_H

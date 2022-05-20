@@ -11,7 +11,7 @@
 
 class cHelicoptero: public cVehiculos {
 public: 
-	cHelicoptero(string r, float t, u_int c);
+	cHelicoptero(string r);
 	~cHelicoptero() { }
 	string tostring() const;
 	void imprimir()   const;

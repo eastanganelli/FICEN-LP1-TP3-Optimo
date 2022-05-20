@@ -7,6 +7,8 @@
 #ifndef ORGANO_H
 #define ORGANO_H
 
+#define CANT_ORGANOS 9
+
 #include "Organos.h"
 #include "Fecha.h"
 

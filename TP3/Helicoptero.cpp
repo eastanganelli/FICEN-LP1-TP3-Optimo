@@ -5,7 +5,7 @@
  */
 #include "Helicoptero.h"
 
-cHelicoptero::cHelicoptero(string r, float t, u_int c) : cVehiculos(r, t, c) {
+cHelicoptero::cHelicoptero(string r) : cVehiculos(r) {
 }
 
 string cHelicoptero::tostring() const {

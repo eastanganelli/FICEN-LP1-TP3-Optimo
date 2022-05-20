@@ -143,7 +143,6 @@
     <ClCompile Include="Ambulancia.cpp" />
     <ClCompile Include="Avion.cpp" />
     <ClCompile Include="CentroDeSalud.cpp" />
-    <ClCompile Include="customEx.cpp" />
     <ClCompile Include="Donante.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Helicoptero.cpp" />

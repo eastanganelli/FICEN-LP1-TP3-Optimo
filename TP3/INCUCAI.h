@@ -7,11 +7,13 @@
 #ifndef CINCUCAI_H
 #define CINCUCAI_H
 
+#include "ListaPaciente.h"
 #include "ListaReceptores.h"
 #include "ListaCentroSalud.h"
 #include "ListaDonantes.h"
 
 class cINCUCAI {
+private:
 	const string direccion;
 	const string telefono;
 
@@ -32,11 +34,11 @@ public:
 
 	void RecibirPaciente(cPaciente* p);
 	cListaReceptores* PosiblesReceptores(cOrgano* c, cDonante* d);
-	void InicioProtocolo(cReceptor* p, cDonante* d);
-
+	bool InicioProtocolo(cReceptor* p, cDonante* d);
 	u_int PosicionEspera(cPaciente* p);
-	
 	void setCentrosHabilitados(cListaCentroSalud* lcs);
+	u_int hayDonantes() const;
+	cDonante* ObtenerDonante() const;
 	
 	/// <summary>
 	/// 

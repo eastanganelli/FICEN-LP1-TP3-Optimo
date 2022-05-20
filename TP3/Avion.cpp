@@ -5,7 +5,7 @@
  */
 #include "Avion.h"
 
-cAvion::cAvion(string r, float t, u_int c) : cVehiculos(r, t, c) {
+cAvion::cAvion(string r) : cVehiculos(r) {
 }
 
 string cAvion::tostring() const {

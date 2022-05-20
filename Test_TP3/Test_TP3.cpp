@@ -21,79 +21,92 @@ namespace Test_TP3 {
 					Logger::WriteMessage("False");
 			}
 		}
-	};
-}
+		TEST_METHOD(TIME) {
+			time_t fecha;
+			tm neww { 0 };
+			
+			neww.tm_year = (1942 + rand() % 80) - 1900;
+			neww.tm_mon = rand() % 11;
+			neww.tm_mday = rand() % 30 + 1;
 
-namespace Test_Fecha {
-	TEST_CLASS(Fecha) {
-	public:
-		TEST_METHOD(Imprimir) {
-			cFecha* Fecha = new cFecha("31/5/1995 12:12");
-			Assert::AreEqual("31/5/1995 12:12", Fecha->tostring().c_str());
-		}
-		TEST_METHOD(Convertir) {
-			cFecha* Fecha = new cFecha("31/05/1995 12:12");
-			int valor = cFecha::StringToTime(Fecha->tostring());
-			Logger::WriteMessage(to_string(valor).c_str());
-		}
-		TEST_METHOD(Diferencia) {
-			cFecha* Fecha = new cFecha("31/05/1995 12:12"),
-				  * FechaII = new cFecha("02/02/1995 15:25");
+			fecha = mktime(&neww);
 
-			bool value = cFecha::OrganoTrasplantable(cFecha::StringToTime(Fecha->tostring()), cFecha::StringToTime(FechaII->tostring()));
-
-			Logger::WriteMessage(value ? "T\n" :  "F\n");
-
-			Fecha = new cFecha("31/05/1995 12:12");
-			FechaII = new cFecha("31/05/1995 15:25");
-
-			value = cFecha::OrganoTrasplantable(cFecha::StringToTime(Fecha->tostring()), cFecha::StringToTime(FechaII->tostring()));
-
-			Logger::WriteMessage(value ? "T\n" : "F\n");
+			Logger::WriteMessage(to_string(fecha).c_str());
+			std::cout << fecha;
 		}
 	};
 }
 
-namespace Test_CentroSalud {
-	TEST_CLASS(CentroSalud) {
-	public:
-
-	};
-}
-
-namespace Test_Paciente {
-
-	TEST_CLASS(Paciente) {
-	public:
-
-	};
-}
-
-namespace Test_INCUCAI {
-	TEST_CLASS(INCUCAI) {
-	public:
-
-	};
-}
-
-namespace Test_Listas {
-	TEST_CLASS(Listas) {
-	public:
-
-	};
-
-	TEST_CLASS(Lista_CentroSalud) {
-	public:
-
-	};
-
-	TEST_CLASS(Listas_Paciente) {
-	public:
-
-	};
-
-	TEST_CLASS(Lista_Organo) {
-	public:
-
-	};
-}
+//namespace Test_Fecha {
+//	TEST_CLASS(Fecha) {
+//	public:
+//		TEST_METHOD(Imprimir) {
+//			cFecha* Fecha = new cFecha("31/5/1995 12:12");
+//			Assert::AreEqual("31/5/1995 12:12", Fecha->tostring().c_str());
+//		}
+//		TEST_METHOD(Convertir) {
+//			cFecha* Fecha = new cFecha("31/05/1995 12:12");
+//			int valor = cFecha::StringToTime(Fecha->tostring());
+//			Logger::WriteMessage(to_string(valor).c_str());
+//		}
+//		TEST_METHOD(Diferencia) {
+//			cFecha* Fecha = new cFecha("31/05/1995 12:12"),
+//				  * FechaII = new cFecha("02/02/1995 15:25");
+//
+//			bool value = cFecha::OrganoTrasplantable(cFecha::StringToTime(Fecha->tostring()), cFecha::StringToTime(FechaII->tostring()));
+//
+//			Logger::WriteMessage(value ? "T\n" :  "F\n");
+//
+//			Fecha = new cFecha("31/05/1995 12:12");
+//			FechaII = new cFecha("31/05/1995 15:25");
+//
+//			value = cFecha::OrganoTrasplantable(cFecha::StringToTime(Fecha->tostring()), cFecha::StringToTime(FechaII->tostring()));
+//
+//			Logger::WriteMessage(value ? "T\n" : "F\n");
+//		}
+//	};
+//}
+//
+//namespace Test_CentroSalud {
+//	TEST_CLASS(CentroSalud) {
+//	public:
+//
+//	};
+//}
+//
+//namespace Test_Paciente {
+//
+//	TEST_CLASS(Paciente) {
+//	public:
+//
+//	};
+//}
+//
+//namespace Test_INCUCAI {
+//	TEST_CLASS(INCUCAI) {
+//	public:
+//
+//	};
+//}
+//
+//namespace Test_Listas {
+//	TEST_CLASS(Listas) {
+//	public:
+//
+//	};
+//
+//	TEST_CLASS(Lista_CentroSalud) {
+//	public:
+//
+//	};
+//
+//	TEST_CLASS(Listas_Paciente) {
+//	public:
+//
+//	};
+//
+//	TEST_CLASS(Lista_Organo) {
+//	public:
+//
+//	};
+//}

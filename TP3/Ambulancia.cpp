@@ -5,7 +5,7 @@
  */
 #include "Ambulancia.h"
 
-cAmbulancia::cAmbulancia(string r, float t, u_int c, string color) : cVehiculos(r, t, c) {
+cAmbulancia::cAmbulancia(string r) : cVehiculos(r) {
     this->color = color;
 }
 

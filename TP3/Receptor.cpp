@@ -50,8 +50,8 @@ void cReceptor::AgregadoLista() {
 string cReceptor::tostring() const {
 	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
 		"\n Fecha Nacimiento" + this->nacimiento->tostring() +
-		"\nSexo:" + eSexo::convertSexoString(this->sexo) +
-		"\nGrupo Sanguineo: " + eGrupoSanguineo::convertGrupoString(this->gs) +
+		"\nSexo:" + eSexo::getSexoString((u_int)sexo) +
+		"\nGrupo Sanguineo: " + eGrupoSanguineo::getGrupoString((u_int)gs) +
 		"\nTelefono de contacto: " + this->telefonoContacto +
 		(this->estado != eEst::Estado::Alta ? "\nOrgano defectuoso" : "\nOrgano Trasplantado") + this->Organo->tostring();
 }

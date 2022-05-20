@@ -5,44 +5,34 @@
  */
 
 #ifndef PRIORIDAD_H
-#define PRIORIDAD_H
+#define PRIORIDAD_H 
 
 #include "global.h"
 
 namespace ePrio {
 	enum class Prioridad;
 
-	string convertPrioridadString(Prioridad i);
+	static const string prioridad_str[] = {
+		"NON"
+		"ALTA",
+		"MEDIA",
+		"BAJA"
+	};
 
-	Prioridad UIntToProiridad(u_int i);
+	string getPrioridadString(u_int i);
+
+	Prioridad getPrioridadEnum(u_int i);
 }
 
 enum class ePrio::Prioridad { NON, ALTA, MEDIA, BAJA };
 
-inline string ePrio::convertPrioridadString(Prioridad i) {
-	switch (i) {
-	case Prioridad::ALTA:
-		return "ALTA";
-	case Prioridad::MEDIA:
-		return "MEDIA";
-	case Prioridad::BAJA:
-		return "BAJA";
-	}
-
-	return "No Prioridad";
+inline string ePrio::getPrioridadString(u_int i) {
+	string tmp(ePrio::prioridad_str[i]);
+	return tmp;
 }
 
-inline ePrio::Prioridad ePrio::UIntToProiridad(u_int i) {
-	switch (i) {
-	case 0:
-		return Prioridad::ALTA;
-	case 1:
-		return Prioridad::MEDIA;
-	case 2:
-		return Prioridad::BAJA;
-	}
-
-	return Prioridad::NON;
+inline ePrio::Prioridad ePrio::getPrioridadEnum(u_int i) {
+	return static_cast<ePrio::Prioridad>(i);
 }
 
 #endif //EPRIORIDAD_H

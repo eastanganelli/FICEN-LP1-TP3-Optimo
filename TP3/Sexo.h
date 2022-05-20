@@ -12,22 +12,27 @@
 namespace eSexo {
 	enum class Sexo;
 
-	string convertSexoString(Sexo i);
+	static const string sexo_str[] = {
+		"Femenino",
+		"Masculino",
+		"No definido",
+		"0"
+	};
+
+	string getSexoString(u_int i);
+	Sexo   getSexoEnum(u_int i);
 }
 
 enum class eSexo::Sexo { F, M, ND, O };
 
-inline string eSexo::convertSexoString(Sexo i) {
-	switch (i) {
-	case Sexo::F:
-		return "F";
-	case Sexo::M:
-		return "M";
-	case Sexo::ND:
-		return "ND";
-	}
-
-	return "O";
+inline string eSexo::getSexoString(u_int i) {
+	string tmp(eSexo::sexo_str[i]);
+	return tmp;
 }
+
+inline eSexo::Sexo eSexo::getSexoEnum(u_int i) {
+	return static_cast<eSexo::Sexo>(i);
+}
+
 
 #endif //ESEXO_H

@@ -55,7 +55,7 @@ eProv::Provincias cCentroDeSalud::getProvincia() const {
 }
 
 string cCentroDeSalud::tostring() const {
-    return this->nombre + "\t" + this->telefono + "\n" + this->direccion + ", " + this->partido + ", " + eProv::convertProvinciasString(this->provincia);
+    return this->nombre + "\t" + this->telefono + "\n" + this->direccion + ", " + this->partido + ", " + eProv::getProvinciaString((u_int)provincia);
 }
 
 void cCentroDeSalud::imprimir() const {

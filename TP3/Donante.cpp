@@ -24,6 +24,10 @@ cOrgano* cDonante::remover(eOrg::Organos o) {
     return Ablado;
 }
 
+void cDonante::setListaOrganos(cListaOrganos* lst) {
+    this->Organos = lst;
+}
+
 cListaOrganos* cDonante::getListaOrganos() const {
     return this->Organos;
 }
