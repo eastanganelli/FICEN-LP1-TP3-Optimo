@@ -1,8 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
 #include "Paciente.h"
 
 cPaciente::cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc): dni(dni), nombre(n), sexo(s), nacimiento(nac) {
@@ -21,13 +16,17 @@ cCentroDeSalud* cPaciente::getCentroAsociado() const {
 	return this->HospiAsociado;
 }
 
-
 string cPaciente::tostring() const {
-	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
-		"\n Fecha Nacimiento" + this->nacimiento->tostring() +
-		"\nSexo:" + eSexo::getSexoString((u_int)sexo) +
-		"\nGrupo Sanguineo: " + eGrupoSanguineo::getGrupoString((u_int)gs) +
-		"\nTelefono de contacto: " + this->telefonoContacto;
+	stringstream ss;
+
+	ss << "Paciente [ " << this->dni << " :: " << this->nombre << " ]" << endl
+		<< "Fecha Nacimiento > " << this->nacimiento->tostring() << endl
+		<< "Telefono de Contacto > " << this->telefonoContacto << endl
+		<< "Sexo > " << eSexo::getSexoString(u_int(this->sexo)) << endl
+		<< "Grupo Sanguineo > " << eGrupoSanguineo::getGrupoString(u_int(this->gs)) << endl
+		<< "Centro de Salud Asociado > " << this->HospiAsociado->tostring() << endl;
+	
+	return ss.str();
 }
 
 void cPaciente::imprimir() const {

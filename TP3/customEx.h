@@ -1,8 +1,26 @@
-#include <exception>
-#include "global.h"
-
+/*
+* Excepciones personalizadas
+* ----------------------------------------------------------------------------------
+* Aquí podrán encontrar excepciones que se encargan de informar distintos problemas:
+* - Excepción de sobre tiempo (overtime)
+* - Excepción de trasplante (transplant):
+*		Salta cuando el trasplante presenta un problema.
+* - Excepción de vehículo (vehicle):
+*		Salta cuando no se puede encontrar un vehículo para transportar el órgano ablado.
+* - Excepción NULL (null_node):
+*		Se ejecuta cuando recibimos o queremos leer una sección de memoria que se encuentra en NULL.
+* - Excepción repetido (rep_node):
+*		Se ejecuta cuando se intenta insertar un nodo que ya existe en la lista.
+* - Expción de lista vacía (empty_list):
+*		Se ejecuta cuando se intenta leer una lista vacía.
+* - Excepción fuera de lista (out_list):
+*		Se ejecuta cuando se intenta leer un nodo que no está en la lista.
+*/
 #ifndef CUSTOMEX_H
 #define CUSTOMEX_H
+
+#include <exception>
+#include "global.h"
 
 class overtime : public exception {
 public:

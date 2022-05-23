@@ -1,8 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
 #include "CentroDeSalud.h"
 
 cCentroDeSalud::cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t), MisVehiculos(NULL) { }

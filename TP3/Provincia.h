@@ -1,9 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
-
 #ifndef PROVINCIA_H
 #define PROVINCIA_H
 
@@ -48,11 +42,21 @@ namespace eProv {
 
 enum class eProv::Provincias { CABA, BA, CA, CH, CT, CB, CR, ER, FO, JY, LP, LR, MZ, MI, NQN, RN, SA, SJ, SL, SC, SF, SE, TF, TU };
 
+/// <summary>
+/// Convierte Enum a string
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve string</returns>
 inline string eProv::getProvinciaString(u_int i) {
 	string tmp(eProv::provincias_str[i]);
 	return tmp;
 }
 
+/// <summary>
+/// Convierte un ID a Enum
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve el Enum</returns>
 inline eProv::Provincias eProv::getProvinciasEnum(u_int i) {
 	return static_cast<eProv::Provincias>(i);
 }

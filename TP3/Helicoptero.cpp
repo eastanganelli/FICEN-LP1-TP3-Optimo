@@ -1,15 +1,18 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
 #include "Helicoptero.h"
 
-cHelicoptero::cHelicoptero(string r) : cVehiculos(r) {
+cHelicoptero::cHelicoptero(string r, float la, float an, bool tu) : cVehiculos(r, la, an), turbina(tu) { }
+
+void cHelicoptero::RealizarTransporte() const {
+    cout << "taca-taca-taca";
 }
 
 string cHelicoptero::tostring() const {
-    return "taca-taca-taca";
+    stringstream ss;
+    ss << "Nro Registro: " << this->registro << endl
+        << "Informacion" << endl
+        << "\tArea minima para aterrizar: " << to_string(this->ancho * this->largo) << " m^2" << endl
+		<< "\tTurbina: " << (this->turbina ? "Si" : "No") << endl;
+    return ss.str();
 }
 
 void cHelicoptero::imprimir()   const {

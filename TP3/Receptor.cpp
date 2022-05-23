@@ -1,8 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
 #include "Receptor.h"
 
 cReceptor::cReceptor(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, eEst::Estado est,
@@ -48,12 +43,19 @@ void cReceptor::AgregadoLista() {
 }
 
 string cReceptor::tostring() const {
-	return "Nombre: " + this->nombre + "\nDNI: " + this->dni +
-		"\n Fecha Nacimiento" + this->nacimiento->tostring() +
-		"\nSexo:" + eSexo::getSexoString((u_int)sexo) +
-		"\nGrupo Sanguineo: " + eGrupoSanguineo::getGrupoString((u_int)gs) +
-		"\nTelefono de contacto: " + this->telefonoContacto +
-		(this->estado != eEst::Estado::Alta ? "\nOrgano defectuoso" : "\nOrgano Trasplantado") + this->Organo->tostring();
+	stringstream ss;
+
+	ss << "Paciente [ " << this->dni << " :: " << this->nombre << " ]" << endl
+		<< "Fecha Nacimiento > " << this->nacimiento->tostring() << endl
+		<< "Telefono de Contacto > " << this->telefonoContacto << endl
+		<< "Sexo > " << eSexo::getSexoString(u_int(this->sexo)) << endl
+		<< "Grupo Sanguineo > " << eGrupoSanguineo::getGrupoString(u_int(this->gs)) << endl
+		<< "Centro de Salud Asociado > " << this->HospiAsociado->tostring() << endl
+		<< "Patologia > " << ePato::getPatologiaString(u_int(this->patologia)) << endl
+		<< (this->estado != eEst::Estado::Alta ? "Organo defectuoso" : "Organo Trasplantado") << this->Organo->tostring()
+		<< "Prioridad > " << ePrio::getPrioridadString(u_int(this->prioridad)) << endl;
+
+	return ss.str();
 }
 
 void cReceptor::imprimir() const {

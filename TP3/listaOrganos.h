@@ -9,8 +9,14 @@ public:
 	cListaOrganos();
 	cListaOrganos(u_int tam, bool flag);
 
+	/// <summary>
+	/// Busca el órgano de interés usando el enum.
+	/// </summary>
+	/// <param name="o">Enum del tipo órgano</param>
+	/// <returns>Puntero del tipo Organo</returns>
 	cOrgano* operator[](eOrg::Organos o);
 
+	friend ostream& operator<<(ostream& os, const cListaOrganos& out);
 };
 
 inline cListaOrganos::cListaOrganos() : cListaT() { }
@@ -23,6 +29,18 @@ inline cOrgano* cListaOrganos::operator[](eOrg::Organos o) {
 			return this->List[i];
 
 	return NULL;
+}
+
+inline ostream& operator<<(ostream& os, const cListaOrganos& out) {
+	os << "Listado de Organos" << endl
+		<< "=====================" << endl;
+
+	for (u_int i = 0; i < out.ca; i++) {
+		if (out.List[i] != NULL)
+			os << out.List[i]->tostring() << endl;
+	}
+
+	return os;
 }
 
 #endif //LISTAORGANOS_H

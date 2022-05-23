@@ -1,9 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
-
 #ifndef SEXO_H
 #define SEXO_H
 
@@ -25,14 +19,23 @@ namespace eSexo {
 
 enum class eSexo::Sexo { F, M, ND, O };
 
+/// <summary>
+/// Convierte Enum a string
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve string</returns>
 inline string eSexo::getSexoString(u_int i) {
 	string tmp(eSexo::sexo_str[i]);
 	return tmp;
 }
 
+/// <summary>
+/// Convierte un ID a Enum
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve el Enum</returns>
 inline eSexo::Sexo eSexo::getSexoEnum(u_int i) {
 	return static_cast<eSexo::Sexo>(i);
 }
 
-
-#endif //ESEXO_H
+#endif //SEXO_H

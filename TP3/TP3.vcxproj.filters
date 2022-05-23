@@ -122,9 +122,6 @@
     <ClInclude Include="ListaReceptores.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ListaPaciente.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ListaDonantes.h">
       <Filter>Header Files</Filter>
     </ClInclude>

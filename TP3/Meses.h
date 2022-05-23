@@ -28,13 +28,23 @@ namespace eMes {
 
 enum class eMes::Meses { EN, FE, MA, AB, MY, JN, JL, AG, SE, OC, NO, DI };
 
+/// <summary>
+/// Convierte Enum a string
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve string</returns>
 inline string eMes::getMesString(u_int i) {
 	string tmp(eMes::meses_str[i]);
 	return tmp;
 }
 
+/// <summary>
+/// Convierte un ID a Enum
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve el Enum</returns>
 inline eMes::Meses eMes::getMesEnum(u_int i) {
 	return static_cast<eMes::Meses>(i);
 }
 
-#endif // !MESES_H
+#endif //MESES_H

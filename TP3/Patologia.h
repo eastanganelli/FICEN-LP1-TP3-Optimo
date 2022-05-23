@@ -1,9 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
-
 #ifndef PATOLOGIA_H
 #define PATOLOGIA_H
 
@@ -28,12 +22,23 @@ namespace ePato {
 
 enum class ePato::Patologia { NON, FQ, IR, IC, HEP, NEC, INMO };
 
+/// <summary>
+/// Convierte Enum a string
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve string</returns>
 inline string ePato::getPatologiaString(u_int i) {
 	string tmp(ePato::patologia_str[i]);
 	return tmp;
 }
 
+/// <summary>
+/// Convierte un ID a Enum
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve el Enum</returns>
 inline ePato::Patologia ePato::getPatologiaEnum(u_int i){
 	return static_cast<ePato::Patologia>(i);
 }
+
 #endif //PATOLOGIA_H

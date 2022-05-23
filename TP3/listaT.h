@@ -18,22 +18,63 @@ protected:
 	void resize();
 
 public:
+	/// <summary>
+	/// Constructor de la clase Lista.
+	/// </summary>
+	/// <param name="tam">Tamaño de la Lista</param>
+	/// <param name="flag">Flag de eliminación</param>
 	cListaT(u_int tam = MAX, bool flag = false);
 	~cListaT();
 
+	/// <summary>
+	/// Adición de nodos a la Lista.
+	/// </summary>
+	/// <param name="newNode">Nodo a añadir</param>
 	void operator+(T* newNode);
+	/// <summary>
+	/// Busca el nodo que se desea quitar de la Lista.
+	/// </summary>
+	/// <param name="rmNode">Nodo que se desea quitar</param>
 	void operator-(T* rmNode);
+	/// <summary>
+	/// Busca un nodo en la Lista.
+	/// </summary>
+	/// <param name="findNode">Posición del nodo</param>
+	/// <returns>Puntero del nodo de interés</returns>
 	T* operator[](u_int findNode);
 
+	/// <summary>
+	/// Adición de nodos al final de la Lista.
+	/// </summary>
+	/// <param name="d_">Nodo a añadir</param>
 	void queue(T* d_);
+	/// <summary>
+	/// Quita el primer nodo de la Lista.
+	/// </summary>
+	/// <returns>Puntero del primer nodo</returns>
 	T* dequeue();
-	T* eliminar(u_int findNode);
+	/// <summary>
+	/// Elimina el nodo seleccionado de la Lista.
+	/// </summary>
+	/// <param name="findNode">Posición del nodo a eliminar</param>
+	void eliminar(u_int findNode);
+	/// <summary>
+	/// Busca el nodo que se desea de la Lista.
+	/// </summary>
+	/// <param name="findNode">Posición del Nodo</param>
+	/// <returns>Puntero del nodo de interés</returns>
 	T* positionValue(u_int findNode);
 
+	/// <summary>
+	/// Cantidad actual de nodos en la Lista.
+	/// </summary>
+	/// <returns>Devuelve un unsigned int</returns>
 	u_int getCA() const;
+	/// <summary>
+	/// Cantidad total de nodos en la Lista.
+	/// </summary>
+	/// <returns>Devuelve un unsigned int</returns>
 	u_int getCT() const;
-
-	//string tostring() const;
 };
 
 template<class T>
@@ -139,7 +180,7 @@ template<class T>
 inline void cListaT<T>::queue(T* newNode) {
 	if (newNode == NULL) throw new null_node();
 
-	if (this->ca == this->ct)
+	if (this->ca >= this->ct)
 		this->resize();
 
 	if (this->ca < this->ct)
@@ -167,7 +208,7 @@ inline T* cListaT<T>::dequeue() {
 }
 
 template<class T>
-inline T* cListaT<T>::eliminar(u_int findNode) {
+inline void cListaT<T>::eliminar(u_int findNode) {
 	try {
 		if (this->List[findNode] == NULL) throw new null_node();
 	}

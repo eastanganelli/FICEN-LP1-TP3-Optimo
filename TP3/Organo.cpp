@@ -1,8 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
 #include "Organo.h"
 
 cOrgano::cOrgano(eOrg::Organos t) {
@@ -32,7 +27,12 @@ eOrg::Organos cOrgano::getTipoOrg() const {
 }
 
 string cOrgano::tostring() const {
-	return "Organo [ " + eOrg::getOrganoString((u_int)tipo) + " ]\nAblación [ " + this->ablacion->tostring() + " ]";
+	stringstream ss;
+	
+	ss << "Organo [ " << eOrg::getOrganoString((u_int)tipo) << " ]" << endl
+		<< "Ablación [ " << (this->ablacion != NULL ? this->ablacion->tostring() : "Sin Fecha") << " ]" << endl;
+
+	return ss.str();
 }
 
 void cOrgano::imprimir() const {

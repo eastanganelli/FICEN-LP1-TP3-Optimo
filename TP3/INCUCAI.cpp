@@ -1,29 +1,20 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
 #include "INCUCAI.h"
 
 cINCUCAI::cINCUCAI() : direccion("Ramsay 2250, CABA"), telefono("11-2154-8518") {
-    this->Trasplantados      = new cListaReceptores(7, true);
+    this->Trasplantados      = new cListaT<cPaciente>(15, false);
     this->ListaEspera        = new cListaReceptores(10, true);
     this->Donantes           = new cListaDonantes(5, true);
     this->CentrosHabilitados = new cListaCentroSalud(6, true);
 }
 
 cINCUCAI::cINCUCAI(string d, string t) : direccion(d), telefono(t) {
-    this->Trasplantados      = new cListaReceptores(7, true);
+    this->Trasplantados      = new cListaT<cPaciente>(15, false);
     this->ListaEspera        = new cListaReceptores(10, true);
     this->Donantes           = new cListaDonantes(5, true);
     this->CentrosHabilitados = new cListaCentroSalud(6, true);
 }
 
 cINCUCAI::~cINCUCAI() {
-    if (this->Trasplantados != NULL) {
-        delete this->Trasplantados;
-        this->Trasplantados = NULL;
-    }
     if (this->ListaEspera != NULL) {
         delete this->ListaEspera;
         this->ListaEspera = NULL;
@@ -50,11 +41,8 @@ void cINCUCAI::RecibirPaciente(cPaciente* p) {
     IngresarPaciente(p);
 }
 
-cListaReceptores* cINCUCAI::PosiblesReceptores(cOrgano* c, cDonante* d) {
-    if (this->Donantes->getCA() > 0)
-        return this->ListaEspera->obtenerReceptoresCompatibles(c, d);
-
-    return NULL;
+cListaReceptores* cINCUCAI::BuscarPosiblesReceptores(cOrgano* c, cDonante* d) {
+    return this->ListaEspera->obtenerReceptoresCompatibles(c, d);
 }
 
 void cINCUCAI::IngresarPaciente(cPaciente* p) {
@@ -88,7 +76,7 @@ bool cINCUCAI::InicioProtocolo(cReceptor* r, cDonante* d) {
         cOrgano* O_Trasplante = CS_D->Ablar(d->getListaOrganos(), r->getMiOrgano()->getTipoOrg());
 		
 		// Enviarlo
-        MiTransporte->imprimir();
+        MiTransporte->RealizarTransporte();
 		
 		// Trasplantar
         cOrgano* Defectuoso = r->getMiOrgano();
@@ -188,8 +176,12 @@ void cINCUCAI::setCentrosHabilitados(cListaCentroSalud* lcs) {
     this->CentrosHabilitados = lcs;
 }
 
-u_int cINCUCAI::hayDonantes() const {
-    return Donantes->getCA();
+bool cINCUCAI::hayDonantes() const {
+    return (Donantes->getCA() > 0 ? true : false);
+}
+
+bool cINCUCAI::hayReceptores() const {
+    return (ListaEspera->getCA() > 0 ? true : false);
 }
 
 cDonante* cINCUCAI::ObtenerDonante() const {
@@ -221,7 +213,7 @@ cListaReceptores* cINCUCAI::Buscar(cOrgano* o) {
 }
 
 void cINCUCAI::informeTrasplantados() {
-    cListaReceptores* sublista = this->Trasplantados;
+    cListaT<cPaciente>* sublista = this->Trasplantados;
     time_t time_aux = cFecha::Hoy();
     struct tm Hoy_;
     
@@ -239,7 +231,7 @@ void cINCUCAI::informeTrasplantados() {
             for (u_int mes = 0; i < u_int(Hoy_.tm_mon); i++) {
 
                 for (u_int j = 0; j < sublista->getCT(); j++) {
-                    cReceptor* r = (*sublista)[j];
+                    cReceptor* r = dynamic_cast<cReceptor*>((*sublista)[j]);
                     eProv::Provincias Aux_p = r->getCentroAsociado()->getProvincia();
 
                     if (Aux_p == Prov_Busqueada) {
@@ -272,10 +264,18 @@ void cINCUCAI::informeTrasplantados() {
 
 string cINCUCAI::tostring() const {
 	stringstream ss;
+
     ss << "Direccion: " << this->direccion << endl << "Telefono: " << this->telefono;
+	
     return ss.str();
 }
 
 void cINCUCAI::imprimir() const {
-    cout << tostring() << endl;
+    cout << tostring() << endl
+        << "-----------------------------------" << endl
+        << (*ListaEspera) << endl
+        << "-----------------------------------" << endl
+        << (*Donantes) << endl
+        << "-----------------------------------" << endl
+        << (*CentrosHabilitados) << endl;
 }

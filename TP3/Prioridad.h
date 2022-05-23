@@ -1,9 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
-
 #ifndef PRIORIDAD_H
 #define PRIORIDAD_H 
 
@@ -26,13 +20,23 @@ namespace ePrio {
 
 enum class ePrio::Prioridad { NON, ALTA, MEDIA, BAJA };
 
+/// <summary>
+/// Convierte Enum a string
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve string</returns>
 inline string ePrio::getPrioridadString(u_int i) {
 	string tmp(ePrio::prioridad_str[i]);
 	return tmp;
 }
 
+/// <summary>
+/// Convierte un ID a Enum
+/// </summary>
+/// <param name="i">ID del Enum</param>
+/// <returns>Devuelve el Enum</returns>
 inline ePrio::Prioridad ePrio::getPrioridadEnum(u_int i) {
 	return static_cast<ePrio::Prioridad>(i);
 }
 
-#endif //EPRIORIDAD_H
+#endif //PRIORIDAD_H

@@ -158,7 +158,6 @@
     <ClInclude Include="Avion.h" />
     <ClInclude Include="CentroDeSalud.h" />
     <ClInclude Include="ListaCentroSalud.h" />
-    <ClInclude Include="ListaPaciente.h" />
     <ClInclude Include="customEx.h" />
     <ClInclude Include="Donante.h" />
     <ClInclude Include="Estado.h" />

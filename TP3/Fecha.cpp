@@ -1,8 +1,3 @@
-/**
- * Project TP3
- * @author Ezequiel Augusto Stanganelli
- * @version 1.0.0
- */
 #define _CRT_SECURE_NO_WARNINGS
 #include "Fecha.h"
 
@@ -19,7 +14,11 @@ time_t cFecha::getFecha() const {
 }
 
 string cFecha::tostring() const {
-    return ctime(&(this->Fecha));
+    stringstream ss;
+
+    ss << ctime(&(this->Fecha));
+	
+    return ss.str();
 }
 
 void cFecha::imprimir() const {
