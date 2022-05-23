@@ -17,17 +17,19 @@ const string nombreYapellidos[] = {
     "Sebastian Driussi"
 };
 
-cListaCentroSalud* CargaCentros();
+void CargaCentros(cListaCentroSalud*& MisCentros);
 void CargaPacientes(cListaT<cPaciente>*& MisPacientes, cListaCentroSalud* MisCentros);
 
 int main() {
     srand((u_int)time(NULL));
 	
     /*Carga de datos iniciales*/
-    cINCUCAI*           Mi_INCUCAI = new cINCUCAI();
-    cListaCentroSalud*  MisCentros = CargaCentros();
+    cINCUCAI*           Mi_INCUCAI = NULL;
+    cListaCentroSalud*  MisCentros = NULL;
     cListaT<cPaciente>* Pacientes  = NULL;
     
+    Mi_INCUCAI = new cINCUCAI();
+    CargaCentros(MisCentros);
     CargaPacientes(Pacientes, MisCentros);
 
     Mi_INCUCAI->setCentrosHabilitados(MisCentros);
@@ -85,6 +87,10 @@ int main() {
 
     /*Imprimir resumen*/
     Mi_INCUCAI->informeTrasplantados();
+	
+
+	/*Liberando Memoria*/
+    MisCentros = NULL;
 
     if (Pacientes != NULL) {
         delete Pacientes;
@@ -96,11 +102,11 @@ int main() {
         Mi_INCUCAI = NULL;
     }
 	
-	return 0;
+    return 0;
 }
 
-cListaCentroSalud* CargaCentros() {
-    cListaCentroSalud* MisCentros = new cListaCentroSalud(4, true);
+void CargaCentros(cListaCentroSalud*& MisCentros) {
+     MisCentros = new cListaCentroSalud(4, true);
 
     cCentroDeSalud* cs = new cCentroDeSalud("Hospital Italiano", "Perón 4190", "Almagro", eProv::Provincias::CABA, "4959-0201");
     cListaVehiculos* MiTransportes = new cListaVehiculos(2, true);
@@ -127,8 +133,6 @@ cListaCentroSalud* CargaCentros() {
     (*MiTransportes) + new cAvion("MAD-AMP34-ALFA", (float)43.8, (float)21.6, (float)155.2, true);
     cs->setMisVehiculos(MiTransportes);
     (*MisCentros) + (cs);
-
-    return MisCentros;
 }
 
 void CargaPacientes(cListaT<cPaciente>*& MisPacientes, cListaCentroSalud* MisCentros) {

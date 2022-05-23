@@ -8,13 +8,16 @@ void cAvion::RealizarTransporte() const {
 
 string cAvion::tostring() const {
     stringstream ss;
-    ss << "Nro Registro: " << this->registro << endl
+	
+    ss << "Avion" << endl
+        << "Nro Registro: " << this->registro << endl
         << "Información" << endl
 		<< "\tTipo: " << (this->Helice ? "Helice" : "Turbina") << endl
         << "\tVelocidad Maxima: " << this->topSpeed << "Knots" << endl
         << "\tDatos minimos de pista" << endl
         << "\t\tLongitud: " << this->largo  << " m" << endl
         << "\t\tAncho: " << this->ancho << " m" << endl;
+	
     return ss.str();
 }
 

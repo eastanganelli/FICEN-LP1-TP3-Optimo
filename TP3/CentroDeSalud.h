@@ -27,6 +27,10 @@ public:
 	/// <param name="pr">Provincia</param>
 	/// <param name="t">Teléfono</param>
 	cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t);
+	/// <summary>
+	/// Constructor por copia
+	/// </summary>	
+	cCentroDeSalud(const cCentroDeSalud& a);
 	~cCentroDeSalud();
 	
 	/// <summary>

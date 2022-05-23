@@ -18,7 +18,7 @@ public:
 	/// <param name="largo"></param>
 	/// <param name="ancho"></param>
 	cVehiculos(string r, float largo, float ancho);
-	~cVehiculos() { }
+	~cVehiculos();
 
 	/// <summary>
 	/// Se realiza el transporte del Organo del Donante

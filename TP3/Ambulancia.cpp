@@ -8,11 +8,14 @@ void cAmbulancia::RealizarTransporte() const {
 
 string cAmbulancia::tostring() const {
     stringstream ss;
-    ss << "Nro Registro: " << this->registro << endl
+
+    ss << "Ambulancia" << endl
+        << "Nro Registro: " << this->registro << endl
         << "Información" << endl
         << "\tLargo: " << this->largo << " m" << endl
         << "\tAncho: " << this->ancho << " m" << endl
         << "\tTiene Aires: " << (this->tieneAirCon ? "Si" :  "No") << endl;
+
     return ss.str();
 }
 

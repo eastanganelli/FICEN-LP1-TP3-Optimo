@@ -20,7 +20,7 @@ public:
 	/// <param name="s">Sexo del paciente</param>
 	/// <param name="asc">Centro de salud asociado</param>
 	/// <param name="f">Fecha de defunción</param>
-	cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, cFecha* f);
+	cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo gs, eSexo::Sexo s, cCentroDeSalud* asc, cFecha* f);
 	~cDonante();
 
 	/// <summary>

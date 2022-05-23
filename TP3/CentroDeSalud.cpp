@@ -2,6 +2,10 @@
 
 cCentroDeSalud::cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t), MisVehiculos(NULL) { }
 
+cCentroDeSalud::cCentroDeSalud(const cCentroDeSalud& a) : nombre(a.nombre), direccion(a.direccion), partido(a.partido), telefono(a.telefono), provincia(a.provincia) {
+    this->MisVehiculos = a.MisVehiculos;
+}
+
 cCentroDeSalud::~cCentroDeSalud() {
     if (this->MisVehiculos != NULL) {
         delete this->MisVehiculos;

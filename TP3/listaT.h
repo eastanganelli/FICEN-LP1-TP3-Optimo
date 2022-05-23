@@ -106,16 +106,20 @@ inline cListaT<T>::cListaT(u_int tam, bool flag) {
 
 template<class T>
 inline cListaT<T>::~cListaT() {
-	if (this->deletion)
-		for (u_int i = 0; i < this->ct; i++)
+	
+	if (this->deletion && this->ct > 0) {
+		for (u_int i = 0; i < this->ct; i++) {
 			if (this->List[i] != NULL) {
 				delete this->List[i];
 				this->List[i] = NULL;
 			}
+		}
+	}
 
-	delete this->List;
-	
-	this->List = NULL;
+	if (this->List != NULL) {
+		delete this->List;
+		this->List = NULL;
+	}
 }
 
 template<class T>
