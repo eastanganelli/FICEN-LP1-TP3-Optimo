@@ -6,6 +6,17 @@
 #include "Organos.h"
 #include "Fecha.h"
 
+/*
+*  ¿Qué es un Namespace?
+* Un namespace es una agrupación de variables y funciones que se pueden
+* utilizar en cualquier parte del programa.
+*
+* @see https://docs.microsoft.com/en-us/cpp/cpp/namespaces-cpp?view=msvc-170
+* ---------------------------------------------------------------------
+*
+* Namespace Organos
+*/
+
 class cOrgano {
 	eOrg::Organos tipo;
 	cFecha* ablacion;

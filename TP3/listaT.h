@@ -1,11 +1,17 @@
-#define MAX 10
-#define BLK MAX
-
 #ifndef LISTAT_H
 #define LISTAT_H
 
+#define MAX 10
+#define BLK MAX
+
 #include "global.h"
 #include "customEx.h"
+
+/*
+* Documentación sobre template
+* @see https://www.geeksforgeeks.org/templates-cpp/
+* @see https://en.cppreference.com/w/cpp/language/templates
+*/
 
 template <class T>
 class cListaT {
@@ -30,17 +36,23 @@ public:
 	/// Adición de nodos a la Lista.
 	/// </summary>
 	/// <param name="newNode">Nodo a añadir</param>
+	/// <see cref="https://en.cppreference.com/w/cpp/language/operators"/>
+	/// <seealso cref="https://www.programiz.com/cpp-programming/operator-overloading"/>
 	void operator+(T* newNode);
 	/// <summary>
 	/// Busca el nodo que se desea quitar de la Lista.
 	/// </summary>
 	/// <param name="rmNode">Nodo que se desea quitar</param>
+	/// <see cref="https://en.cppreference.com/w/cpp/language/operators"/>
+	/// <seealso cref="https://www.programiz.com/cpp-programming/operator-overloading"/>
 	void operator-(T* rmNode);
 	/// <summary>
 	/// Busca un nodo en la Lista.
 	/// </summary>
 	/// <param name="findNode">Posición del nodo</param>
 	/// <returns>Puntero del nodo de interés</returns>
+	/// <see cref="https://en.cppreference.com/w/cpp/language/operators"/>
+	/// <seealso cref="https://www.programiz.com/cpp-programming/operator-overloading"/>
 	T* operator[](u_int findNode);
 
 	/// <summary>

@@ -15,7 +15,11 @@
 *		Se ejecuta cuando se intenta leer una lista vacía.
 * - Excepción fuera de lista (out_list):
 *		Se ejecuta cuando se intenta leer un nodo que no está en la lista.
+* 
+* @see https://www.cplusplus.com/doc/tutorial/exceptions/
+* @see https://www.learncpp.com/cpp-tutorial/rethrowing-exceptions/
 */
+
 #ifndef CUSTOMEX_H
 #define CUSTOMEX_H
 

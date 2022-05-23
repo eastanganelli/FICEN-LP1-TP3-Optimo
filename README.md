@@ -1,7 +1,7 @@
 # TP3 - Resolución Óptima 
 
-- [[PDF] ENUNCIADO TP3]([ENUNCIADO]%20TP3%20LP1%20-%202022.pdf)
-- [[PDF] UML TP3]([UML]%20TP3.pdf)
+#### [[PDF] ENUNCIADO TP3]([ENUNCIADO]%20TP3%20LP1%20-%202022.pdf)
+#### [[PDF] UML TP3]([UML]%20TP3.pdf)
 
 ---
 #### ⚠️INFORMACIÓN IMPORTANTE⚠️ 

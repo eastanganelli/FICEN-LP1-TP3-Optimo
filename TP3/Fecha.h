@@ -13,8 +13,8 @@ class cFecha {
 	/// <summary>
 	/// Conversión de una Fecha en formato string al tipo time_t
 	/// </summary>
-	/// <see href="https://www.geeksforgeeks.org/convert-string-char-array-cpp/">String to char</see>
-	/// <seealso href="https://stackoverflow.com/questions/11213326/how-to-convert-a-string-variable-containing-time-to-time-t-type-in-c">Char array to time_t</seealso>
+	/// <see href="https://www.geeksforgeeks.org/convert-string-char-array-cpp/"/>
+	/// <seealso href="https://stackoverflow.com/questions/11213326/how-to-convert-a-string-variable-containing-time-to-time-t-type-in-c"/>
 	/// <param name="strTime"></param>
 	/// <returns>time_t</returns>
 	time_t StringToTime(string strTime);	
