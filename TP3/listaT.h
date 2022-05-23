@@ -4,7 +4,6 @@
 #define MAX 10
 #define BLK MAX
 
-#include "global.h"
 #include "customEx.h"
 
 /*
@@ -114,14 +113,16 @@ inline cListaT<T>::~cListaT() {
 				this->List[i] = NULL;
 			}
 
-	delete[] this->List;
+	delete this->List;
+	
+	this->List = NULL;
 }
 
 template<class T>
 inline bool cListaT<T>::NoRepetido(T* Node) {
 	for (u_int i = 0; i < this->ct; i++) {
 		if (this->List[i] == Node) {
-			throw new rep_node();
+			throw rep_node();
 			return true;
 		}
 	} return false;
@@ -147,7 +148,7 @@ inline void cListaT<T>::resize() {
 template<class T>
 inline void cListaT<T>::operator+(T* newNode) {
 	try {
-		if (newNode == NULL) throw new null_node();
+		if (newNode == NULL) throw null_node();
 
 		if (!NoRepetido(newNode))
 			this->queue(newNode);
@@ -162,24 +163,33 @@ inline void cListaT<T>::operator+(T* newNode) {
 
 template<class T>
 inline void cListaT<T>::operator-(T* rmNode) {
+	T* Aux = NULL;
+	u_int pos = 0;
+	
 	try {
-		if (rmNode == NULL) throw new null_node();
+		if (rmNode == NULL) throw null_node();
 	}
 	catch (null_node& e) {
 		cerr << e.what() << endl;
 	}
-	for (u_int i = 0; i < this->ct; i++)
+
+	for (u_int i = 0; i < this->ct - 1; i++)
 		if (this->List[i] == rmNode) {
-			this->List[i] = NULL;
-			this->ca--;
+			pos = i;
+			break;
 		}
+	
+	for (u_int i = pos; this->List[i + 1] != NULL; i++)
+		this->List[i] = this->List[i + 1];
+		
+	this->ca--;
 }
 
 template<class T>
 inline T* cListaT<T>::operator[](u_int findNode) {
 	T* retNode = NULL;
 	try {
-		retNode = this->List[findNode] == NULL ? throw new null_node() : this->List[findNode];
+		retNode = this->List[findNode] == NULL ? throw null_node() : this->List[findNode];
 	}
 	catch (null_node& e) {
 		cerr << e.what() << endl;
@@ -190,7 +200,7 @@ inline T* cListaT<T>::operator[](u_int findNode) {
 
 template<class T>
 inline void cListaT<T>::queue(T* newNode) {
-	if (newNode == NULL) throw new null_node();
+	if (newNode == NULL) throw null_node();
 
 	if (this->ca >= this->ct)
 		this->resize();
@@ -202,7 +212,7 @@ inline void cListaT<T>::queue(T* newNode) {
 template<class T>
 inline T* cListaT<T>::dequeue() {
 	try {
-		if (this->ca == 0) throw new empty_list();
+		if (this->ca == 0) throw empty_list();
 
 		T* ret = this->List[0];
 		this->ca--;
@@ -222,20 +232,23 @@ inline T* cListaT<T>::dequeue() {
 template<class T>
 inline void cListaT<T>::eliminar(u_int findNode) {
 	try {
-		if (this->List[findNode] == NULL) throw new null_node();
+		if (this->List[findNode] == NULL) throw null_node();
 	}
 	catch (null_node& e) {
 		cerr << e.what() << endl;
 	}
 
 	delete this->List[findNode];
+	
+	for(u_int i = findNode; i < this->ct - 1; i++)
+		this->List[i] = this->List[i + 1];
 }
 
 template<class T>
 inline T* cListaT<T>::positionValue(u_int findNode) {
 	T* retNode = NULL;
 	try {
-		retNode = this->List[findNode] == NULL ? throw new null_node() : this->List[findNode];
+		retNode = this->List[findNode] == NULL ? throw null_node() : this->List[findNode];
 	}
 	catch (null_node& e) {
 		cerr << e.what() << endl;

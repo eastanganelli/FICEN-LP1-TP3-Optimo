@@ -1,12 +1,12 @@
 #ifndef INCUCAI_H
 #define INCUCAI_H
 
+#include "customEx.h"
 #include "ListaReceptores.h"
 #include "ListaCentroSalud.h"
 #include "ListaDonantes.h"
 
 class cINCUCAI {
-private:
 	const string direccion;
 	const string telefono;
 

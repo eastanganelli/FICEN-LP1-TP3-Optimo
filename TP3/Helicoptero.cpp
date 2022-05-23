@@ -3,7 +3,7 @@
 cHelicoptero::cHelicoptero(string r, float la, float an, bool tu) : cVehiculos(r, la, an), turbina(tu) { }
 
 void cHelicoptero::RealizarTransporte() const {
-    cout << "taca-taca-taca";
+    cout << "taca-taca-taca" << endl;
 }
 
 string cHelicoptero::tostring() const {

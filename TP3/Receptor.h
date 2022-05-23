@@ -41,7 +41,12 @@ public:
 	/// Se obtiene el órgano defectuoso.
 	/// </summary>
 	/// <returns>Puntero del órgano</returns>
-	cOrgano* getMiOrgano() const;
+	cOrgano* getMiOrgano()        const;
+	/// <summary>
+	/// Se obtiene la fecha del Trasplante
+	/// </summary>
+	/// <returns>Puntero del tipo Fecha</returns>
+	cFecha*  getFechaTrasplante() const;
 
 	/// <summary>
 	/// Cambia estado y prioridad del paciente.

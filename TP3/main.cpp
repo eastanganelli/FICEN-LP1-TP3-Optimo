@@ -42,11 +42,12 @@ int main() {
         /*Verificar si hay donante disponible -> verificar stack*/
         if (Mi_INCUCAI->hayDonantes() && Mi_INCUCAI->hayReceptores()) {
 			cDonante* nuevo_Donante = Mi_INCUCAI->ObtenerDonante();
-			
             cListaOrganos* OrganosDelDonante = nuevo_Donante->getListaOrganos();
+            cListaReceptores* PosiblesReceptores = NULL;
+
             for (u_int i = 0; i < OrganosDelDonante->getCA(); i++) {
 				cOrgano* Organo = OrganosDelDonante->positionValue(i);
-                cListaReceptores* PosiblesReceptores = Mi_INCUCAI->BuscarPosiblesReceptores(Organo, nuevo_Donante);
+                PosiblesReceptores = Mi_INCUCAI->BuscarPosiblesReceptores(Organo, nuevo_Donante);
 				
                 if (PosiblesReceptores != NULL && PosiblesReceptores->getCA() > 0) {
 					cReceptor* Receptor = PosiblesReceptores->dequeue();
@@ -74,22 +75,27 @@ int main() {
 
                     } while (!flag && PosiblesReceptores->getCA() > 0);
                 }
-				
-                delete PosiblesReceptores;
-            }
+            } delete PosiblesReceptores;
+            cout << endl;
         }
     }
 
 	/*Fin de ciclo*/
-    //cout << "Informacion sobre INCUCAI" << endl << Mi_INCUCAI->tostring() << endl << endl;
-	
     Mi_INCUCAI->imprimir();
 
     /*Imprimir resumen*/
     Mi_INCUCAI->informeTrasplantados();
 
-
-    delete Mi_INCUCAI;	
+    if (Pacientes != NULL) {
+        delete Pacientes;
+        Pacientes = NULL;
+    }
+	
+    if (Mi_INCUCAI != NULL) {
+        delete Mi_INCUCAI;
+        Mi_INCUCAI = NULL;
+    }
+	
 	return 0;
 }
 

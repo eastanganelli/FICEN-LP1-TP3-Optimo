@@ -3,7 +3,7 @@
 cAmbulancia::cAmbulancia(string r, float la, float an, bool AirCon) : cVehiculos(r, la, an), tieneAirCon(AirCon) { }
 
 void cAmbulancia::RealizarTransporte() const {
-    cout << "iuiuiuiuiu";
+    cout << "iuiuiuiuiu" << endl;
 }
 
 string cAmbulancia::tostring() const {

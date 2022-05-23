@@ -1,15 +1,20 @@
 #include "Paciente.h"
 
-cPaciente::cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc): dni(dni), nombre(n), sexo(s), nacimiento(nac) {
+cPaciente::cPaciente(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo gs, eSexo::Sexo s, cCentroDeSalud* asc): dni(dni), nombre(n), sexo(s), nacimiento(nac) {
 	this->HospiAsociado = asc == NULL ? NULL : asc;
 	this->telefonoContacto = t;
 	this->gs = gs;
 }
 
-cPaciente::~cPaciente() { }
+cPaciente::~cPaciente() {
+	if (this->nacimiento != NULL) {
+		delete this->nacimiento;
+		this->nacimiento = NULL;
+	}
+}
 
-bool cPaciente::operator==(const cPaciente* R) const {
-	return eGrupoSanguineo::compatibilidad(this->gs, R->gs);
+bool cPaciente::operator==(const cPaciente& R) const {
+	return eGrupoSanguineo::compatibilidad(this->gs, R.gs);
 }
 
 cCentroDeSalud* cPaciente::getCentroAsociado() const {

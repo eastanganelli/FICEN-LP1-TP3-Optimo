@@ -45,14 +45,25 @@ inline cListaReceptores* cListaReceptores::obtenerReceptoresCompatibles(cOrgano*
         cerr << "Error al pedir Memoria" << e.what() << endl;
         return NULL;
     }
+	
+    cPaciente* p = dynamic_cast<cPaciente*>(d);
 
-    for (u_int pp = 0; pp < 3; pp++) {
+    for (u_int pp = 1; pp < 4; pp++) {
+        ePrio::Prioridad PrioridadFiltro = ePrio::getPrioridadEnum(pp);
+
         for (u_int i = 0; i < this->ca; i++) {
             cReceptor* r = dynamic_cast<cReceptor*>(this->List[i]);
-            if (r != NULL && r->getMiOrgano()->getTipoOrg() == d_org->getTipoOrg() && r->prioridad == ePrio::getPrioridadEnum(pp) && r == dynamic_cast<cPaciente*>(d))
+			
+            eOrg::Organos o_r = r->getMiOrgano()->getTipoOrg(),
+                          o_d = d_org->getTipoOrg();
+			
+			ePrio::Prioridad p_r = r->prioridad;
+
+            if ((r != NULL) && (o_r == o_d) && (p_r == PrioridadFiltro) && ((*p) == (*r)))
                 (*listR) + r;
         }
     }
+	
     return listR;
 }
 
@@ -63,7 +74,7 @@ inline u_int cListaReceptores::posicionPaciente(cReceptor* r) {
             break;
         }
     }
-    throw new out_list();
+    throw out_list();
 }
 
 inline ostream& operator<<(ostream& os, const cListaReceptores& out) {

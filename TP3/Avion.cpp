@@ -3,7 +3,7 @@
 cAvion::cAvion(string r, float la, float an, float ts, bool he) : cVehiculos(r, la, an), topSpeed(ts), Helice(he) { }
 
 void cAvion::RealizarTransporte() const {
-    cout << "zhooooooom";
+    cout << "zhooooooom" << endl;
 }
 
 string cAvion::tostring() const {

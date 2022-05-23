@@ -3,9 +3,7 @@
 
 #include "global.h"
 
-namespace eOrg {
-	enum class Organos;
-	/*
+/*
 *  ¿Qué es un Namespace?
 * Un namespace es una agrupación de variables y funciones que se pueden
 * utilizar en cualquier parte del programa.
@@ -15,6 +13,10 @@ namespace eOrg {
 *
 * Namespace Organos
 */
+
+namespace eOrg {
+	enum class Organos;
+
 	static const string organos_str[] = {
 		"CORAZON",
 		"HIGADO",

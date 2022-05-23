@@ -6,6 +6,23 @@ cDonante::cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo:
     this->initAblacion = NULL;
 }
 
+cDonante::~cDonante() {
+    if (this->Organos != NULL) {
+        delete this->Organos;
+        this->Organos = NULL;
+    }
+
+    if (this->fallecimiento != NULL) {
+        delete this->fallecimiento;
+        this->fallecimiento = NULL;
+    }
+
+    if (this->initAblacion != NULL) {
+        delete this->initAblacion;
+        this->initAblacion = NULL;
+    }
+}
+
 bool cDonante::tieneOrgano(eOrg::Organos o) const {
     return (*Organos)[o] != NULL;
 }

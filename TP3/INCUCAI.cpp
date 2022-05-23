@@ -38,7 +38,7 @@ cINCUCAI::~cINCUCAI() {
 
 void cINCUCAI::RecibirPaciente(cPaciente* p) {
     try {
-        if (p == NULL) throw new null_node();
+        if (p == NULL) throw null_node();
     }
     catch (null_node& e) {
         cerr << e.what() << endl;
@@ -67,37 +67,40 @@ bool cINCUCAI::CentroEstaHabilitado(cCentroDeSalud* csr) {
 }
 
 bool cINCUCAI::InicioProtocoloTyT(cReceptor* r, cDonante* d) {
+    cCentroDeSalud* CS_R = NULL, * CS_D = NULL;
+    cVehiculos* MiTransporte = NULL;
+
     try {
-        cCentroDeSalud* CS_R, * CS_D;
         CS_R = r->getCentroAsociado();
         CS_D = d->getCentroAsociado();
-		
 
         // Buscar transporte dispo
         char distancia = cCentroDeSalud::CalculadoraDeDistancia(CS_D, CS_R);
-        cVehiculos* MiTransporte = this->AsignarVehiculo(CS_D, distancia);
+        MiTransporte = this->AsignarVehiculo(CS_D, distancia);
         
-        if (MiTransporte == NULL) throw new vehicle();
+        if (MiTransporte == NULL) throw vehicle();
 
-		// Ablar organo
+        // Ablar organo
         cOrgano* O_Trasplante = CS_D->Ablar(d->getListaOrganos(), r->getMiOrgano()->getTipoOrg());
-		
-		// Enviarlo
+
+        // Enviarlo
         MiTransporte->RealizarTransporte();
-		
-		// Trasplantar
+
+        // Trasplantar
+        cout << "Se recibio el organo" << endl;
         cOrgano* Defectuoso = r->getMiOrgano();
         CS_R->Trasplantar(Defectuoso, O_Trasplante);
     }
     catch (overtime& e) {
-        cerr << e.what() << endl;
-        
+        void(e.what());
+
+        // Poner en nueva posición en lista de espera
         this->cambiarEstadoPaciente(r);
         throw;
         return false;
     }
     catch (trasplant& e) {
-        cerr << e.what() << endl;
+        void(e.what());
 
 		// Poner en nueva posición en lista de espera
         this->cambiarEstadoPaciente(r);
@@ -105,7 +108,7 @@ bool cINCUCAI::InicioProtocoloTyT(cReceptor* r, cDonante* d) {
         return false;
     }
     catch (vehicle& e) {
-        cerr << e.what() << endl;
+        void(e.what());
 		
         // Poner en nueva posición en lista de espera
         this->cambiarEstadoPaciente(r);
@@ -116,6 +119,7 @@ bool cINCUCAI::InicioProtocoloTyT(cReceptor* r, cDonante* d) {
     // Cambiar paciente a trasplantado
 	// y agregar a Lista de Trasplantados
     this->cambiarEstadoPaciente(r, true);
+    cout << "Trasplante realizado" << endl;
 
     return true;
 }
@@ -126,7 +130,7 @@ cVehiculos* cINCUCAI::AsignarVehiculo(cCentroDeSalud* cs_, char distancia) {
     try {
         cListaVehiculos* v_dispo = cs_->getMisVehiculos();
 
-        if (v_dispo == NULL) throw new null_node();
+        if (v_dispo == NULL) throw null_node();
 
         for (u_int i = 0; i < v_dispo->getCA(); i++) {
             switch (distancia) {
@@ -154,10 +158,12 @@ cVehiculos* cINCUCAI::AsignarVehiculo(cCentroDeSalud* cs_, char distancia) {
 
 void cINCUCAI::cambiarEstadoPaciente(cReceptor* r, bool exito) {
     r->TrasplanteExitoso(exito);	
+    (*ListaEspera) - r;
+	
 	if(exito)
 		(*Trasplantados) + r;
-    else        
-		(*ListaEspera) + r;
+    else
+        (*ListaEspera) + r;
 }
 
 u_int cINCUCAI::PosicionEspera(cPaciente* p) {
@@ -235,24 +241,27 @@ void cINCUCAI::informeTrasplantados() {
             u_int total = 0, parcial = 0;
             stringstream ss_prov, ss_mes;
 
-            for (u_int mes = 0; i < u_int(Hoy_.tm_mon); i++) {
+			
+            for (u_int mes = 0; mes < u_int(Hoy_.tm_mon) + 1; mes++) {
 
-                for (u_int j = 0; j < sublista->getCT(); j++) {
+                for (u_int j = 0; j < sublista->getCA(); j++) {
                     cReceptor* r = dynamic_cast<cReceptor*>((*sublista)[j]);
                     eProv::Provincias Aux_p = r->getCentroAsociado()->getProvincia();
 
                     if (Aux_p == Prov_Busqueada) {
-                        time_t aux_f = r->getMiOrgano()->getAblacion()->getFecha();
+                        time_t aux_f = r->getFechaTrasplante()->getFecha();
                         struct tm fecha_trasplante;
                         localtime_s(&fecha_trasplante, &aux_f);
 
-                        if (fecha_trasplante.tm_year == Hoy_.tm_year && fecha_trasplante.tm_mon == mes)
+                        if (fecha_trasplante.tm_year == Hoy_.tm_year && (u_int(fecha_trasplante.tm_mon) == mes))
                             parcial++;
 
                         total++;
                     }
+					
                     ss_mes << "Mes " << eMes::getMesString(mes) << " :: "
-                        << (parcial == 0 ? "No se realizaron trasplantes" : parcial + " trasplantes realizados")
+						<< (parcial > 0 ? to_string(parcial) : "")
+                        << (parcial < 1 ? "No se realizaron trasplantes" : " trasplantes realizados")
                         << endl;
                 }
 
@@ -262,7 +271,7 @@ void cINCUCAI::informeTrasplantados() {
                 << endl << "-----------------------------------" << endl
                 << ss_mes.str();
 
-            cout << eProv::getProvinciaString((u_int)Prov_Busqueada) << " :: "
+            cout << eProv::getProvinciaString((u_int)Prov_Busqueada) << " :: " << endl
                 << (total == 0 ? "No se realizaron trasplantes" : ss_mes.str())
                 << endl;
         }

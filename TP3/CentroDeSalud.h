@@ -2,6 +2,7 @@
 #define CENTRODESALUD_H
 
 #include "Provincia.h"
+#include "customEx.h"
 #include "ListaVehiculos.h"
 #include "ListaOrganos.h"
 
@@ -26,7 +27,7 @@ public:
 	/// <param name="pr">Provincia</param>
 	/// <param name="t">Teléfono</param>
 	cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t);
-	~cCentroDeSalud() { }
+	~cCentroDeSalud();
 	
 	/// <summary>
 	/// Recibe una lista de organos del donante, y el organo de interes para ser Ablado.

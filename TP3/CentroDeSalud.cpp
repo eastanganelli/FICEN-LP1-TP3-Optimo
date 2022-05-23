@@ -2,6 +2,13 @@
 
 cCentroDeSalud::cCentroDeSalud(string n, string d, string p, eProv::Provincias pr, string t): nombre(n), direccion(d), partido(p), provincia(pr), telefono(t), MisVehiculos(NULL) { }
 
+cCentroDeSalud::~cCentroDeSalud() {
+    if (this->MisVehiculos != NULL) {
+        delete this->MisVehiculos;
+        this->MisVehiculos = NULL;
+    }
+}
+
 cOrgano* cCentroDeSalud::Ablar(cListaOrganos* d, eOrg::Organos q) {
     cOrgano* rmOrgano = (*d)[q];
 
@@ -21,8 +28,8 @@ void cCentroDeSalud::Trasplantar(cOrgano*& r, cOrgano* o) {
             delete viejoOrgano;
 
             cout << "El transplante fue realizado de forma exitosa" << endl;
-        } else throw new trasplant();
-    } else throw new overtime();
+        } else throw trasplant();
+    } else throw overtime();
 }
 
 bool cCentroDeSalud::TrasplateEquiprobable() {
@@ -32,7 +39,7 @@ bool cCentroDeSalud::TrasplateEquiprobable() {
 
 void cCentroDeSalud::setMisVehiculos(cListaVehiculos* v) {
     try {
-        if (v == NULL) throw new null_node();
+        if (v == NULL) throw null_node();
     }
     catch (null_node& e) {
         cerr << e.what() << endl;

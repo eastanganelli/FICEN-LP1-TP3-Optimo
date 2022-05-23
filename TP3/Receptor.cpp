@@ -10,8 +10,15 @@ cReceptor::cReceptor(string dni, string n, string t, cFecha* nac, eGrupoSanguine
 }
 
 cReceptor::~cReceptor() {
-	delete this->Fecha;
-	delete this->Organo;
+	if (this->Fecha != NULL) {
+		delete this->Fecha;
+		this->Fecha = NULL;
+	}
+
+	if (this->Organo != NULL) {
+		delete this->Organo;
+		this->Organo = NULL;
+	}
 }
 
 void cReceptor::setOrganoDefectuoso(cOrgano* o) {
@@ -20,6 +27,10 @@ void cReceptor::setOrganoDefectuoso(cOrgano* o) {
 
 cOrgano* cReceptor::getMiOrgano() const {
 	return this->Organo;
+}
+
+cFecha* cReceptor::getFechaTrasplante() const {
+	return this->Fecha;
 }
 
 void cReceptor::TrasplanteExitoso(bool exito) {

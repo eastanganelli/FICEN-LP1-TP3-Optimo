@@ -1,6 +1,6 @@
 #include "Vehiculos.h"
 
-cVehiculos::cVehiculos(string r, float largo, float ancho): registro(r), largo(largo), ancho(ancho) { }
+cVehiculos::cVehiculos(string r, float largo, float ancho) : registro(r), largo(largo), ancho(ancho) { }
 
 void cVehiculos::RealizarTransporte() const { }
 

@@ -21,7 +21,7 @@ public:
 	/// <param name="asc">Centro de salud asociado</param>
 	/// <param name="f">Fecha de defunción</param>
 	cDonante(string dni, string n, string t, cFecha* nac, eGrupoSanguineo::Grupo g, eSexo::Sexo s, cCentroDeSalud* asc, cFecha* f);
-	~cDonante() { }
+	~cDonante();
 
 	/// <summary>
 	/// Verifica si el donante tiene el órgano de interés.

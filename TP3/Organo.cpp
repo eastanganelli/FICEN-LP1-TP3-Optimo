@@ -11,7 +11,10 @@ cOrgano::cOrgano(eOrg::Organos t, cFecha* f) {
 }
 
 cOrgano::~cOrgano() {
-	delete this->ablacion;
+	if (this->ablacion != NULL) {
+		delete this->ablacion;
+		this->ablacion = NULL;
+	}
 }
 
 void cOrgano::setAblacion(cFecha* f) {

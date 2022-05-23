@@ -40,12 +40,12 @@ public:
 	/// True: Compatible
 	/// False: No Compatible
 	/// </returns>
-	virtual bool operator==(const cPaciente* R) const;
+	virtual bool operator==(const cPaciente& R) const;
 	/// <summary>
 	/// Se obtiene el Centro de Salud al que el paciente esta asociado.
 	/// </summary>
 	/// <returns>Devuelve puntero del centro de salud</returns>
-	cCentroDeSalud* getCentroAsociado() const;
+	cCentroDeSalud* getCentroAsociado()  const;
 
 	virtual string tostring() const;
 	virtual void   imprimir() const;
