@@ -15,14 +15,21 @@ cINCUCAI::cINCUCAI(string d, string t) : direccion(d), telefono(t) {
 }
 
 cINCUCAI::~cINCUCAI() {
+    if (this->Trasplantados != NULL) {
+        delete this->Trasplantados;
+        this->Trasplantados = NULL;
+    }
+	
     if (this->ListaEspera != NULL) {
         delete this->ListaEspera;
-        this->ListaEspera = NULL;
+        this->ListaEspera  = NULL;
     }
+
     if (this->Donantes != NULL) {
         delete this->Donantes;
-        this->Donantes = NULL;
+        this->Donantes     = NULL;
     }
+	
     if (this->CentrosHabilitados != NULL) {
         delete this->CentrosHabilitados;
         this->CentrosHabilitados = NULL;
@@ -59,7 +66,7 @@ bool cINCUCAI::CentroEstaHabilitado(cCentroDeSalud* csr) {
     return this->CentrosHabilitados->EstaListado(csr);
 }
 
-bool cINCUCAI::InicioProtocolo(cReceptor* r, cDonante* d) {
+bool cINCUCAI::InicioProtocoloTyT(cReceptor* r, cDonante* d) {
     try {
         cCentroDeSalud* CS_R, * CS_D;
         CS_R = r->getCentroAsociado();

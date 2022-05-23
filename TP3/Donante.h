@@ -37,7 +37,7 @@ public:
 	/// </summary>
 	/// <param name="o">Órgano buscado</param>
 	/// <returns>Devuelve el órgano</returns>
-	cOrgano* remover(eOrg::Organos o);
+	cOrgano* removerOrgano(eOrg::Organos o);
 
 	/// <summary>
 	/// Se agrega al Donante la lista de organos que desea donar.

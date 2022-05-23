@@ -10,7 +10,7 @@ bool cDonante::tieneOrgano(eOrg::Organos o) const {
     return (*Organos)[o] != NULL;
 }
 
-cOrgano* cDonante::remover(eOrg::Organos o) {
+cOrgano* cDonante::removerOrgano(eOrg::Organos o) {
     cOrgano* Ablado = NULL;
 
     Ablado = (*Organos)[o];

@@ -135,4 +135,7 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DiagramaDeClases_TP3.cd" />
+  </ItemGroup>
 </Project>

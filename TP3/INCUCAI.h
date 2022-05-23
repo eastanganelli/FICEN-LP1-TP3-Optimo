@@ -73,7 +73,7 @@ public:
 	/// <returns>Listado de pacientes compatibles</returns>
 	cListaReceptores* BuscarPosiblesReceptores(cOrgano* c, cDonante* d);
 	/// <summary>
-	/// Inicia el protocolo de transporte de organo.
+	/// Inicia el protocolo de transporte y trasplante del organo del donante.
 	/// Este protocolo inicia cuando se encuentra un receptor y donante compatibles.
 	/// </summary>
 	/// <param name="p">Puntero del Receptor</param>
@@ -82,7 +82,7 @@ public:
 	/// True: Trasplante exitoso.
 	/// False: Trasplante fallido.
 	/// </returns>
-	bool InicioProtocolo(cReceptor* p, cDonante* d);
+	bool InicioProtocoloTyT(cReceptor* p, cDonante* d);
 	/// <summary>
 	/// Busca la posición del paciente en la lista de espera.
 	/// </summary>

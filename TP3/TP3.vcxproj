@@ -182,6 +182,9 @@
     <ClInclude Include="Receptor.h" />
     <ClInclude Include="Vehiculos.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="DiagramaDeClases_TP3.cd" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

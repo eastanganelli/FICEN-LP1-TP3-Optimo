@@ -56,7 +56,7 @@ int main() {
                     do {
 						
                         try {
-                            flag = Mi_INCUCAI->InicioProtocolo(Receptor, nuevo_Donante);
+                            flag = Mi_INCUCAI->InicioProtocoloTyT(Receptor, nuevo_Donante);
                         }
                         catch (overtime& e) {
                             cerr << e.what() << endl;
